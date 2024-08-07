@@ -1,0 +1,73 @@
+:root {
+    --white: #fff;
+    --black: #000;
+
+    /* blue */
+    --blue-900: #0E456C;
+    --blue-800: #095283;
+    --blue-700: #05609F;
+    --blue-600: #0579C3;
+    --blue-500: #1199E6;
+    --blue-400: #3BB3F5;
+    --blue-300: #7FCCFA;
+    --blue-200: #BBE3FC;
+    --blue-100: #E0F1FE;
+    --blue-050: #F0F8FF;
+
+    /* orange */
+    --orange-900: #703A17;
+    --orange-800: #884618;
+    --orange-700: #A75A16;
+    --orange-600: #C97C16;
+    --orange-500: #E4A11C;
+    --orange-400: #EBBE34;
+    --orange-300: #EFD15A;
+    --orange-200: #F2DE79;
+    --orange-100: #FAF3CB;
+    --orange-050: #FEFBEC;
+
+    /* natural */
+    --natural-900: #544C48;
+    --natural-800: #615853;
+    --natural-700: #746861;
+    --natural-600: #8C7E76;
+    --natural-500: #A3968F;
+    --natural-400: #BCB2AD;
+    --natural-300: #D6CFCB;
+    --natural-200: #E7E3E1;
+    --natural-100: #F2EFEE;
+    --natural-050: #F9F8F7;
+
+    /* green */
+    --green-700: #4A862D;
+    --green-500: #6ABF40;
+    
+    /* red */
+    --red-500: #C80000;
+
+    /* alpha */
+    --white-30: rgba(255, 255, 255, 0.3);
+    --white-60: rgba(255, 255, 255, 0.6);
+    --black-60: rgba(0, 0, 0, 0.6);
+    --black-40: rgba(0, 0, 0, 0.4);
+
+    /* tokens */
+    --surfacd-primary: var(--blue-600);
+    --surfacd-secondary: var(--orange-500);
+    
+    --syrtem-wrong: var(--red-500);
+    --syrtem-success: var(--green-500);
+
+    --text-primary: var(--black);
+    --text-secondary: var(--natural-700);
+
+    --border: var(--natural-200);
+
+    --chart-blue: var(--blue-400);
+    --chart-orange: var(--orange-400);
+    --chart-green: #0BEEAF;
+    --chart-red: #F9998F;
+    --chart-purple: #B48AE5;
+    --chart-sky: #16DEF9;
+    --chart-grey: #8C8C8C;
+}
