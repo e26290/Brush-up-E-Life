@@ -7,16 +7,21 @@ import onBoarding from './components/onBoarding.vue';
 
 const routes = [
     { path: '/', component: index },
-    { path: '/dashboard', component: dashboard },
-    { path: '/digitalAssets', component: digitalAssets },
-    { path: '/onBoarding', component: onBoarding },
+    {
+        path: '/dashboard', component: dashboard,
+        children: [
+            { path: 'digitalAssets', component: digitalAssets },
+            { path: 'onBoarding', component: onBoarding },
+            // 需要再新增
+        ]
+    },
 ];
 
 const router = createRouter({
     history: createWebHistory(),
     routes,
 
-    // 添加 scrollBehavior
+    // 添加 scrollBehavior，每次更新都會回到最上面
     scrollBehavior(to, from, savedPosition) {
         if (savedPosition) {
             return savedPosition;
