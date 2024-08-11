@@ -16,7 +16,7 @@
         </div>
         <div class="login-group">
           <div class="item login">登入</div>
-          <button class="md">
+          <button class="md" @click="openProductPage">
             開始使用
             <span class="material-symbols-outlined">arrow_right_alt</span>
           </button>
@@ -224,6 +224,11 @@ export default {
         ],
       };
   },
+  methods: {
+    openProductPage() {
+      window.open('/dashboard', '_blank'); // dashboard 另開新視窗
+    }
+  }
 }
 </script>
 

@@ -10,8 +10,15 @@ const routes = [
     {
         path: '/dashboard', component: dashboard,
         children: [
-            { path: 'digitalAssets', component: digitalAssets },
-            { path: 'onBoarding', component: onBoarding },
+            {
+                path: '',
+                name: 'digitalAssets',  // 默認預設顯示
+                component: digitalAssets
+            },{
+                path: 'onBoarding',
+                name: 'onBoarding',
+                component: onBoarding
+            },
             // 需要再新增
         ]
     },
