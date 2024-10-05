@@ -14,8 +14,7 @@
       "assets/phone2-DIJTA196.png",
       "assets/ic_safe-CKYoOY8Q.svg",
       "assets/ic_list-D2R_SSRb.svg",
-      "assets/ic_mail-DmsZUChB.svg",
-      "assets/site-D1yHaYI7.webmanifest"
+      "assets/ic_mail-DmsZUChB.svg"
     ]
   },
   "src/assets/index/hero/flower1.png": {
@@ -45,9 +44,5 @@
   "src/assets/index/hero/phone2.png": {
     "file": "assets/phone2-DIJTA196.png",
     "src": "src/assets/index/hero/phone2.png"
-  },
-  "src/assets/site.webmanifest": {
-    "file": "assets/site-D1yHaYI7.webmanifest",
-    "src": "src/assets/site.webmanifest"
   }
 }
