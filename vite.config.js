@@ -5,6 +5,7 @@ import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: './',
   plugins: [
     vue(),
     vuetify({ autoImport: true }), //自動載入
