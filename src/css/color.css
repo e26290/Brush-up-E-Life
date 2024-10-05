@@ -1,42 +1,21 @@
 :root {
     --white: #fff;
-    --black: #000;
+    --black: hsl(0, 0%, 17%);
 
     /* blue */
-    --blue-900: #0E456C;
-    --blue-800: #095283;
-    --blue-700: #05609F;
-    --blue-600: #0579C3;
-    --blue-500: #1199E6;
-    --blue-400: #3BB3F5;
-    --blue-300: #7FCCFA;
-    --blue-200: #BBE3FC;
-    --blue-100: #E0F1FE;
-    --blue-050: #F0F8FF;
+    --blue-30: hsl(220, 75%, 30%);
+    --blue-48: hsl(200, 80%, 48%);
+    --blue-65: hsl(190, 70%, 65%);
+    --blue-60: hsl(195, 40%, 60%);
+    --blue-90: hsl(85, 50%, 90%);
 
     /* orange */
-    --orange-900: #703A17;
-    --orange-800: #884618;
-    --orange-700: #A75A16;
-    --orange-600: #C97C16;
-    --orange-500: #E4A11C;
-    --orange-400: #EBBE34;
-    --orange-300: #EFD15A;
-    --orange-200: #F2DE79;
-    --orange-100: #FAF3CB;
-    --orange-050: #FEFBEC;
+    --orange-50: hsl(30, 90%, 50%);
 
     /* natural */
-    --natural-900: #544C48;
-    --natural-800: #615853;
-    --natural-700: #746861;
-    --natural-600: #8C7E76;
-    --natural-500: #A3968F;
-    --natural-400: #BCB2AD;
-    --natural-300: #D6CFCB;
-    --natural-200: #E7E3E1;
-    --natural-100: #F2EFEE;
-    --natural-050: #F9F8F7;
+    --natural-95: hsl(200, 15%, 95%);
+    --natural-85: hsl(200, 15%, 85%);
+    --natural-50: hsl(195, 16%, 50%);
 
     /* green */
     --green-700: #4A862D;
