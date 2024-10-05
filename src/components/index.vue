@@ -3,7 +3,7 @@
     <div class="container navbar">
       <router-link @click="closeMenu" to="/">
         <div class="logo">
-          <img src="/logo.svg" alt="數位人生" />
+          <img src="@/assets/logo.svg" alt="數位人生" />
         </div>
       </router-link>
       <ul class="nav_item">
