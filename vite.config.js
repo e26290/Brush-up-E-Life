@@ -5,7 +5,12 @@ import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: './',
+  base: '/',
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    manifest: true,
+  },
   plugins: [
     vue(),
     vuetify({ autoImport: true }), //自動載入
