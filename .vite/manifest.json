@@ -1,0 +1,48 @@
+{
+  "index.html": {
+    "file": "assets/index-CxxYxhbB.js",
+    "name": "index",
+    "src": "index.html",
+    "isEntry": true,
+    "css": [
+      "assets/index-B6azLHy-.css"
+    ],
+    "assets": [
+      "assets/flower1-CA_733SE.png",
+      "assets/flower2-BNJQOPzX.png",
+      "assets/phone1-D2VNMBvg.png",
+      "assets/phone2-DIJTA196.png",
+      "assets/ic_safe-CKYoOY8Q.svg",
+      "assets/ic_list-D2R_SSRb.svg",
+      "assets/ic_mail-DmsZUChB.svg"
+    ]
+  },
+  "src/assets/index/hero/flower1.png": {
+    "file": "assets/flower1-CA_733SE.png",
+    "src": "src/assets/index/hero/flower1.png"
+  },
+  "src/assets/index/hero/flower2.png": {
+    "file": "assets/flower2-BNJQOPzX.png",
+    "src": "src/assets/index/hero/flower2.png"
+  },
+  "src/assets/index/hero/ic_list.svg": {
+    "file": "assets/ic_list-D2R_SSRb.svg",
+    "src": "src/assets/index/hero/ic_list.svg"
+  },
+  "src/assets/index/hero/ic_mail.svg": {
+    "file": "assets/ic_mail-DmsZUChB.svg",
+    "src": "src/assets/index/hero/ic_mail.svg"
+  },
+  "src/assets/index/hero/ic_safe.svg": {
+    "file": "assets/ic_safe-CKYoOY8Q.svg",
+    "src": "src/assets/index/hero/ic_safe.svg"
+  },
+  "src/assets/index/hero/phone1.png": {
+    "file": "assets/phone1-D2VNMBvg.png",
+    "src": "src/assets/index/hero/phone1.png"
+  },
+  "src/assets/index/hero/phone2.png": {
+    "file": "assets/phone2-DIJTA196.png",
+    "src": "src/assets/index/hero/phone2.png"
+  }
+}
