@@ -5,11 +5,11 @@ import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/',
+  base: '/Brush-up-E-Life/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-    // manifest: true,
+    manifest: true,
   },
   plugins: [
     vue(),

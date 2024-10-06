@@ -3,7 +3,7 @@
     <div class="container navbar">
       <router-link @click="closeMenu" to="/">
         <div class="logo">
-          <img src="@/assets/logo.svg" alt="數位人生" />
+          <img src="/src/assets/logo.svg" alt="數位人生" />
         </div>
       </router-link>
       <ul class="nav_item">
@@ -24,7 +24,7 @@
   </header>
 
   <section id="hero">
-    <img src="@/assets/index/hero/bg_line.svg" class="bg_line">
+    <img src="/src/assets/index/hero/bg_line.svg" class="bg_line" />
     <div class="container">
       <div class="_text">
         <div class="gradient1"></div>
@@ -45,24 +45,40 @@
         <div class="row">
           <div class="col-md-10">
             <div class="phones">
-              <img src="@/assets/index/hero/flower1.png" alt="flower-1" class="flower-1">
-              <img src="@/assets/index/hero/flower2.png" alt="flower-2" class="flower-2">
-              <img src="@/assets/index/hero/phone1.png" alt="phone-1" class="phone-1">
-              <img src="@/assets/index/hero/phone2.png" alt="phone-2" class="phone-2">
+              <img
+                src="/src/assets/index/hero/flower1.png"
+                alt="flower-1"
+                class="flower-1"
+              />
+              <img
+                src="/src/assets/index/hero/flower2.png"
+                alt="flower-2"
+                class="flower-2"
+              />
+              <img
+                src="/src/assets/index/hero/phone1.png"
+                alt="phone-1"
+                class="phone-1"
+              />
+              <img
+                src="/src/assets/index/hero/phone2.png"
+                alt="phone-2"
+                class="phone-2"
+              />
             </div>
           </div>
           <div class="col-md-2">
             <div class="special">
               <div class="col-4 list">
-                <img src="@/assets/index/hero/ic_safe.svg" alt="安全加密">
+                <img src="/src/assets/index/hero/ic_safe.svg" alt="安全加密" />
                 <span>安全加密</span>
               </div>
               <div class="col-4 list">
-                <img src="@/assets/index/hero/ic_list.svg" alt="妥善處理">
+                <img src="/src/assets/index/hero/ic_list.svg" alt="妥善處理" />
                 <span>妥善處理</span>
               </div>
               <div class="col-4 list">
-                <img src="@/assets/index/hero/ic_mail.svg" alt="即時通知">
+                <img src="/src/assets/index/hero/ic_mail.svg" alt="即時通知" />
                 <span>即時通知</span>
               </div>
             </div>
@@ -74,73 +90,114 @@
 
   <section id="advantage">
     <div class="container">
-      <div class="card_adv">
-        <div class="row">
-          <div class="col-md-6 col-sm-12">
-            <div class="_content">
-              <div class="title">
-                <h6 class="tag">視覺化數據</h6>
-                <h1>清楚直觀的介面設計<br>快速掌握數位資訊的狀態</h1>
-              </div>
-              <p>
-                管理平台以簡潔、直觀的介面設計為核心，讓使用者能輕鬆快速地掌握自己的數位資產狀況。針對各類數位資產（如社群帳號、網路訂閱、雲端儲存檔案等）進行整合與分類，讓您一目了然地了解所有數位資訊的狀態。無需繁瑣的操作，即可即時查閱資產總覽，確保每一筆資產都處於掌控之中。通過統計圖表，您可以直觀地看到資產分佈和狀態，並輕鬆追蹤變動情況，讓您在任何時刻都能清楚掌控數位人生。
-              </p>
+      <div class="card_adv row">
+        <div class="col-md-6 col-sm-12 content">
+          <div class="text">
+            <div class="title">
+              <h6 class="tag">視覺化數據</h6>
+              <h1>清楚直觀的介面設計<br />快速掌握數位資訊的狀態</h1>
             </div>
-            <ul class="items">
-              <li class="item">
-                <h5>7</h5>
-                <span>資產類別</span>
-              </li>
-            </ul>
+            <p>
+              針對各類數位資產（如社群帳號、網路訂閱、雲端儲存檔案等）進行整合與分類。透過視覺統計圖表，您可以直觀地瀏覽資產分佈和狀態，並輕鬆追蹤變動情況，讓您在任何時刻都能清楚掌控數位人生。
+            </p>
           </div>
-          <div class="col-md-6 col-sm-12">
-            <img src="" alt="" />
-          </div>
+          <ul class="items">
+            <li class="item">
+              <b>7</b>
+              <span>資產類別</span>
+            </li>
+            <li class="item">
+              <b>4</b>
+              <span>意外機制</span>
+            </li>
+            <li class="item bgb">
+              <b>FREE</b>
+              <span>資產處理指南</span>
+            </li>
+          </ul>
         </div>
-        
-      </div>
-    </div>
-  </section>
-
-  <section id="support">
-    <div class="support_bg"></div>
-    <div class="_text">
-      <!-- TODO:確定一下直接寫在背景會不會出事？ -->
-      <div class="maskbg"></div>
-      <h6>該怎麼妥善管理數位資產，讓我們幫助您</h6>
-      <h1>組織生活與數位的<br />管理平台</h1>
-      <div class="ani"></div>
-    </div>
-  </section>
-
-  <section id="serve">
-    <div class="serve_bg"></div>
-    <div class="container">
-      <div class="title">
-        <h1>數位資產的全方位守護</h1>
-        <span
-          >從管理到處理，我們提供全面的數位資產解決方案，確保您的數位世界更安全、更有序。</span
-        >
-      </div>
-
-      <div class="row">
-        <div class="card_prodHighlight" v-for="data in highlight">
-          <img :src="data.src" :alt="data.title" />
-          <h4>{{ data.title }}</h4>
-          <p v-html="data.content"></p>
+        <div class="col-md-6 col-sm-12">
+          <img src="/src/assets/index/adv/niceui.png" alt="視覺化數據" />
         </div>
       </div>
+      <div class="card_adv row">
+        <div class="col-md-6 col-sm-12">
+          <img src="/src/assets/index/adv/ainote.png" alt="ai遺囑計劃" />
+        </div>
+        <div class="col-md-6 col-sm-12 content">
+          <div class="text">
+            <div class="title">
+              <h6 class="tag">AI 服務</h6>
+              <h1>簡易上手的撰寫平台<br />透過 AI 制定專屬的遺囑計劃</h1>
+              <div class="userGroup">
+                <div class="imgs">
+                  <img
+                    src="/src/assets/index/adv/customer1.png"
+                    alt="user"
+                    class="userImg"
+                  />
+                  <img
+                    src="/src/assets/index/adv/customer2.png"
+                    alt="user"
+                    class="userImg"
+                  />
+                  <img
+                    src="/src/assets/index/adv/customer3.png"
+                    alt="user"
+                    class="userImg"
+                  />
+                  <img
+                    src="/src/assets/index/adv/customer4.png"
+                    alt="user"
+                    class="userImg"
+                  />
+                </div>
+                <span>500+ 滿意使用者</span>
+              </div>
+            </div>
+            <p>
+              透過 AI
+              驅動的智慧問答系統，引導您逐步制定一份專屬於您的遺囑計劃。從數位資產分配、繼承人選定到個人化的特殊指示（如葬禮安排、重要話語的傳遞），每個步驟都由
+              AI
+              協助進行，確保內容符合您的需求。遺囑計劃是合法且符合個人意願的文件，您可以安心地為自己和家人做好規劃。
+            </p>
+          </div>
+          <button class="signup">
+            開始使用
+            <span class="material-symbols-outlined">arrow_right_alt</span>
+          </button>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="steps">
+  <section id="solution">
     <div class="container">
       <div class="title">
-        <h1>簡易上手的操作流程</h1>
-        <span>我們平台操作簡單，即使您不熟悉科技也能輕鬆上手。</span>
+        <h6 class="tag">解決方案</h6>
+        <h1>讓我們妥善管理您的數位人生</h1>
       </div>
-
-      <!-- TODO:輪播圖 -->
+    </div>
+    <div class="solutionImg">
+      <img src="/src/assets/index/solution/solutionBg.png" alt="solutionBg" class="bg">
+      <img src="/src/assets/index/solution/hand-l.png" alt="hand-l" class="hand hand-l">
+      <img src="/src/assets/index/solution/hand-r.png" alt="hand-r" class="hand hand-r">
+      <div class="item item1">
+        <div class="check"><span class="material-symbols-outlined">check</span></div>
+        掌握數位資產狀態
+      </div>
+      <div class="item item2">
+        <div class="check"><span class="material-symbols-outlined">check</span></div>
+        建立有效數位遺囑
+      </div>
+      <div class="item item3">
+        <div class="check"><span class="material-symbols-outlined">check</span></div>
+        制定人生計劃
+      </div>
+      <div class="item item4">
+        <div class="check"><span class="material-symbols-outlined">check</span></div>
+        紀錄數位生活日誌
+      </div>
     </div>
   </section>
 
@@ -225,6 +282,14 @@ export default {
 .signup {
   @include button(var(--white), var(--blue-48));
 }
+.tag {
+  font-size: var(--sm);
+  font-weight: var(--bold);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.2rem;
+  color: var(--white);
+  background-color: var(--orange-50);
+}
 
 header {
   .navbar {
@@ -253,21 +318,23 @@ section {
 
 #hero {
   position: relative;
-  height: calc( 100dvh - 70px );
+  height: calc(100dvh - 70px);
   min-height: 820px;
   max-height: 1100px;
   padding-bottom: 0;
   overflow: hidden;
   .container {
     height: 100%;
-    @include flex($j: space-between,$a: stretch,$d: column);
+    @include flex($j: space-between, $a: stretch, $d: column);
   }
   ._text {
     text-align: center;
     @include flex($d: column);
     position: relative;
-    margin-bottom: 1.5rem;
-    .solgan, span, .signup {
+    margin-bottom: 1rem;
+    .solgan,
+    span,
+    .signup {
       z-index: 1;
     }
     .solgan {
@@ -300,7 +367,9 @@ section {
     left: 0;
   }
 
-  .gradient1, .gradient2, .gradient2::after {
+  .gradient1,
+  .gradient2,
+  .gradient2::after {
     position: absolute;
     border-radius: 50%;
   }
@@ -320,7 +389,7 @@ section {
     height: 160px;
     background: radial-gradient(var(--orange-50) 0%, var(--white) 70%);
     opacity: 0.2;
-    
+
     &::after {
       content: "";
       top: -20px;
@@ -332,7 +401,7 @@ section {
     }
   }
   ._cover {
-    height: 480px;
+    height: 400px;
     min-height: 320px;
     .row {
       height: 100%;
@@ -349,8 +418,11 @@ section {
       border-radius: 1.5rem 1.5rem 0 1.5rem;
       position: relative;
       height: 100%;
-      
-      .phone-1, .phone-2, .flower-1, .flower-2 {
+
+      .phone-1,
+      .phone-2,
+      .flower-1,
+      .flower-2 {
         position: absolute;
       }
       .phone-1 {
@@ -373,7 +445,7 @@ section {
         transform-origin: left bottom;
       }
       .flower-2 {
-        right: 2%;
+        right: 1%;
         top: -48px;
         transform: scale(0.5);
         transform-origin: top right;
@@ -404,22 +476,156 @@ section {
 #advantage {
   padding-top: 10rem;
   .card_adv {
-    ._content {
+    .content {
+      @include flex($j: space-between, $a: stretch, $d: column);
+
+      &:nth-child(2) {
+        align-items: flex-start;
+      }
+    }
+    .text {
       @include flex($a: flex-start, $g: 1.5rem, $d: column);
       .title {
         @include flex($a: flex-start, $g: 0rem, $d: column);
-        .tag {
-          font-size: var(--sm);
-          font-weight: var(--bold);
-          padding: 0.25rem 0.5rem;
-          border-radius: 0.2rem;
-          color: var(--white);
-          background-color: var(--orange-50);
-        }
       }
       p {
         color: var(--natural-50);
+        text-align: justify;
       }
+    }
+    .items {
+      @include flex($j: flex-start, $a: stretch);
+    }
+    .item {
+      width: 100%;
+      max-width: 10rem;
+      @include flex($g: 0rem, $d: column);
+      background-color: var(--natural-95);
+      border-radius: 0.75rem;
+      padding: 0.5rem;
+      b {
+        font-size: var(--xl5);
+        font-weight: var(--bold);
+        color: var(--blue-48);
+      }
+      span {
+        font-size: var(--sm);
+        color: var(--blue-48);
+      }
+    }
+    .bgb {
+      background-color: var(--blue-48);
+      b,
+      span {
+        color: var(--white);
+      }
+      b {
+        scale: 0.8;
+      }
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    &:nth-child(1) {
+      margin-bottom: 5rem;
+    }
+  }
+  .userGroup {
+    @include flex($g: 0.5rem);
+    .imgs {
+      @include flex($g: 0);
+      .userImg {
+        width: 2.5rem;
+        height: 2.5rem;
+        border: solid 1px var(--white);
+        border-radius: 50%;
+        margin-left: -0.75rem;
+        &:nth-child(1) {
+          margin-left: 0;
+        }
+      }
+    }
+    span {
+      color: var(--natural-30);
+    }
+  }
+}
+
+#solution {
+  .title {
+    @include flex($g:0, $d:column);
+    // margin-bottom: 2.5rem;
+  }
+  .solutionImg {
+    position: relative;
+    .bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .item {
+      @include flex($g: 0.75rem);
+      background-color: var(--white);
+      border-radius: 3rem;
+      padding: 0.5rem 1rem;
+      position: absolute;
+      box-shadow: 8px 4px 20px rgba(0, 0, 255, .2);
+      cursor: pointer;
+
+      .check {
+        width: 1.5rem;
+        height: 1.5rem;
+        display: grid;
+        place-items: center;
+        background-color: var(--white);
+        border: solid 1px var(--orange-50);
+        border-radius: 50%;
+      }
+      span {
+        font-size: var(--md);
+        color: var(--orange-50);
+      }
+
+      &:hover {
+        .check {
+          background-color: var(--orange-50);
+        }
+        span {
+          color: var(--white);
+        }
+      }
+    }
+    .item1 {
+      top: 30%;
+      left: 35%;
+    }
+    .item2 {
+      top: 55%;
+      left: 40%;
+    }
+    .item3 {
+      top: 35%;
+      left: 55%;
+    }
+    .item4 {
+      top: 60%;
+      left: 60%;
+    }
+    .hand {
+      position: absolute;
+      scale: 0.6;
+    }
+    .hand-l {
+      top: 40%;
+      left: 0;
+      transform-origin: left top;
+      transform: translateY(-50%);
+    }
+    .hand-r {
+      right: 0;
+      transform-origin: right bottom;
     }
   }
 }

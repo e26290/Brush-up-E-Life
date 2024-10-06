@@ -16,6 +16,7 @@
     --natural-95: hsl(200, 15%, 95%);
     --natural-85: hsl(200, 15%, 85%);
     --natural-50: hsl(195, 16%, 50%);
+    --natural-30: hsl(195, 16%, 30%);
 
     /* green */
     --green-700: #4A862D;
@@ -40,7 +41,7 @@
     --text-primary: var(--black);
     --text-secondary: var(--natural-700);
 
-    --border: var(--natural-200);
+    --border: var(--natural-300);
 
     --chart-blue: var(--blue-400);
     --chart-orange: var(--orange-400);
