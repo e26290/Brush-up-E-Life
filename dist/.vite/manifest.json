@@ -1,11 +1,11 @@
 {
   "index.html": {
-    "file": "assets/index-CxxYxhbB.js",
+    "file": "assets/index-BQ_cT8uy.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
     "css": [
-      "assets/index-B6azLHy-.css"
+      "assets/index-C5vFKQX1.css"
     ],
     "assets": [
       "assets/flower1-CA_733SE.png",
@@ -14,8 +14,41 @@
       "assets/phone2-DIJTA196.png",
       "assets/ic_safe-CKYoOY8Q.svg",
       "assets/ic_list-D2R_SSRb.svg",
-      "assets/ic_mail-DmsZUChB.svg"
+      "assets/ic_mail-DmsZUChB.svg",
+      "assets/niceui-D1kitDx7.png",
+      "assets/ainote-DdODi5hN.png",
+      "assets/customer1-Cw0cD-C2.png",
+      "assets/customer2-DG4p0BfL.png",
+      "assets/customer3-DkKZD5pN.png",
+      "assets/customer4-DloHlAZP.png",
+      "assets/solutionBg-Dwfz1WVQ.png",
+      "assets/hand-l-LBAa0JtT.png",
+      "assets/hand-r-ClrCr0V-.png"
     ]
+  },
+  "src/assets/index/adv/ainote.png": {
+    "file": "assets/ainote-DdODi5hN.png",
+    "src": "src/assets/index/adv/ainote.png"
+  },
+  "src/assets/index/adv/customer1.png": {
+    "file": "assets/customer1-Cw0cD-C2.png",
+    "src": "src/assets/index/adv/customer1.png"
+  },
+  "src/assets/index/adv/customer2.png": {
+    "file": "assets/customer2-DG4p0BfL.png",
+    "src": "src/assets/index/adv/customer2.png"
+  },
+  "src/assets/index/adv/customer3.png": {
+    "file": "assets/customer3-DkKZD5pN.png",
+    "src": "src/assets/index/adv/customer3.png"
+  },
+  "src/assets/index/adv/customer4.png": {
+    "file": "assets/customer4-DloHlAZP.png",
+    "src": "src/assets/index/adv/customer4.png"
+  },
+  "src/assets/index/adv/niceui.png": {
+    "file": "assets/niceui-D1kitDx7.png",
+    "src": "src/assets/index/adv/niceui.png"
   },
   "src/assets/index/hero/flower1.png": {
     "file": "assets/flower1-CA_733SE.png",
@@ -44,5 +77,17 @@
   "src/assets/index/hero/phone2.png": {
     "file": "assets/phone2-DIJTA196.png",
     "src": "src/assets/index/hero/phone2.png"
+  },
+  "src/assets/index/solution/hand-l.png": {
+    "file": "assets/hand-l-LBAa0JtT.png",
+    "src": "src/assets/index/solution/hand-l.png"
+  },
+  "src/assets/index/solution/hand-r.png": {
+    "file": "assets/hand-r-ClrCr0V-.png",
+    "src": "src/assets/index/solution/hand-r.png"
+  },
+  "src/assets/index/solution/solutionBg.png": {
+    "file": "assets/solutionBg-Dwfz1WVQ.png",
+    "src": "src/assets/index/solution/solutionBg.png"
   }
 }
