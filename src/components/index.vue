@@ -201,6 +201,19 @@
     </div>
   </section>
 
+  <section id="media">
+    <div class="marquee marquee1">
+      <div class="item" v-for="data in item">
+        <img :src="data.pic" :alt="data.name" class="pic">
+        <div class="text">
+          <b class="name">{{ data.name }}</b>
+          <span>{{ data.jobTitle }}</span>
+        </div>
+        <img :src="data.icon" :alt="data.text" class="icon">
+      </div>
+    </div>
+  </section>
+
   <section id="cta">
     <div class="container">
       <h2>組織今天並為明天做好準備</h2>
@@ -245,24 +258,43 @@
 export default {
   data() {
     return {
-      highlight: [
+      item: [
         {
-          src: "",
-          title: "安全有效管理您的數位資產",
-          content:
-            "安全且高效地管理您的數位資產——您的資料已使用銀行級安全加密技術。您可以一覽所有數位資產，包括社交平台帳號、銀行賬戶、電子郵件、訂閱服務等，方便更有效地管理和決策。",
-        },
-        {
-          src: "",
-          title: "選擇數位資產的處理",
-          content:
-            "您可以預先決定如何處理數位資產，例如：刪除、保留或轉讓給指定的繼承人。<br>以靈活的方式，處理不同類型的數位資產。",
-        },
-        {
-          src: "",
-          title: "訂立意外確認機制",
-          content:
-            "根據您的需求選擇檢核方式和提醒週期，確保當前無需開啟繼承機制。一旦需要啟動，您的數位遺產將完整且安全地交付給指定繼承人。",
+          pic: "src/assets/index/media/pic1.png",
+          name: "卡拉姆揪",
+          jobTitle: "adobe 首席設計師",
+          icon: "src/assets/index/media/fb.svg",
+          text: "fb"
+        },{
+          pic: "src/assets/index/media/pic1.png",
+          name: "卡拉姆揪",
+          jobTitle: "adobe 首席設計師",
+          icon: "src/assets/index/media/fb.svg",
+          text: "fb"
+        },{
+          pic: "src/assets/index/media/pic1.png",
+          name: "卡拉姆揪",
+          jobTitle: "adobe 首席設計師",
+          icon: "src/assets/index/media/fb.svg",
+          text: "fb"
+        },{
+          pic: "src/assets/index/media/pic1.png",
+          name: "卡拉姆揪",
+          jobTitle: "adobe 首席設計師",
+          icon: "src/assets/index/media/fb.svg",
+          text: "fb"
+        },{
+          pic: "src/assets/index/media/pic1.png",
+          name: "卡拉姆揪",
+          jobTitle: "adobe 首席設計師",
+          icon: "src/assets/index/media/fb.svg",
+          text: "fb"
+        },{
+          pic: "src/assets/index/media/pic1.png",
+          name: "卡拉姆揪",
+          jobTitle: "adobe 首席設計師",
+          icon: "src/assets/index/media/fb.svg",
+          text: "fb"
         },
       ],
     };
@@ -507,6 +539,7 @@ section {
         font-size: var(--xl5);
         font-weight: var(--bold);
         color: var(--blue-48);
+        line-height: 120%;
       }
       span {
         font-size: var(--sm);
@@ -626,6 +659,32 @@ section {
     .hand-r {
       right: 0;
       transform-origin: right bottom;
+    }
+  }
+}
+
+#media {
+  .marquee {
+    @include flex;
+    flex-wrap: nowrap;
+  }
+  .item {
+    @include flex($j:space-between, $g: 1rem);
+    background-color: var(--white);
+    box-shadow: 0px 0px 12px rgba(#000, .15);
+    padding: 0.3rem 0.5rem;
+    border-radius: 100px;
+    .pic {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+    }
+    .text {
+      @include flex($a:flex-start, $g:0rem, $d:column);
+      span {
+        font-size: var(--sm);
+        white-space: nowrap;
+      }
     }
   }
 }
