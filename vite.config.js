@@ -15,6 +15,7 @@ export default defineConfig({
     vue(),
     vuetify({ autoImport: true }), //自動載入
   ],
+  publicDir: 'public',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src')

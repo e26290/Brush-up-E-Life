@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="container navbar">
-      <router-link @click="closeMenu" to="/">
+      <router-link to="/">
         <div class="logo">
           <img src="/src/assets/logo.svg" alt="數位人生" />
         </div>
@@ -45,26 +45,10 @@
         <div class="row">
           <div class="col-md-10">
             <div class="phones">
-              <img
-                src="/src/assets/index/hero/flower1.png"
-                alt="flower-1"
-                class="flower-1"
-              />
-              <img
-                src="/src/assets/index/hero/flower2.png"
-                alt="flower-2"
-                class="flower-2"
-              />
-              <img
-                src="/src/assets/index/hero/phone1.png"
-                alt="phone-1"
-                class="phone-1"
-              />
-              <img
-                src="/src/assets/index/hero/phone2.png"
-                alt="phone-2"
-                class="phone-2"
-              />
+              <img src="/src/assets/index/hero/flower1.png" alt="flower-1" class="flower-1" />
+              <img src="/src/assets/index/hero/flower2.png" alt="flower-2" class="flower-2" />
+              <img src="/src/assets/index/hero/phone1.png" alt="phone-1" class="phone-1" />
+              <img src="/src/assets/index/hero/phone2.png" alt="phone-2" class="phone-2" />
             </div>
           </div>
           <div class="col-md-2">
@@ -131,26 +115,10 @@
               <h1>簡易上手的撰寫平台<br />透過 AI 制定專屬的遺囑計劃</h1>
               <div class="userGroup">
                 <div class="imgs">
-                  <img
-                    src="/src/assets/index/adv/customer1.png"
-                    alt="user"
-                    class="userImg"
-                  />
-                  <img
-                    src="/src/assets/index/adv/customer2.png"
-                    alt="user"
-                    class="userImg"
-                  />
-                  <img
-                    src="/src/assets/index/adv/customer3.png"
-                    alt="user"
-                    class="userImg"
-                  />
-                  <img
-                    src="/src/assets/index/adv/customer4.png"
-                    alt="user"
-                    class="userImg"
-                  />
+                  <img src="/src/assets/index/adv/customer1.png" alt="user" class="userImg" />
+                  <img src="/src/assets/index/adv/customer2.png" alt="user" class="userImg" />
+                  <img src="/src/assets/index/adv/customer3.png" alt="user" class="userImg" />
+                  <img src="/src/assets/index/adv/customer4.png" alt="user" class="userImg" />
                 </div>
                 <span>500+ 滿意使用者</span>
               </div>
@@ -179,40 +147,37 @@
       </div>
     </div>
     <div class="solutionImg">
-      <img src="/src/assets/index/solution/solutionBg.png" alt="solutionBg" class="bg">
-      <img src="/src/assets/index/solution/hand-l.png" alt="hand-l" class="hand hand-l">
-      <img src="/src/assets/index/solution/hand-r.png" alt="hand-r" class="hand hand-r">
+      <img src="/src/assets/index/solution/solutionBg.png" alt="solutionBg" class="bg" />
+      <img src="/src/assets/index/solution/hand-l.png" alt="hand-l" class="hand hand-l" />
+      <img src="/src/assets/index/solution/hand-r.png" alt="hand-r" class="hand hand-r" />
       <div class="item item1">
-        <div class="check"><span class="material-symbols-outlined">check</span></div>
+        <div class="check">
+          <span class="material-symbols-outlined">check</span>
+        </div>
         掌握數位資產狀態
       </div>
       <div class="item item2">
-        <div class="check"><span class="material-symbols-outlined">check</span></div>
+        <div class="check">
+          <span class="material-symbols-outlined">check</span>
+        </div>
         建立有效數位遺囑
       </div>
       <div class="item item3">
-        <div class="check"><span class="material-symbols-outlined">check</span></div>
+        <div class="check">
+          <span class="material-symbols-outlined">check</span>
+        </div>
         制定人生計劃
       </div>
       <div class="item item4">
-        <div class="check"><span class="material-symbols-outlined">check</span></div>
+        <div class="check">
+          <span class="material-symbols-outlined">check</span>
+        </div>
         紀錄數位生活日誌
       </div>
     </div>
   </section>
 
-  <section id="media">
-    <div class="marquee marquee1">
-      <div class="item" v-for="data in item">
-        <img :src="data.pic" :alt="data.name" class="pic">
-        <div class="text">
-          <b class="name">{{ data.name }}</b>
-          <span>{{ data.jobTitle }}</span>
-        </div>
-        <img :src="data.icon" :alt="data.text" class="icon">
-      </div>
-    </div>
-  </section>
+  <Marquee />
 
   <section id="cta">
     <div class="container">
@@ -255,54 +220,36 @@
 </template>
 
 <script>
+import { ref, onMounted, nextTick } from 'vue'
+import Marquee from './Marquee.vue'
+
 export default {
-  data() {
-    return {
-      item: [
-        {
-          pic: "src/assets/index/media/pic1.png",
-          name: "卡拉姆揪",
-          jobTitle: "adobe 首席設計師",
-          icon: "src/assets/index/media/fb.svg",
-          text: "fb"
-        },{
-          pic: "src/assets/index/media/pic1.png",
-          name: "卡拉姆揪",
-          jobTitle: "adobe 首席設計師",
-          icon: "src/assets/index/media/fb.svg",
-          text: "fb"
-        },{
-          pic: "src/assets/index/media/pic1.png",
-          name: "卡拉姆揪",
-          jobTitle: "adobe 首席設計師",
-          icon: "src/assets/index/media/fb.svg",
-          text: "fb"
-        },{
-          pic: "src/assets/index/media/pic1.png",
-          name: "卡拉姆揪",
-          jobTitle: "adobe 首席設計師",
-          icon: "src/assets/index/media/fb.svg",
-          text: "fb"
-        },{
-          pic: "src/assets/index/media/pic1.png",
-          name: "卡拉姆揪",
-          jobTitle: "adobe 首席設計師",
-          icon: "src/assets/index/media/fb.svg",
-          text: "fb"
-        },{
-          pic: "src/assets/index/media/pic1.png",
-          name: "卡拉姆揪",
-          jobTitle: "adobe 首席設計師",
-          icon: "src/assets/index/media/fb.svg",
-          text: "fb"
-        },
-      ],
-    };
+  components: {
+    Marquee,
   },
-  methods: {
-    openProductPage() {
-      window.open("/dashboard", "_blank"); // dashboard 另開新視窗
-    },
+  setup() {
+    const marqueeContent = ref(null);
+
+    const setAnimationDuration = () => {
+      if (marqueeContent.value) {
+        const contentWidth = marqueeContent.value.offsetWidth;
+        const animationDuration = contentWidth / 50;
+        marqueeContent.value.style.setProperty('--animation-duration', `${animationDuration}s`);
+      } else {
+        console.warn('Marquee content ref not found');
+      }
+    };
+
+    onMounted(() => {
+      nextTick(() => {
+        setAnimationDuration();
+      });
+    });
+
+    return {
+      marqueeContent,
+      setAnimationDuration,
+    };
   },
 };
 </script>
@@ -314,9 +261,10 @@ export default {
 .signup {
   @include button(var(--white), var(--blue-48));
 }
+
 .tag {
   font-size: var(--sm);
-  font-weight: var(--bold);
+  font-weight: var(--b);
   padding: 0.25rem 0.5rem;
   border-radius: 0.2rem;
   color: var(--white);
@@ -327,9 +275,11 @@ header {
   .navbar {
     padding: 0.75rem;
   }
+
   .nav_item {
     @include flex;
   }
+
   .item {
     padding: 0.5rem 0.75rem;
     border-radius: 0.5rem;
@@ -338,6 +288,7 @@ header {
       background-color: var(--natural-95);
     }
   }
+
   .login-group {
     @include flex;
   }
@@ -355,30 +306,37 @@ section {
   max-height: 1100px;
   padding-bottom: 0;
   overflow: hidden;
+
   .container {
     height: 100%;
     @include flex($j: space-between, $a: stretch, $d: column);
   }
+
   ._text {
     text-align: center;
     @include flex($d: column);
     position: relative;
     margin-bottom: 1rem;
+
     .solgan,
     span,
     .signup {
       z-index: 1;
     }
+
     .solgan {
       @include flex($d: column, $g: 0);
     }
+
     h1 {
       font-size: var(--display);
-      font-weight: var(--bold);
+      font-weight: var(--b);
     }
+
     b {
       color: var(--orange-50);
       position: relative;
+
       &::before {
         content: "NEVER LOSE";
         font-size: var(--xs);
@@ -393,6 +351,7 @@ section {
       }
     }
   }
+
   .bg_line {
     position: absolute;
     top: 8%;
@@ -405,6 +364,7 @@ section {
     position: absolute;
     border-radius: 50%;
   }
+
   .gradient1 {
     top: -4rem;
     left: 0;
@@ -414,6 +374,7 @@ section {
     opacity: 0.3;
     rotate: -24deg;
   }
+
   .gradient2 {
     top: 20px;
     right: 200px;
@@ -432,19 +393,24 @@ section {
       opacity: 0.5;
     }
   }
+
   ._cover {
     height: 400px;
     min-height: 320px;
+
     .row {
       height: 100%;
+
       .col-md-10 {
         padding-right: 0;
       }
+
       .col-md-2 {
         padding-top: 1.5rem;
         padding-left: 0;
       }
     }
+
     .phones {
       background-color: var(--natural-95);
       border-radius: 1.5rem 1.5rem 0 1.5rem;
@@ -457,6 +423,7 @@ section {
       .flower-2 {
         position: absolute;
       }
+
       .phone-1 {
         top: -56px;
         left: 50%;
@@ -464,18 +431,21 @@ section {
         transform-origin: top center;
         z-index: 9;
       }
+
       .phone-2 {
         top: 20px;
         left: 50%;
         transform: translateX(-10%) scale(0.5) rotate(12deg);
         transform-origin: top center;
       }
+
       .flower-1 {
         left: 0;
         bottom: 0;
         transform: scale(0.4);
         transform-origin: left bottom;
       }
+
       .flower-2 {
         right: 1%;
         top: -48px;
@@ -483,12 +453,14 @@ section {
         transform-origin: top right;
       }
     }
+
     .special {
       background-color: var(--natural-85);
       border-radius: 0 1.5rem 1.5rem 0;
       height: 100%;
       @include flex($g: 1rem, $d: column);
       padding: 1.25rem;
+
       .list {
         flex: 1;
         background-color: var(--white);
@@ -497,9 +469,10 @@ section {
         padding: 1rem;
         width: 100%;
       }
+
       span {
         color: var(--blue-60);
-        font-weight: var(--medium);
+        font-weight: var(--m);
       }
     }
   }
@@ -507,6 +480,7 @@ section {
 
 #advantage {
   padding-top: 10rem;
+
   .card_adv {
     .content {
       @include flex($j: space-between, $a: stretch, $d: column);
@@ -515,19 +489,24 @@ section {
         align-items: flex-start;
       }
     }
+
     .text {
       @include flex($a: flex-start, $g: 1.5rem, $d: column);
+
       .title {
         @include flex($a: flex-start, $g: 0rem, $d: column);
       }
+
       p {
         color: var(--natural-50);
         text-align: justify;
       }
     }
+
     .items {
       @include flex($j: flex-start, $a: stretch);
     }
+
     .item {
       width: 100%;
       max-width: 10rem;
@@ -535,51 +514,63 @@ section {
       background-color: var(--natural-95);
       border-radius: 0.75rem;
       padding: 0.5rem;
+
       b {
         font-size: var(--xl5);
-        font-weight: var(--bold);
+        font-weight: var(--b);
         color: var(--blue-48);
         line-height: 120%;
       }
+
       span {
         font-size: var(--sm);
         color: var(--blue-48);
       }
     }
+
     .bgb {
       background-color: var(--blue-48);
+
       b,
       span {
         color: var(--white);
       }
+
       b {
         scale: 0.8;
       }
     }
+
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+
     &:nth-child(1) {
       margin-bottom: 5rem;
     }
   }
+
   .userGroup {
     @include flex($g: 0.5rem);
+
     .imgs {
       @include flex($g: 0);
+
       .userImg {
         width: 2.5rem;
         height: 2.5rem;
         border: solid 1px var(--white);
         border-radius: 50%;
         margin-left: -0.75rem;
+
         &:nth-child(1) {
           margin-left: 0;
         }
       }
     }
+
     span {
       color: var(--natural-30);
     }
@@ -588,23 +579,26 @@ section {
 
 #solution {
   .title {
-    @include flex($g:0, $d:column);
+    @include flex($g: 0, $d: column);
     // margin-bottom: 2.5rem;
   }
+
   .solutionImg {
     position: relative;
+
     .bg {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+
     .item {
       @include flex($g: 0.75rem);
       background-color: var(--white);
       border-radius: 3rem;
       padding: 0.5rem 1rem;
       position: absolute;
-      box-shadow: 8px 4px 20px rgba(0, 0, 255, .2);
+      box-shadow: 8px 4px 20px rgba(0, 0, 255, 0.2);
       cursor: pointer;
 
       .check {
@@ -616,6 +610,7 @@ section {
         border: solid 1px var(--orange-50);
         border-radius: 50%;
       }
+
       span {
         font-size: var(--md);
         color: var(--orange-50);
@@ -625,66 +620,48 @@ section {
         .check {
           background-color: var(--orange-50);
         }
+
         span {
           color: var(--white);
         }
       }
     }
+
     .item1 {
       top: 30%;
       left: 35%;
     }
+
     .item2 {
       top: 55%;
       left: 40%;
     }
+
     .item3 {
       top: 35%;
       left: 55%;
     }
+
     .item4 {
       top: 60%;
       left: 60%;
     }
+
     .hand {
       position: absolute;
       scale: 0.6;
     }
+
     .hand-l {
       top: 40%;
       left: 0;
       transform-origin: left top;
       transform: translateY(-50%);
     }
+
     .hand-r {
       right: 0;
       transform-origin: right bottom;
-    }
-  }
-}
-
-#media {
-  .marquee {
-    @include flex;
-    flex-wrap: nowrap;
-  }
-  .item {
-    @include flex($j:space-between, $g: 1rem);
-    background-color: var(--white);
-    box-shadow: 0px 0px 12px rgba(#000, .15);
-    padding: 0.3rem 0.5rem;
-    border-radius: 100px;
-    .pic {
-      width: 4rem;
-      height: 4rem;
-      border-radius: 50%;
-    }
-    .text {
-      @include flex($a:flex-start, $g:0rem, $d:column);
-      span {
-        font-size: var(--sm);
-        white-space: nowrap;
-      }
     }
   }
 }

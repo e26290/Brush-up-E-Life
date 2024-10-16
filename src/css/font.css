@@ -1,8 +1,8 @@
 :root {
     /* weight */
-    --bold: 700;
-    --medium: 500;
-    --regular: 400;
+    --b: 700;
+    --m: 500;
+    --r: 400;
 
     /* size */
     --display: 4rem;
