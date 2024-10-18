@@ -6,7 +6,7 @@
                     <div v-for="(card, index) in cards" :key="'a' + index" class="card">
                         <img :src="card.image" :alt="card.title" />
                         <div class="card__text">
-                            <h5>{{ card.name }}</h5>
+                            <h6>{{ card.name }}</h6>
                             <span>{{ card.jobtitle }}</span>
                         </div>
                         <img :src="card.icon" :alt="share" class="icon" />
@@ -16,7 +16,37 @@
                     <div v-for="(card, index) in cards" :key="'b' + index" class="card">
                         <img :src="card.image" :alt="card.title" />
                         <div class="card__text">
-                            <h5>{{ card.name }}</h5>
+                            <h6>{{ card.name }}</h6>
+                            <span>{{ card.jobtitle }}</span>
+                        </div>
+                        <img :src="card.icon" :alt="share" class="icon"/>
+                    </div>
+                </div>
+                <div class="marquee-content">
+                    <div v-for="(card, index) in cards" :key="'b' + index" class="card">
+                        <img :src="card.image" :alt="card.title" />
+                        <div class="card__text">
+                            <h6>{{ card.name }}</h6>
+                            <span>{{ card.jobtitle }}</span>
+                        </div>
+                        <img :src="card.icon" :alt="share" class="icon"/>
+                    </div>
+                </div>
+                <div class="marquee-content">
+                    <div v-for="(card, index) in cards" :key="'b' + index" class="card">
+                        <img :src="card.image" :alt="card.title" />
+                        <div class="card__text">
+                            <h6>{{ card.name }}</h6>
+                            <span>{{ card.jobtitle }}</span>
+                        </div>
+                        <img :src="card.icon" :alt="share" class="icon"/>
+                    </div>
+                </div>
+                <div class="marquee-content">
+                    <div v-for="(card, index) in cards" :key="'b' + index" class="card">
+                        <img :src="card.image" :alt="card.title" />
+                        <div class="card__text">
+                            <h6>{{ card.name }}</h6>
                             <span>{{ card.jobtitle }}</span>
                         </div>
                         <img :src="card.icon" :alt="share" class="icon"/>
@@ -81,7 +111,7 @@ export default {
         const setAnimationDuration = () => {
             if (marqueeContent.value) {
                 const contentWidth = marqueeContent.value.offsetWidth;
-                const animationDuration = contentWidth / 50; // 調整這個數值以改變速度
+                const animationDuration = contentWidth / 150; // 調整這個數值以改變速度
                 marqueeContent.value.style.setProperty(
                     "--animation-duration",
                     `${animationDuration}s`
@@ -122,10 +152,10 @@ export default {
 .marquee-content {
     @include flex;
     width: 100%;
+    margin-right: 1.5rem;
 }
 
 .card {
-    // flex: 0 0 calc(100% / 8);
     @include flex($g: 0.5rem);
     flex-wrap: nowrap;
     padding: 0.5rem;
@@ -133,22 +163,23 @@ export default {
     
     &__text {
         @include flex($d: column, $j:flex-start, $a:flex-start, $g: 0rem);
-        h5, span {
+        h6, span {
             white-space: nowrap;
         }
-        h5 {
+        h6 {
             margin: 0;
             font-weight: var(--b);
         }
         span {
             color: var(--natural-50);
+            font-size: var(--sm);
         }
     }
 
 }
 
 .card img {
-    width: 4rem;
+    width: 3rem;
     height: auto;
     border-radius: 50%;
     object-fit: cover;
