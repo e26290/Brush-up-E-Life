@@ -69,37 +69,37 @@ export default {
                 jobtitle: "Senior Financial Advisor",
                 icon: "src/assets/index/media/fb.svg",
             },{ 
-                image: "src/assets/index/media/pic1.png",
+                image: "src/assets/index/media/pic2.png",
                 name: "Lily Harper",
                 jobtitle: "Chief Marketing Officer",
                 icon: "src/assets/index/media/fb.svg",
             },{ 
-                image: "src/assets/index/media/pic1.png",
+                image: "src/assets/index/media/pic3.png",
                 name: "Sophia Marshall",
                 jobtitle: "Customer Success Manager",
                 icon: "src/assets/index/media/dis.svg",
             },{ 
-                image: "src/assets/index/media/pic1.png",
+                image: "src/assets/index/media/pic4.png",
                 name: "李美琳",
                 jobtitle: "首席行銷長",
                 icon: "src/assets/index/media/ins.svg",
             },{ 
-                image: "src/assets/index/media/pic1.png",
+                image: "src/assets/index/media/pic5.png",
                 name: "林志遠",
                 jobtitle: "商務拓展總監",
                 icon: "src/assets/index/media/x.svg",
             },{ 
-                image: "src/assets/index/media/pic1.png",
+                image: "src/assets/index/media/pic6.png",
                 name: "Emma Taylor",
                 jobtitle: "Product Strategy Lead",
                 icon: "src/assets/index/media/dis.svg",
             },{ 
-                image: "src/assets/index/media/pic1.png",
+                image: "src/assets/index/media/pic7.png",
                 name: "Olivia Collins",
                 jobtitle: "Head of UX/UI Design",
                 icon: "src/assets/index/media/ins.svg",
             },{ 
-                image: "src/assets/index/media/pic1.png",
+                image: "src/assets/index/media/pic8.png",
                 name: "趙立群",
                 jobtitle: "使用者體驗設計主管",
                 icon: "src/assets/index/media/x.svg",
@@ -139,7 +139,7 @@ export default {
 
 .marquee-container {
     width: 100%;
-    overflow: hidden;
+    // overflow: hidden;
     position: relative;
 }
 
@@ -159,7 +159,10 @@ export default {
     @include flex($g: 0.5rem);
     flex-wrap: nowrap;
     padding: 0.5rem;
+    border: none;
     border-radius: 50px;
+    background-color: var(--white);
+    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.1);
     
     &__text {
         @include flex($d: column, $j:flex-start, $a:flex-start, $g: 0rem);
