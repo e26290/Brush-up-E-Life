@@ -181,19 +181,28 @@
 
   <section id="cta">
     <div class="container">
-      <h2>組織今天並為明天做好準備</h2>
-      <h6>開使規劃您的數位人生</h6>
-      <button class="md">
-        註冊會員
-        <span class="material-symbols-outlined">arrow_right_alt</span>
-      </button>
+      <div class="cta_card">
+        <div class="text">
+          <div class="title">
+            <h6 class="tag">規劃數位人生</h6>
+            <h1>組織今天並為明天做好準備</h1>
+          </div>
+          <p>文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字</p>
+          <button class="signup">
+            註冊會員
+            <span class="material-symbols-outlined">arrow_right_alt</span>
+          </button>
+        </div>
+      </div>
     </div>
   </section>
 
   <footer>
     <div class="container">
       <div class="f_nav">
-        <div class="f_logo"></div>
+        <div class="f_logo">
+          <img src="/src/assets/logo_f.svg" alt="logo">
+        </div>
         <ul class="nav_items">
           <li class="item"><a href="#">關於我們</a></li>
           <li class="item"><a href="#">產品介紹</a></li>
@@ -667,6 +676,61 @@ section {
 }
 
 #cta {
-  
+  .cta_card {
+    padding: 3rem;
+    background-image: url(/src/assets/index/cta/ctaBg.png);
+    background-size: cover;
+    border-radius: 1.5rem;
+    overflow: hidden;
+  }
+
+  .text {
+    @include flex($d: column, $a: flex-start, $g: 2.5rem);
+    max-width: 580px;
+
+    .tag {
+      display: inline-block;
+    }
+  }
+
+}
+
+footer {
+  background-color: var(--black);
+  padding: 3rem 0;
+
+  a,
+  span,
+  .mail {
+    color: var(--white);
+  }
+
+  .f_nav,
+  .contact {
+    @include flex($j: space-between);
+
+    .nav_items {
+      @include flex;
+    }
+
+    a {
+      padding: 0.75rem;
+
+      &:hover,
+      &:active {
+        color: var(--orange-50);
+      }
+    }
+  }
+
+  .contact {
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--natural-85);
+    margin-top: 1.5rem;
+    .mail {
+      @include flex($g:0.5rem);
+    }
+  }
+
 }
 </style>
