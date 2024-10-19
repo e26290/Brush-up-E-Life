@@ -1,11 +1,19 @@
 <template>
   <header>
     <div class="container navbar">
-      <router-link to="/">
-        <div class="logo">
-          <img src="/src/assets/logo.svg" alt="數位人生" />
+      <div class="box-left">
+        <div class="menu-icon" @click="toggleMenu" :class="{ 'active': isMenuActive }">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-      </router-link>
+        <router-link to="/">
+          <div class="logo">
+            <img src="/src/assets/logo.svg" alt="數位人生" />
+          </div>
+        </router-link>
+      </div>
+
       <ul class="nav_item">
         <li><a class="item" href="#">關於我們</a></li>
         <li><a class="item" href="#">產品介紹</a></li>
@@ -21,19 +29,29 @@
         </button>
       </div>
     </div>
+    <!-- 行動裝置選單 -->
+    <div class="mobile-menu" :class="{ 'active': isMenuActive }">
+      <ul>
+        <li><a href="#">關於我們</a></li>
+        <li><a href="#">產品介紹</a></li>
+        <li><a href="#">定價方案</a></li>
+        <li><a href="#">常見問題</a></li>
+        <li><a href="#">生前規劃指南</a></li>
+      </ul>
+    </div>
   </header>
 
   <section id="hero">
-    <img src="/src/assets/index/hero/bg_line.svg" class="bg_line" />
     <div class="container">
       <div class="_text">
+        <img src="/src/assets/index/hero/bg_line.svg" class="bg_line" />
         <div class="gradient1"></div>
         <div class="gradient2"></div>
         <div class="solgan">
           <h1>輕鬆管理數位資產</h1>
           <h1>讓重要的數位足跡<b class="highlight">不再遺失</b></h1>
         </div>
-        <span>
+        <span class="subtitle">
           從數位資產管理到專屬遺囑與生活日誌，我們確保您的數位足跡不會消失，讓您的數位人生交付給所愛之人。
         </span>
         <button class="signup">
@@ -229,23 +247,31 @@
 </template>
 
 <script>
-import { ref, onMounted, nextTick } from 'vue'
-import Marquee from './Marquee.vue'
+import { ref, onMounted, nextTick } from "vue";
+import Marquee from "./Marquee.vue";
 
 export default {
   components: {
     Marquee,
   },
   setup() {
+    const isMenuActive = ref(false);
+    const toggleMenu = () => {
+      isMenuActive.value = !isMenuActive.value;
+    };
+
     const marqueeContent = ref(null);
 
     const setAnimationDuration = () => {
       if (marqueeContent.value) {
         const contentWidth = marqueeContent.value.offsetWidth;
         const animationDuration = contentWidth / 50;
-        marqueeContent.value.style.setProperty('--animation-duration', `${animationDuration}s`);
+        marqueeContent.value.style.setProperty(
+          "--animation-duration",
+          `${animationDuration}s`
+        );
       } else {
-        console.warn('Marquee content ref not found');
+        console.warn("Marquee content ref not found");
       }
     };
 
@@ -258,6 +284,8 @@ export default {
     return {
       marqueeContent,
       setAnimationDuration,
+      isMenuActive,
+      toggleMenu,
     };
   },
 };
@@ -281,12 +309,19 @@ export default {
 }
 
 header {
+  position: relative;
+
   .navbar {
     padding: 0.75rem;
+    position: relative;
+  }
+
+  .box-left {
+    @include flex($g: 1rem);
   }
 
   .nav_item {
-    @include flex;
+    @include flex($g: 1rem);
   }
 
   .item {
@@ -301,11 +336,119 @@ header {
   .login-group {
     @include flex;
   }
+
+  .menu-icon {
+    display: none;
+    cursor: pointer;
+    width: 24px;
+    height: 20px;
+    position: relative;
+
+    span {
+      display: block;
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      background: var(--natural-30);
+      border-radius: 3px;
+      opacity: 1;
+      left: 0;
+      transform: rotate(0deg);
+      transition: .2s ease-in-out;
+
+      &:nth-child(1) {
+        top: 0px;
+      }
+
+      &:nth-child(2) {
+        top: 8px;
+      }
+
+      &:nth-child(3) {
+        top: 16px;
+      }
+    }
+
+    &.active {
+      span {
+        &:nth-child(1) {
+          top: 8px;
+          transform: rotate(135deg);
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+          left: -60px;
+        }
+
+        &:nth-child(3) {
+          top: 8px;
+          transform: rotate(-135deg);
+        }
+      }
+    }
+  }
+
+  .mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--white);
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        margin-bottom: 0.5rem;
+
+        a {
+          display: block;
+          padding: 1rem 0.5rem;
+          // color: var(--blue-48);
+          text-decoration: none;
+
+          &:hover {
+            background-color: var(--natural-95);
+          }
+        }
+      }
+    }
+
+    &.active {
+      display: block;
+    }
+  }
+
+  @include breakpoint(1023px) {
+    .nav_item {
+      display: none;
+    }
+
+    .menu-icon {
+      display: block;
+    }
+
+    .login-group {
+      gap: 0.5rem
+    }
+  }
 }
 
 section {
   padding-top: 5rem;
   padding-bottom: 5rem;
+
+  @include breakpoint(767px){
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
 }
 
 #hero {
@@ -335,6 +478,10 @@ section {
 
     .solgan {
       @include flex($d: column, $g: 0);
+
+      h1:nth-child(2) {
+        @include flex($g: 2px);
+      }
     }
 
     h1 {
@@ -359,12 +506,16 @@ section {
         rotate: 12deg;
       }
     }
+
+    .subtitle {
+      font-size: var(--lg);
+    }
   }
 
   .bg_line {
     position: absolute;
-    top: 8%;
-    left: 0;
+    top: 0;
+    left: -200px;
   }
 
   .gradient1,
@@ -482,6 +633,73 @@ section {
       span {
         color: var(--blue-60);
         font-weight: var(--m);
+      }
+    }
+  }
+
+  @include breakpoint(1200px) {
+    ._cover {
+      .phones {
+        .flower-1 {
+          left: -64px;
+        }
+
+        .flower-2 {
+          top: -72px;
+        }
+
+        .phone-1 {
+          transform: translateX(-58%) scale(0.4);
+        }
+
+        .phone-2 {
+          transform: translateX(-25%) scale(0.4) rotate(12deg);
+        }
+      }
+
+      .special {
+        gap: 0.5rem;
+        padding: 0.75rem;
+
+        .list {
+          gap: 0rem;
+          padding: 0.5rem;
+        }
+      }
+    }
+  }
+
+  @include breakpoint(768px) {
+    ._cover {
+      .phones {
+        .phone-1 {
+          top: -16px;
+          transform: translateX(-60%) scale(0.3);
+        }
+
+        .phone-2 {
+          top: 16px;
+          transform: translateX(-38%) scale(0.3) rotate(12deg);
+        }
+      }
+    }
+    ._text {
+      gap: 1rem;
+    }
+  }
+
+
+  @include breakpoint(576px) {
+    ._text {
+      .solgan h1:nth-child(2) {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      b::before {
+        right: -90px;
+        top: 0;
+        rotate: 0deg;
       }
     }
   }
@@ -692,7 +910,6 @@ section {
       display: inline-block;
     }
   }
-
 }
 
 footer {
@@ -727,10 +944,10 @@ footer {
     padding-top: 1.5rem;
     border-top: 1px solid var(--natural-85);
     margin-top: 1.5rem;
+
     .mail {
-      @include flex($g:0.5rem);
+      @include flex($g: 0.5rem);
     }
   }
-
 }
 </style>

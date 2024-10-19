@@ -17,9 +17,15 @@
     --xs: 0.75rem;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
     :root {
         --display: 3rem;
+    }
+}
+
+@media (max-width: 767px) {
+    :root {
+        --display: 2.5rem;
         --xl5: 2rem;
         --xl4: 1rem;
         --xl3: 1.5rem;
