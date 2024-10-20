@@ -158,7 +158,7 @@
     <div class="container">
       <div class="title">
         <h6 class="tag">解決方案</h6>
-        <h1>讓我們妥善管理您的數位人生</h1>
+        <h2>妥善管理您的數位人生</h2>
       </div>
     </div>
     <div class="solutionImg">
@@ -200,7 +200,7 @@
         <div class="text">
           <div class="title">
             <h6 class="tag">規劃數位人生</h6>
-            <h1>組織今天並為明天做好準備</h1>
+            <h2>組織今天並為明天做好準備</h2>
           </div>
           <p>文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字</p>
           <button class="signup">
@@ -231,7 +231,7 @@
           <a href="#">隱私權政策</a>
           <a href="#">使用者條款</a>
           <span>© BRUSH UP E-LIFE® 2024 </span>
-          <span>僅作 AAPD 第二屆 UI 實戰營畢業專題使用</span>
+          <!-- <span>僅作 AAPD 第二屆 UI 實戰營畢業專題使用</span> -->
         </div>
 
         <div class="mail">
@@ -668,6 +668,7 @@ section {
 
   @include breakpoint(767px) {
     min-height: auto;
+
     .container {
       gap: 4rem;
     }
@@ -720,6 +721,7 @@ section {
       }
     }
   }
+
   @include breakpoint(425px) {
     ._cover .phones .flower-1 {
       display: none;
@@ -825,25 +827,31 @@ section {
       color: var(--natural-30);
     }
   }
+
   @include breakpoint(1024px) {
     padding-top: 5rem;
-    .card_adv {
-      gap: 2rem;
-      &:nth-child(2) {
-        flex-direction: column-reverse;
-      }
-    }
+
     .card_adv .content {
       gap: 0.5rem;
+      margin-bottom: 2rem;
     }
+
     .card_adv .text {
       gap: 0.5rem;
     }
+
     .card_adv .items {
       gap: 1rem;
     }
+
     .card_adv .item b {
       font-size: var(--xl4);
+    }
+  }
+
+  @include breakpoint(767px) {
+    .card_adv:nth-child(2) {
+      flex-direction: column-reverse;
     }
   }
 }
@@ -935,6 +943,68 @@ section {
       transform-origin: right bottom;
     }
   }
+
+  @include breakpoint(1280px) {
+    .solutionImg .hand {
+      scale: 0.5;
+    }
+
+    .solutionImg .hand-l {
+      left: -60px;
+    }
+
+    .solutionImg .hand-r {
+      right: -40px;
+      bottom: -72px;
+    }
+  }
+
+  @include breakpoint(1024px) {
+    .solutionImg .hand {
+      scale: 0.3;
+    }
+
+    .solutionImg .hand-r {
+      bottom: 0;
+    }
+
+    .solutionImg .item1 {
+      left: 24%;
+    }
+
+    .solutionImg .item2 {
+      left: 30%;
+    }
+  }
+
+  @include breakpoint(767px) {
+    .solutionImg .bg {
+      min-height: 480px;
+    }
+
+    .solutionImg .hand {
+      display: none;
+    }
+
+    .solutionImg .item1 {
+      left: 6%;
+    }
+
+    .solutionImg .item2 {
+      top: 50%;
+      left: 6%;
+    }
+
+    .solutionImg .item3 {
+      top: 40%;
+      left: 55%;
+    }
+
+    .solutionImg .item4 {
+      top: 62%;
+      left: 48%;
+    }
+  }
 }
 
 #cta {
@@ -952,6 +1022,16 @@ section {
 
     .tag {
       display: inline-block;
+    }
+  }
+
+  @include breakpoint(768px) {
+    .cta_card {
+      padding: 1.5rem;
+    }
+
+    .text {
+      gap: 1rem;
     }
   }
 }
@@ -991,6 +1071,24 @@ footer {
 
     .mail {
       @include flex($g: 0.5rem);
+    }
+  }
+
+  @include breakpoint(767px) {
+
+    .f_nav,
+    .contact {
+      flex-direction: column;
+    }
+
+    .f_nav .nav_items {
+      gap: 0rem;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
   }
 }

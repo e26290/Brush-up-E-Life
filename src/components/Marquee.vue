@@ -145,19 +145,21 @@ export default {
 
 .marquee {
     display: flex;
-    width: 200%;
+    width: 500%; // 增加寬度以確保在小螢幕上有足夠的內容
     animation: marquee var(--animation-duration, 30s) linear infinite;
 }
 
 .marquee-content {
-    @include flex;
+    display: flex;
+    flex-wrap: nowrap;
     width: 100%;
-    margin-right: 1.5rem;
 }
 
 .card {
-    @include flex($g: 0.5rem);
-    flex-wrap: nowrap;
+    @include flex($g: 0.5rem, $j:flex-start);
+    flex: 0 0 auto;
+    width: 320px;
+    margin-right: 1.5rem;
     padding: 0.5rem;
     border: none;
     border-radius: 50px;
@@ -166,6 +168,7 @@ export default {
     
     &__text {
         @include flex($d: column, $j:flex-start, $a:flex-start, $g: 0rem);
+        width: 100%;
         h6, span {
             white-space: nowrap;
         }
@@ -178,12 +181,11 @@ export default {
             font-size: var(--sm);
         }
     }
-
 }
 
 .card img {
     width: 3rem;
-    height: auto;
+    height: 3rem;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -198,7 +200,13 @@ export default {
     }
 
     100% {
-        transform: translateX(-50%);
+        transform: translateX(-80%); // 調整以匹配新的總寬度
+    }
+}
+
+@include breakpoint(767px) {
+    section {
+        padding-top: 0;
     }
 }
 </style>
