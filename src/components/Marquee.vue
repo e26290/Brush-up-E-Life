@@ -64,45 +64,45 @@ export default {
     setup() {
         const cards = ref([
             {
-                image: "src/assets/index/media/pic1.png",
+                image: "./src/assets/index/media/pic1.png",
                 name: "Alan Weaver",
                 jobtitle: "Senior Financial Advisor",
-                icon: "src/assets/index/media/fb.svg",
+                icon: "./src/assets/index/media/fb.svg",
             },{ 
-                image: "src/assets/index/media/pic2.png",
+                image: "./src/assets/index/media/pic2.png",
                 name: "Lily Harper",
                 jobtitle: "Chief Marketing Officer",
-                icon: "src/assets/index/media/fb.svg",
+                icon: "./src/assets/index/media/fb.svg",
             },{ 
-                image: "src/assets/index/media/pic3.png",
+                image: "./src/assets/index/media/pic3.png",
                 name: "Sophia Marshall",
                 jobtitle: "Customer Success Manager",
-                icon: "src/assets/index/media/dis.svg",
+                icon: "./src/assets/index/media/dis.svg",
             },{ 
-                image: "src/assets/index/media/pic4.png",
+                image: "./src/assets/index/media/pic4.png",
                 name: "李美琳",
                 jobtitle: "首席行銷長",
-                icon: "src/assets/index/media/ins.svg",
+                icon: "./src/assets/index/media/ins.svg",
             },{ 
-                image: "src/assets/index/media/pic5.png",
+                image: "./src/assets/index/media/pic5.png",
                 name: "林志遠",
                 jobtitle: "商務拓展總監",
-                icon: "src/assets/index/media/x.svg",
+                icon: "./src/assets/index/media/x.svg",
             },{ 
-                image: "src/assets/index/media/pic6.png",
+                image: "./src/assets/index/media/pic6.png",
                 name: "Emma Taylor",
                 jobtitle: "Product Strategy Lead",
-                icon: "src/assets/index/media/dis.svg",
+                icon: "./src/assets/index/media/dis.svg",
             },{ 
-                image: "src/assets/index/media/pic7.png",
+                image: "./src/assets/index/media/pic7.png",
                 name: "Olivia Collins",
                 jobtitle: "Head of UX/UI Design",
-                icon: "src/assets/index/media/ins.svg",
+                icon: "./src/assets/index/media/ins.svg",
             },{ 
-                image: "src/assets/index/media/pic8.png",
+                image: "./src/assets/index/media/pic8.png",
                 name: "趙立群",
                 jobtitle: "使用者體驗設計主管",
-                icon: "src/assets/index/media/x.svg",
+                icon: "./src/assets/index/media/x.svg",
             },
         ]);
 

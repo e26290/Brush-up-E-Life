@@ -165,25 +165,25 @@
       <img src="/src/assets/index/solution/solutionBg.png" alt="solutionBg" class="bg" />
       <img src="/src/assets/index/solution/hand-l.png" alt="hand-l" class="hand hand-l" />
       <img src="/src/assets/index/solution/hand-r.png" alt="hand-r" class="hand hand-r" />
-      <div class="item item1">
+      <div class="item item1" @click="toggleItem('item1')" :class="{ 'selected': selectedItems.item1 }">
         <div class="check">
           <span class="material-symbols-outlined">check</span>
         </div>
         掌握數位資產狀態
       </div>
-      <div class="item item2">
+      <div class="item item2" @click="toggleItem('item2')" :class="{ 'selected': selectedItems.item2 }">
         <div class="check">
           <span class="material-symbols-outlined">check</span>
         </div>
         建立有效數位遺囑
       </div>
-      <div class="item item3">
+      <div class="item item3" @click="toggleItem('item3')" :class="{ 'selected': selectedItems.item3 }">
         <div class="check">
           <span class="material-symbols-outlined">check</span>
         </div>
         制定人生計劃
       </div>
-      <div class="item item4">
+      <div class="item item4" @click="toggleItem('item4')" :class="{ 'selected': selectedItems.item4 }">
         <div class="check">
           <span class="material-symbols-outlined">check</span>
         </div>
@@ -256,6 +256,18 @@ export default {
     const toggleMenu = () => {
       isMenuActive.value = !isMenuActive.value;
     };
+    // 新增：用於跟踪每個 item 的選中狀態
+    const selectedItems = ref({
+      item1: false,
+      item2: false,
+      item3: false,
+      item4: false,
+    });
+
+    // 新增：切換 item 的選中狀態
+    const toggleItem = (item) => {
+      selectedItems.value[item] = !selectedItems.value[item];
+    };
 
     const marqueeContent = ref(null);
 
@@ -283,6 +295,8 @@ export default {
       setAnimationDuration,
       isMenuActive,
       toggleMenu,
+      selectedItems,
+      toggleItem,
     };
   },
 };
@@ -879,6 +893,12 @@ section {
       position: absolute;
       box-shadow: 8px 4px 20px rgba(0, 0, 255, 0.2);
       cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+      animation: float 3s ease-in-out infinite;
+
+      &:nth-child(even) {
+        animation-delay: 1.5s;
+      }
 
       .check {
         width: 1.5rem;
@@ -888,14 +908,17 @@ section {
         background-color: var(--white);
         border: solid 1px var(--orange-50);
         border-radius: 50%;
+        transition: background-color 0.3s ease;
+
+        span {
+          font-size: var(--md);
+          color: var(--orange-50);
+          transition: color 0.3s ease;
+        }
       }
 
-      span {
-        font-size: var(--md);
-        color: var(--orange-50);
-      }
-
-      &:hover {
+      &:hover,
+      &.selected {
         .check {
           background-color: var(--orange-50);
         }
@@ -941,6 +964,18 @@ section {
     .hand-r {
       right: 0;
       transform-origin: right bottom;
+    }
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
     }
   }
 
