@@ -41,7 +41,7 @@
     </div>
   </header>
 
-  <section id="hero">
+  <section id="hero" :class="{ 'loaded': isLoaded }">
     <div class="container">
       <div class="_text">
         <img src="/src/assets/index/hero/bg_line.svg" class="bg_line" />
@@ -284,10 +284,16 @@ export default {
       }
     };
 
+    const isLoaded = ref(false);
+
     onMounted(() => {
       nextTick(() => {
         setAnimationDuration();
       });
+
+      setTimeout(() => {
+        isLoaded.value = true;
+      }, 100);
     });
 
     return {
@@ -297,6 +303,7 @@ export default {
       toggleMenu,
       selectedItems,
       toggleItem,
+      isLoaded,
     };
   },
 };
@@ -469,6 +476,27 @@ section {
   max-height: 1100px;
   padding-bottom: 0;
   overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
+  &.loaded {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  ._text, ._cover {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transition-delay: 0.3s;
+  }
+
+  &.loaded ._text,
+  &.loaded ._cover {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
   .container {
     height: 100%;
