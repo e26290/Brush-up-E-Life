@@ -1,13 +1,14 @@
 {
   "index.html": {
-    "file": "assets/index-BQ_cT8uy.js",
+    "file": "assets/index-CGPfM23H.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
     "css": [
-      "assets/index-C5vFKQX1.css"
+      "assets/index-CWLW0wB5.css"
     ],
     "assets": [
+      "assets/logo-BphHzsOt.svg",
       "assets/flower1-CA_733SE.png",
       "assets/flower2-BNJQOPzX.png",
       "assets/phone1-D2VNMBvg.png",
@@ -23,7 +24,9 @@
       "assets/customer4-DloHlAZP.png",
       "assets/solutionBg-Dwfz1WVQ.png",
       "assets/hand-l-LBAa0JtT.png",
-      "assets/hand-r-ClrCr0V-.png"
+      "assets/hand-r-ClrCr0V-.png",
+      "assets/logo_f-BaVtRfIP.svg",
+      "assets/ctaBg-B6BQ2AwJ.png"
     ]
   },
   "src/assets/index/adv/ainote.png": {
@@ -49,6 +52,10 @@
   "src/assets/index/adv/niceui.png": {
     "file": "assets/niceui-D1kitDx7.png",
     "src": "src/assets/index/adv/niceui.png"
+  },
+  "src/assets/index/cta/ctaBg.png": {
+    "file": "assets/ctaBg-B6BQ2AwJ.png",
+    "src": "src/assets/index/cta/ctaBg.png"
   },
   "src/assets/index/hero/flower1.png": {
     "file": "assets/flower1-CA_733SE.png",
@@ -89,5 +96,13 @@
   "src/assets/index/solution/solutionBg.png": {
     "file": "assets/solutionBg-Dwfz1WVQ.png",
     "src": "src/assets/index/solution/solutionBg.png"
+  },
+  "src/assets/logo.svg": {
+    "file": "assets/logo-BphHzsOt.svg",
+    "src": "src/assets/logo.svg"
+  },
+  "src/assets/logo_f.svg": {
+    "file": "assets/logo_f-BaVtRfIP.svg",
+    "src": "src/assets/logo_f.svg"
   }
 }
