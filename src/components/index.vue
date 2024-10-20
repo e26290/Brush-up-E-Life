@@ -97,7 +97,7 @@
           <div class="text">
             <div class="title">
               <h6 class="tag">視覺化數據</h6>
-              <h1>清楚直觀的介面設計<br />快速掌握數位資訊的狀態</h1>
+              <h2>清楚直觀的介面設計<br />快速掌握數位資訊的狀態</h2>
             </div>
             <p>
               針對各類數位資產（如社群帳號、網路訂閱、雲端儲存檔案等）進行整合與分類。透過視覺統計圖表，您可以直觀地瀏覽資產分佈和狀態，並輕鬆追蹤變動情況，讓您在任何時刻都能清楚掌控數位人生。
@@ -130,7 +130,7 @@
           <div class="text">
             <div class="title">
               <h6 class="tag">AI 服務</h6>
-              <h1>簡易上手的撰寫平台<br />透過 AI 制定專屬的遺囑計劃</h1>
+              <h2>簡易上手的撰寫平台<br />透過 AI 制定專屬的遺囑計劃</h2>
               <div class="userGroup">
                 <div class="imgs">
                   <img src="/src/assets/index/adv/customer1.png" alt="user" class="userImg" />
@@ -142,10 +142,7 @@
               </div>
             </div>
             <p>
-              透過 AI
-              驅動的智慧問答系統，引導您逐步制定一份專屬於您的遺囑計劃。從數位資產分配、繼承人選定到個人化的特殊指示（如葬禮安排、重要話語的傳遞），每個步驟都由
-              AI
-              協助進行，確保內容符合您的需求。遺囑計劃是合法且符合個人意願的文件，您可以安心地為自己和家人做好規劃。
+              透過 AI 驅動的智慧問答系統，引導您逐步制定專屬遺囑計劃。從數位資產分配、繼承人選定到個人化的特殊指示（如葬禮安排、重要話語的傳遞），每個步驟都由 AI 協助進行，確保符合您的需求。
             </p>
           </div>
           <button class="signup">
@@ -445,7 +442,7 @@ section {
   padding-top: 5rem;
   padding-bottom: 5rem;
 
-  @include breakpoint(767px){
+  @include breakpoint(767px) {
     padding-top: 3rem;
     padding-bottom: 3rem;
   }
@@ -645,7 +642,7 @@ section {
         }
 
         .flower-2 {
-          top: -72px;
+          top: -88px;
         }
 
         .phone-1 {
@@ -669,20 +666,40 @@ section {
     }
   }
 
-  @include breakpoint(768px) {
+  @include breakpoint(767px) {
+    min-height: auto;
+    .container {
+      gap: 4rem;
+    }
+
     ._cover {
+      height: auto;
+
+      .row {
+        .col-md-10 {
+          padding-right: auto;
+        }
+
+        .col-md-2 {
+          display: none;
+        }
+      }
+
       .phones {
         .phone-1 {
-          top: -16px;
-          transform: translateX(-60%) scale(0.3);
+          transform: translateX(-58%) scale(0.3);
         }
 
         .phone-2 {
-          top: 16px;
           transform: translateX(-38%) scale(0.3) rotate(12deg);
+        }
+
+        .flower-2 {
+          top: -88px;
         }
       }
     }
+
     ._text {
       gap: 1rem;
     }
@@ -701,6 +718,11 @@ section {
         top: 0;
         rotate: 0deg;
       }
+    }
+  }
+  @include breakpoint(425px) {
+    ._cover .phones .flower-1 {
+      display: none;
     }
   }
 }
@@ -781,6 +803,7 @@ section {
 
   .userGroup {
     @include flex($g: 0.5rem);
+    padding: 0.5rem 0;
 
     .imgs {
       @include flex($g: 0);
@@ -800,6 +823,27 @@ section {
 
     span {
       color: var(--natural-30);
+    }
+  }
+  @include breakpoint(1024px) {
+    padding-top: 5rem;
+    .card_adv {
+      gap: 2rem;
+      &:nth-child(2) {
+        flex-direction: column-reverse;
+      }
+    }
+    .card_adv .content {
+      gap: 0.5rem;
+    }
+    .card_adv .text {
+      gap: 0.5rem;
+    }
+    .card_adv .items {
+      gap: 1rem;
+    }
+    .card_adv .item b {
+      font-size: var(--xl4);
     }
   }
 }
