@@ -1,6 +1,6 @@
 <template>
   <h1>111111</h1>
-  <p>This is the dashboard page content.</p>
+  <p>This is the profile page content.</p>
 </template>
 
 <script>

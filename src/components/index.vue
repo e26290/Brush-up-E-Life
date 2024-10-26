@@ -22,11 +22,11 @@
         <li><a class="item" href="#">生前規劃指南</a></li>
       </ul>
       <div class="login-group">
-        <div class="item login">登入</div>
-        <button class="signup" @click="openProductPage">
+        <router-link to="/login" class="item login">登入</router-link>
+        <router-link to="/profile" class="signup">
           開始使用
           <span class="material-symbols-outlined">arrow_right_alt</span>
-        </button>
+        </router-link>
       </div>
     </div>
     <!-- 行動裝置選單 -->
@@ -54,10 +54,10 @@
         <span class="subtitle">
           從數位資產管理到專屬遺囑與生活日誌，我們確保您的數位足跡不會消失，讓您的數位人生交付給所愛之人。
         </span>
-        <button class="signup">
+        <router-link to="/profile" class="signup">
           開始使用
           <span class="material-symbols-outlined">arrow_right_alt</span>
-        </button>
+        </router-link>
       </div>
       <div class="_cover">
         <div class="row">
@@ -145,10 +145,10 @@
               透過 AI 驅動的智慧問答系統，引導您逐步制定專屬遺囑計劃。從數位資產分配、繼承人選定到個人化的特殊指示（如葬禮安排、重要話語的傳遞），每個步驟都由 AI 協助進行，確保符合您的需求。
             </p>
           </div>
-          <button class="signup">
+          <router-link to="/profile" class="signup">
             開始使用
             <span class="material-symbols-outlined">arrow_right_alt</span>
-          </button>
+          </router-link>
         </div>
       </div>
     </div>
@@ -203,10 +203,10 @@
             <h2>組織今天並為明天做好準備</h2>
           </div>
           <p>從簡單的日常管理，到關鍵的長期規劃，我們幫助您組織好今天的一切，為未來做最好的準備，因為未來的你，也值得妥善安排。</p>
-          <button class="signup">
-            註冊會員
+          <router-link to="/profile" class="signup">
+            開始使用
             <span class="material-symbols-outlined">arrow_right_alt</span>
-          </button>
+          </router-link>
         </div>
       </div>
     </div>
@@ -485,7 +485,8 @@ section {
     transform: translateY(0);
   }
 
-  ._text, ._cover {
+  ._text,
+  ._cover {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;

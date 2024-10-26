@@ -47,7 +47,7 @@
 }
 
 .loader:before {
-    content: "Loading..."
+    content: "loading..."
 }
 
 @keyframes l7 {

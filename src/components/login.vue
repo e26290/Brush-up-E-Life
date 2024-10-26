@@ -1,11 +1,11 @@
 <template>
-    <h1>儀表板</h1>
-    <p>This is the 儀表板 page content.</p>
+    <h1>登入頁</h1>
+    <p>This is the profile page content.</p>
 </template>
 
 <script>
 export default {
-    name: 'dashboard',
+    name: 'login',
 }
 </script>
 <style scoped lang="scss"></style>

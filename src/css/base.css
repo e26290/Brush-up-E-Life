@@ -18,11 +18,11 @@
 
 * {
   font-family: "Inter", "Noto Sans TC", Helvetica, Arial, 微軟正黑體, sans-serif;
-  /* border: solid 1px #333; */
+  border: solid 1px #333;
   box-sizing: border-box;
   color: hsl(0, 0%, 17%);
   &::after, &::before {
-    /* border: solid 1px #333; */
+    border: solid 1px #333;
   }
 }
 

@@ -9,7 +9,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import Loading from './components/Loading.vue';
+import loading from './components/loading.vue';
 
 const isLoading = ref(true);
 const isDisappearing = ref(false);

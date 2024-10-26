@@ -1,6 +1,6 @@
 <template>
-  <h1>33333</h1>
-  <p>This is the dashboard page content.</p>
+  <h1>數位資產庫</h1>
+  <p>This is the 數位資產庫 page content.</p>
 </template>
 
 <script>

@@ -5,7 +5,7 @@ import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/Brush-up-E-Life/',
+  base: '/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
