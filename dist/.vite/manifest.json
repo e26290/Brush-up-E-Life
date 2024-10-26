@@ -1,11 +1,11 @@
 {
   "index.html": {
-    "file": "assets/index-DkkvNecW.js",
+    "file": "assets/index-V4bleEY6.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
     "css": [
-      "assets/index-CC8YjbHQ.css"
+      "assets/index-BkXCgR3u.css"
     ],
     "assets": [
       "assets/logo-BphHzsOt.svg",
@@ -26,8 +26,13 @@
       "assets/hand-l-LBAa0JtT.png",
       "assets/hand-r-ClrCr0V-.png",
       "assets/logo_f-BaVtRfIP.svg",
+      "assets/user-I82VyLwL.png",
       "assets/ctaBg-B6BQ2AwJ.png"
     ]
+  },
+  "src/assets/dashboard/user.png": {
+    "file": "assets/user-I82VyLwL.png",
+    "src": "src/assets/dashboard/user.png"
   },
   "src/assets/index/adv/ainote.png": {
     "file": "assets/ainote-DdODi5hN.png",
