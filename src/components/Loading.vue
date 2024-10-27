@@ -47,7 +47,7 @@
 }
 
 .loader:before {
-    content: "loading..."
+    content: "歡迎光臨！"
 }
 
 @keyframes l7 {

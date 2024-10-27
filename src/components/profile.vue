@@ -1,5 +1,10 @@
 <template>
-  <div id="profile">
+  <div class="loading-overlay" v-show="isLoading" :class="{ 'disappear': isDisappearing }">
+    <div class="loading-content">
+      <div class="loader"></div>
+    </div>
+  </div>
+  <div id="profile" v-show="!isLoading">
     <div class="side-menu">
       <router-link to="/profile" class="logo">
         <img src="/src/assets/logo.svg" alt="數位人生" />
@@ -27,7 +32,7 @@
       <div class="wrap__main">
         <router-view />
       </div>
-      
+
     </div>
 
     <!-- 登出確認對話框 -->
@@ -44,7 +49,7 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import profileHeader from './profile-header.vue';
 
@@ -56,6 +61,8 @@ export default {
   setup() {
     const router = useRouter();
     const showLogoutDialog = ref(false);
+    const isLoading = ref(true);
+    const isDisappearing = ref(false);
 
     const menuItems = {
       products: [
@@ -88,11 +95,27 @@ export default {
       closeLogoutDialog();
     };
 
+    // 載入動畫控制
+    onMounted(() => {
+      // 設定最小載入時間（例如 1.5 秒）
+      setTimeout(() => {
+        // 先添加消失動畫
+        isDisappearing.value = true;
+
+        // 等待動畫完成後隱藏 loading
+        setTimeout(() => {
+          isLoading.value = false;
+        }, 500); // 與 CSS 動畫時間相匹配
+      }, 1500);
+    });
+
     return {
       menuItems,
       showLogoutDialog,
       closeLogoutDialog,
-      confirmLogout
+      confirmLogout,
+      isLoading,
+      isDisappearing
     };
   }
 };
@@ -156,6 +179,7 @@ export default {
 .wrap {
   width: 100%;
   background-color: var(--natural-95);
+
   &__main {
     padding: 1.5rem;
   }
@@ -210,6 +234,58 @@ export default {
         opacity: 0.8;
       }
     }
+  }
+}
+
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--natural-95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: all 0.5s ease-in-out; // 修改為 all 以同時處理 opacity
+  
+  &.disappear {
+    opacity: 0;
+    transform: translateY(-20px); // 添加一個上移效果
+  }
+}
+
+.loading-overlay.disappear {
+  transform: translateY(-100%);
+}
+
+.loading-content {
+  text-align: center;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: fit-content;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  color: #0000;
+  background: linear-gradient(90deg, var(--blue-48) calc(50% + 0.5ch), #000 0) right/calc(200% + 1ch) 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: l7 3s infinite steps(11);
+}
+
+.loader:before {
+  content: "loading..."
+}
+
+@keyframes l7 {
+  to {
+    background-position: left
   }
 }
 </style>

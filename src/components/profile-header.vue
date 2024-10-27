@@ -86,7 +86,7 @@
 
 header {
     height: 64px;
-    padding: 0 1.5rem;
+    padding: 0rem 1.5rem;
     @include flex($j: space-between);
     border-bottom: 1px solid var(--natural-85);
 
