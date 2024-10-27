@@ -75,7 +75,7 @@ export default {
       ],
       member: [
         { name: 'profile', route: '', icon: 'person', text: '個人檔案' },
-        { name: 'settings', route: '', icon: 'settings', text: '相關設定' },
+        { name: 'settings', route: '', icon: 'settings', text: '會員設定' },
         {
           name: 'logout',
           icon: 'logout',
