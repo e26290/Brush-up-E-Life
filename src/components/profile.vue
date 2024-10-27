@@ -5,34 +5,33 @@
     </div>
   </div>
   <div id="profile" v-show="!isLoading">
-    <div class="side-menu">
+    <div class="side-menu" :class="{ 'collapsed': isCollapsed }">
       <router-link to="/profile" class="logo">
-        <img src="/src/assets/logo.svg" alt="數位人生" />
+        <img :src="isCollapsed ? '/src/assets/logo-collapsed.svg' : '/src/assets/logo.svg'" alt="數位人生" />
       </router-link>
       <nav>
-        <span class="subtitle">產品服務</span>
+        <span class="subtitle" v-show="!isCollapsed">產品服務</span>
         <router-link v-for="item in menuItems.products" :key="item.name" :to="{ name: item.route }" class="nav-item"
-          :class="{ 'active': $route.name === item.route }">
+          :class="{ 'active': $route.name === item.route }" :title="isCollapsed ? item.text : ''">
           <span class="material-symbols-outlined">{{ item.icon }}</span>
-          {{ item.text }}
+          <span class="nav-text" v-show="!isCollapsed">{{ item.text }}</span>
         </router-link>
       </nav>
       <nav>
-        <span class="subtitle">會員服務</span>
+        <span class="subtitle" v-show="!isCollapsed">會員服務</span>
         <router-link v-for="item in menuItems.member" :key="item.name" :to="item.route ? { name: item.route } : ''"
-          class="nav-item" :class="{ 'active': $route.name === item.route }"
+          class="nav-item" :class="{ 'active': $route.name === item.route }" :title="isCollapsed ? item.text : ''"
           @click="item.action ? item.action() : null">
           <span class="material-symbols-outlined">{{ item.icon }}</span>
-          {{ item.text }}
+          <span class="nav-text" v-show="!isCollapsed">{{ item.text }}</span>
         </router-link>
       </nav>
     </div>
     <div class="wrap">
-      <profileHeader />
+      <profile-header v-model:isCollapsed="isCollapsed" />
       <div class="wrap__main">
         <router-view />
       </div>
-
     </div>
 
     <!-- 登出確認對話框 -->
@@ -63,6 +62,7 @@ export default {
     const showLogoutDialog = ref(false);
     const isLoading = ref(true);
     const isDisappearing = ref(false);
+    const isCollapsed = ref(false);
 
     const menuItems = {
       products: [
@@ -115,7 +115,8 @@ export default {
       closeLogoutDialog,
       confirmLogout,
       isLoading,
-      isDisappearing
+      isDisappearing,
+      isCollapsed
     };
   }
 };
@@ -172,6 +173,33 @@ export default {
       &.active {
         background-color: var(--blue-90);
       }
+    }
+  }
+}
+
+.side-menu {
+  &.collapsed {
+    min-width: 72px;
+    max-width: 72px;
+    width: 72px;
+
+    .logo {
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+
+      img {
+        width: 32px;
+        height: 32px;
+      }
+    }
+
+    .nav-item {
+      justify-content: center;
+      padding: 0.5rem;
+      width: 40px;
+      margin: 0 auto;
+      border-radius: 8px;
     }
   }
 }
@@ -251,7 +279,7 @@ export default {
   z-index: 9999;
   opacity: 1;
   transition: all 0.5s ease-in-out; // 修改為 all 以同時處理 opacity
-  
+
   &.disappear {
     opacity: 0;
     transform: translateY(-20px); // 添加一個上移效果

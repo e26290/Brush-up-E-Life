@@ -1,8 +1,8 @@
 <template>
     <header>
         <div class="header-left">
-            <button class="collapse-btn">
-                <span class="material-symbols-outlined">menu</span>
+            <button class="collapse-btn" @click="toggleSideMenu">
+                <span class="material-symbols-outlined">{{ isCollapsed ? 'menu' : 'menu_open' }}</span>
             </button>
         </div>
 
@@ -21,13 +21,8 @@
                         <button class="text-btn" @click="markAllAsRead">全部已讀</button>
                     </div>
                     <div class="message-list">
-                        <div 
-                            v-for="message in messages" 
-                            :key="message.id" 
-                            class="message-item"
-                            :class="{ 'unread': !message.isRead }"
-                            @click="markAsRead(message.id)"
-                        >
+                        <div v-for="message in messages" :key="message.id" class="message-item"
+                            :class="{ 'unread': !message.isRead }" @click="markAsRead(message.id)">
                             <div class="message-icon" :class="message.type">
                                 <span class="material-symbols-outlined">{{ message.icon }}</span>
                             </div>
@@ -41,7 +36,7 @@
                 </div>
             </div>
 
-            <!-- 使用者按鈕 (保持不變) -->
+            <!-- 使用者按鈕 -->
             <div class="user-dropdown">
                 <button class="user-btn" @click.stop="toggleUserMenu">
                     <img src="/src/assets/dashboard/user.png" alt="user avatar" />
@@ -78,11 +73,19 @@
 </template>
 
 <script>
-import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { ref, computed } from 'vue';
 
 export default {
-    name: 'Header',
-    setup() {
+    name: 'ProfileHeader',
+    props: {
+        // 接收父組件傳入的狀態
+        isCollapsed: {
+            type: Boolean,
+            required: true
+        }
+    },
+    emits: ['update:isCollapsed'], // 定義要發出的事件
+    setup(props, { emit }) {
         const isMessageMenuOpen = ref(false);
         const isUserMenuOpen = ref(false);
 
@@ -104,15 +107,6 @@ export default {
                 title: '新功能上線',
                 text: '全新的資料分析功能已經上線，歡迎立即體驗！',
                 date: '2024/11/14',
-                isRead: false
-            },
-            {
-                id: 3,
-                type: 'announcement',
-                icon: 'campaign',
-                title: '重要更新',
-                text: '系統將於下週進行重要更新，請確保及時保存您的工作。',
-                date: '2024/11/13',
                 isRead: false
             }
         ]);
@@ -137,6 +131,11 @@ export default {
             });
         };
 
+        // 切換側邊欄
+        const toggleSideMenu = () => {
+            emit('update:isCollapsed', !props.isCollapsed);
+        };
+
         // 切換訊息選單
         const toggleMessageMenu = () => {
             isMessageMenuOpen.value = !isMessageMenuOpen.value;
@@ -153,27 +152,6 @@ export default {
             }
         };
 
-        // 點擊外部關閉選單
-        const closeMenus = (event) => {
-            const messageDropdown = document.querySelector('.message-dropdown');
-            const userDropdown = document.querySelector('.user-dropdown');
-
-            if (!messageDropdown?.contains(event.target)) {
-                isMessageMenuOpen.value = false;
-            }
-            if (!userDropdown?.contains(event.target)) {
-                isUserMenuOpen.value = false;
-            }
-        };
-
-        onMounted(() => {
-            document.addEventListener('click', closeMenus);
-        });
-
-        onUnmounted(() => {
-            document.removeEventListener('click', closeMenus);
-        });
-
         return {
             isMessageMenuOpen,
             isUserMenuOpen,
@@ -182,7 +160,8 @@ export default {
             toggleMessageMenu,
             toggleUserMenu,
             markAsRead,
-            markAllAsRead
+            markAllAsRead,
+            toggleSideMenu
         };
     }
 };
@@ -226,8 +205,10 @@ header {
             border-radius: 50%;
         }
     }
+
     .user-btn {
         border-radius: 50%;
+
         img {
             width: 2.25rem;
             height: 2.25rem;
@@ -327,29 +308,30 @@ header {
             }
         }
     }
+
     .message-icon {
-    &.announcement {
-        background-color: red;
-        // color: var(--orange-50);
+        &.announcement {
+            background-color: red;
+            // color: var(--orange-50);
+        }
+
+        &.notification {
+            background-color: green;
+            // color: var(--blue-48);
+        }
     }
 
-    &.notification {
-        background-color: green;
-        // color: var(--blue-48);
-    }
-}
+    .message-item {
+        transition: background-color 0.2s ease;
 
-.message-item {
-    transition: background-color 0.2s ease;
+        &.unread {
+            background-color: pink;
+        }
 
-    &.unread {
-        background-color: pink;
+        &:hover {
+            background-color: blue;
+        }
     }
-
-    &:hover {
-        background-color: blue;
-    }
-}
 }
 
 .user-menu {
