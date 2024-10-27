@@ -11,17 +11,27 @@
 import { ref, onMounted } from 'vue';
 import loading from './components/loading.vue';
 
-const isLoading = ref(true);
+const isLoading = ref(false);
 const isDisappearing = ref(false);
 
 onMounted(() => {
-  // 模擬加載過程
-  setTimeout(() => {
-    isDisappearing.value = true;
+  // 檢查是否是第一次訪問
+  const hasVisited = localStorage.getItem('hasVisited');
+
+  if (!hasVisited) {
+    // 第一次訪問
+    isLoading.value = true;
+
+    // 模擬加載過程
     setTimeout(() => {
-      isLoading.value = false;
-    }, 500); // 這裡的 500ms 應該與 CSS 過渡時間一致
-  }, 3000); // 秒後開始消失動畫
+      isDisappearing.value = true;
+      setTimeout(() => {
+        isLoading.value = false;
+        // 設置訪問標記
+        localStorage.setItem('hasVisited', 'true');
+      }, 500);
+    }, 3000);
+  }
 });
 </script>
 
@@ -31,12 +41,12 @@ onMounted(() => {
   min-height: 100vh;
   background-color: var(--white);
 }
- 
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s ease;
 }
- 
+
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;

@@ -106,7 +106,7 @@ export default {
         setTimeout(() => {
           isLoading.value = false;
         }, 500); // 與 CSS 動畫時間相匹配
-      }, 1500);
+      }, 2000);
     });
 
     return {
@@ -244,7 +244,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--natural-95);
+  background-color: var(--blue-48);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -271,16 +271,16 @@ export default {
   width: fit-content;
   font-weight: bold;
   font-family: monospace;
-  font-size: 30px;
+  font-size: 24px;
   color: #0000;
-  background: linear-gradient(90deg, var(--blue-48) calc(50% + 0.5ch), #000 0) right/calc(200% + 1ch) 100%;
+  background: linear-gradient(90deg, var(--white) calc(50% + 0.5ch), #000 0) right/calc(200% + 1ch) 100%;
   -webkit-background-clip: text;
   background-clip: text;
-  animation: l7 3s infinite steps(11);
+  animation: l7 2s infinite steps(11);
 }
 
 .loader:before {
-  content: "loading..."
+  content: "loading"
 }
 
 @keyframes l7 {
