@@ -9,40 +9,45 @@
         <div class="header-right">
             <!-- 訊息按鈕 -->
             <div class="message-dropdown">
-                <button class="icon-btn">
+                <button class="icon-btn" @click.stop="toggleMessageMenu">
                     <span class="material-symbols-outlined">notifications</span>
-                    <div class="dot"></div>
+                    <div class="dot" v-if="hasUnreadMessages"></div>
                 </button>
 
                 <!-- 下拉選單 -->
-                <div class="dropdown-menu message-menu">
+                <div v-if="isMessageMenuOpen" class="dropdown-menu message-menu">
                     <div class="dropdown-header">
                         <h6>訊息通知</h6>
-                        <button class="text-btn">全部已讀</button>
+                        <button class="text-btn" @click="markAllAsRead">全部已讀</button>
                     </div>
                     <div class="message-list">
-                        <div class="message-item">
-                            <div class="message-icon">
-                                <span class="material-symbols-outlined">公告</span>
+                        <div 
+                            v-for="message in messages" 
+                            :key="message.id" 
+                            class="message-item"
+                            :class="{ 'unread': !message.isRead }"
+                            @click="markAsRead(message.id)"
+                        >
+                            <div class="message-icon" :class="message.type">
+                                <span class="material-symbols-outlined">{{ message.icon }}</span>
                             </div>
                             <div class="message-content">
-                                <div class="message-title">例行維修</div>
-                                <div class="message-text">預計2024/12/1-10 夜間 12:00-3:00 進行系統維修，如有不便之處，敬請見諒！</div>
-                                <div class="message-date">2024/11/15</div>
+                                <div class="message-title">{{ message.title }}</div>
+                                <div class="message-text">{{ message.text }}</div>
+                                <div class="message-date">{{ message.date }}</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 使用者按鈕 -->
+            <!-- 使用者按鈕 (保持不變) -->
             <div class="user-dropdown">
-                <button class="user-btn">
+                <button class="user-btn" @click.stop="toggleUserMenu">
                     <img src="/src/assets/dashboard/user.png" alt="user avatar" />
                 </button>
 
-                <!-- 下拉選單 -->
-                <div class="dropdown-menu user-menu">
+                <div v-if="isUserMenuOpen" class="dropdown-menu user-menu">
                     <div class="user-info">
                         <div class="info">
                             <div class="email">brushup-elife@mail.com</div>
@@ -73,10 +78,112 @@
 </template>
 
 <script>
-export default {
-    name: 'profile',
-    setup() {
+import { ref, computed, onMounted, onUnmounted } from 'vue';
 
+export default {
+    name: 'Header',
+    setup() {
+        const isMessageMenuOpen = ref(false);
+        const isUserMenuOpen = ref(false);
+
+        // 訊息資料
+        const messages = ref([
+            {
+                id: 1,
+                type: 'announcement',
+                icon: 'campaign',
+                title: '例行維修',
+                text: '預計2024/12/1-10 夜間 12:00-3:00 進行系統維修，如有不便之處，敬請見諒！',
+                date: '2024/11/15',
+                isRead: false
+            },
+            {
+                id: 2,
+                type: 'notification',
+                icon: 'notifications',
+                title: '新功能上線',
+                text: '全新的資料分析功能已經上線，歡迎立即體驗！',
+                date: '2024/11/14',
+                isRead: false
+            },
+            {
+                id: 3,
+                type: 'announcement',
+                icon: 'campaign',
+                title: '重要更新',
+                text: '系統將於下週進行重要更新，請確保及時保存您的工作。',
+                date: '2024/11/13',
+                isRead: false
+            }
+        ]);
+
+        // 計算是否有未讀訊息
+        const hasUnreadMessages = computed(() => {
+            return messages.value.some(message => !message.isRead);
+        });
+
+        // 標記單一訊息為已讀
+        const markAsRead = (messageId) => {
+            const message = messages.value.find(m => m.id === messageId);
+            if (message) {
+                message.isRead = true;
+            }
+        };
+
+        // 標記所有訊息為已讀
+        const markAllAsRead = () => {
+            messages.value.forEach(message => {
+                message.isRead = true;
+            });
+        };
+
+        // 切換訊息選單
+        const toggleMessageMenu = () => {
+            isMessageMenuOpen.value = !isMessageMenuOpen.value;
+            if (isMessageMenuOpen.value) {
+                isUserMenuOpen.value = false;
+            }
+        };
+
+        // 切換使用者選單
+        const toggleUserMenu = () => {
+            isUserMenuOpen.value = !isUserMenuOpen.value;
+            if (isUserMenuOpen.value) {
+                isMessageMenuOpen.value = false;
+            }
+        };
+
+        // 點擊外部關閉選單
+        const closeMenus = (event) => {
+            const messageDropdown = document.querySelector('.message-dropdown');
+            const userDropdown = document.querySelector('.user-dropdown');
+
+            if (!messageDropdown?.contains(event.target)) {
+                isMessageMenuOpen.value = false;
+            }
+            if (!userDropdown?.contains(event.target)) {
+                isUserMenuOpen.value = false;
+            }
+        };
+
+        onMounted(() => {
+            document.addEventListener('click', closeMenus);
+        });
+
+        onUnmounted(() => {
+            document.removeEventListener('click', closeMenus);
+        });
+
+        return {
+            isMessageMenuOpen,
+            isUserMenuOpen,
+            messages,
+            hasUnreadMessages,
+            toggleMessageMenu,
+            toggleUserMenu,
+            markAsRead,
+            markAllAsRead
+        };
     }
 };
 </script>
@@ -220,6 +327,29 @@ header {
             }
         }
     }
+    .message-icon {
+    &.announcement {
+        background-color: red;
+        // color: var(--orange-50);
+    }
+
+    &.notification {
+        background-color: green;
+        // color: var(--blue-48);
+    }
+}
+
+.message-item {
+    transition: background-color 0.2s ease;
+
+    &.unread {
+        background-color: pink;
+    }
+
+    &:hover {
+        background-color: blue;
+    }
+}
 }
 
 .user-menu {
