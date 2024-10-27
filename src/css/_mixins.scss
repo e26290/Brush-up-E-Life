@@ -47,3 +47,11 @@
         color: $fontc;
     }
 }
+
+@mixin dashboard_card {
+    border: none;
+    border-radius: 1.5rem;
+    background-color: var(--white);
+    padding: 1.5rem;
+    @include flex($g:2rem, $d: column, $a: flex-start);
+}

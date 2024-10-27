@@ -269,7 +269,8 @@ export default {
   background-color: var(--natural-95);
 
   &__main {
-    padding: 1.5rem;
+    padding: 1.5rem 0.75rem;
+    height: calc(100% - 64px);
   }
 }
 
