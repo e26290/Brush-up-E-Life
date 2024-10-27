@@ -1,11 +1,11 @@
 {
   "index.html": {
-    "file": "assets/index-LeSXJ4mp.js",
+    "file": "assets/index-BURSC3ES.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
     "css": [
-      "assets/index-DFCIm3Bs.css"
+      "assets/index-29RaZTi6.css"
     ],
     "assets": [
       "assets/logo-BphHzsOt.svg",
@@ -27,8 +27,28 @@
       "assets/hand-r-ClrCr0V-.png",
       "assets/logo_f-BaVtRfIP.svg",
       "assets/user-I82VyLwL.png",
-      "assets/ctaBg-B6BQ2AwJ.png"
+      "assets/ctaBg-B6BQ2AwJ.png",
+      "assets/numBg-kH1yHS2B.svg",
+      "assets/dashboardBg-De6UdpQ6.png",
+      "assets/suicideBg-CLIkAvmI.png",
+      "assets/storyBg-q6oOYWvY.png"
     ]
+  },
+  "src/assets/dashboard/dashboardBg.png": {
+    "file": "assets/dashboardBg-De6UdpQ6.png",
+    "src": "src/assets/dashboard/dashboardBg.png"
+  },
+  "src/assets/dashboard/numBg.svg": {
+    "file": "assets/numBg-kH1yHS2B.svg",
+    "src": "src/assets/dashboard/numBg.svg"
+  },
+  "src/assets/dashboard/storyBg.png": {
+    "file": "assets/storyBg-q6oOYWvY.png",
+    "src": "src/assets/dashboard/storyBg.png"
+  },
+  "src/assets/dashboard/suicideBg.png": {
+    "file": "assets/suicideBg-CLIkAvmI.png",
+    "src": "src/assets/dashboard/suicideBg.png"
   },
   "src/assets/dashboard/user.png": {
     "file": "assets/user-I82VyLwL.png",
