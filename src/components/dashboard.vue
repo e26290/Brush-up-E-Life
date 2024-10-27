@@ -40,7 +40,32 @@
                     </div>
                     <div class="col-md-7 col-sm-12">
                         <div class="card books">
-                            <h5>離世後誰處理您的社群帳號？<br>數位資產管理入門 101</h5>
+                            <div class="carousel">
+                                <!-- 左右切換按鈕 -->
+                                <button class="carousel-btn prev" @click="prevSlide" :disabled="currentIndex === 0">
+                                    <span class="material-symbols-outlined">chevron_left</span>
+                                </button>
+                                <button class="carousel-btn next" @click="nextSlide"
+                                    :disabled="currentIndex === slides.length - 1">
+                                    <span class="material-symbols-outlined">chevron_right</span>
+                                </button>
+
+                                <!-- 輪播內容 -->
+                                <div class="carousel-container"
+                                    :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
+                                    <div v-for="(slide, index) in slides" :key="index" class="carousel-slide" :style="{
+                                        backgroundImage: `url(${slide.image})`,
+                                    }">
+                                        <h5>{{ slide.title }}</h5>
+                                    </div>
+                                </div>
+
+                                <!-- 指示點 -->
+                                <div class="carousel-indicators">
+                                    <button v-for="(slide, index) in slides" :key="index" class="indicator"
+                                        :class="{ active: currentIndex === index }" @click="goToSlide(index)"></button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -82,18 +107,57 @@
 <script>
 export default {
     name: 'dashboard',
+    data() {
+        return {
+            currentIndex: 0,
+            slides: [
+                {
+                    title: '離世後誰處理您的社群帳號？數位資產管理入門 101',
+                    image: '/src/assets/dashboard/book1.png'
+                },
+                {
+                    title: '了解遺囑與數位遺產的關係',
+                    image: '/src/assets/dashboard/book2.png'
+                },
+                {
+                    title: '如何保護您的加密貨幣資產',
+                    image: '/src/assets/dashboard/book3.png'
+                }
+                // 可以繼續添加更多輪播項目
+            ]
+        }
+    },
+    methods: {
+        nextSlide() {
+            if (this.currentIndex < this.slides.length - 1) {
+                this.currentIndex++;
+            }
+        },
+        prevSlide() {
+            if (this.currentIndex > 0) {
+                this.currentIndex--;
+            }
+        },
+        goToSlide(index) {
+            this.currentIndex = index;
+        }
+    }
 }
 </script>
 <style scoped lang="scss">
 @import "src/css/_mixins.scss";
 
-.container-fluid, .container-fluid > .row {
+.container-fluid,
+.container-fluid>.row {
     height: 100%;
 }
-.row-l, .row-r {
-    @include flex($d:column, $a: stretch, $j: start);
+
+.row-l,
+.row-r {
+    @include flex($d: column, $a: stretch, $j: start);
     flex-wrap: wrap;
 }
+
 .row-l {
     justify-content: space-between;
 }
@@ -101,6 +165,7 @@ export default {
 .card {
     @include dashboard_card;
     justify-content: start;
+
     h3,
     h5 {
         font-weight: var(--b);
@@ -137,6 +202,7 @@ export default {
         color: var(--white);
     }
 }
+
 .guide {
     height: 100%;
 }
@@ -156,11 +222,114 @@ export default {
 
 .books {
     height: 100%;
+    padding: 0; // 移除內邊距以便輪播填滿卡片
+    overflow: hidden; // 防止輪播內容溢出
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    // 輪播容器
+    &-container {
+        display: flex;
+        height: 100%;
+        transition: transform 0.5s ease;
+    }
+
+    // 輪播項目
+    &-slide {
+        min-width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+        padding: 1.5rem;
+
+        h5 {
+            // color: var(--white);
+            font-weight: var(--b);
+            position: relative;
+            z-index: 2;
+        }
+    }
+
+    // 切換按鈕
+    &-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.8);
+        border: none;
+        cursor: pointer;
+        z-index: 3;
+        display: grid;
+        place-items: center;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: white;
+        }
+
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        &.prev {
+            left: 1rem;
+        }
+
+        &.next {
+            right: 1rem;
+        }
+
+        .material-symbols-outlined {
+            font-size: 24px;
+            color: var(--blue-48);
+        }
+    }
+
+    // 指示點
+    &-indicators {
+        position: absolute;
+        bottom: 1rem;
+        left: 35%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 0.5rem;
+        z-index: 3;
+
+        .indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--natural-50);
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: all 0.3s ease;
+
+            &.active {
+                background-color: var(--blue-48);
+                transform: scale(1.2);
+            }
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.8);
+            }
+        }
+    }
 }
 
 
 .overView {
-    @include flex($d: column, $a: stretch, $j:start);
+    @include flex($d: column, $a: stretch, $j: start);
     background-color: var(--natural-90);
     height: 100%;
 }
@@ -199,6 +368,7 @@ export default {
         }
     }
 }
+
 .l2 {
     height: 370px;
 }
