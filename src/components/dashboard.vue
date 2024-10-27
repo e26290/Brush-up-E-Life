@@ -16,11 +16,7 @@
                 </div>
                 <div class="row l2">
                     <div class="col-md-7 col-sm-12">
-                        <div class="card guide">
-                            <h5>使用指南(2/8)</h5>
-
-                        </div>
-
+                        <guide />
                     </div>
                     <div class="col-md-5 col-sm-12">
                         <div class="card suicide-note">
@@ -105,8 +101,13 @@
 </template>
 
 <script>
+import guide from "./guide.vue";
+
 export default {
     name: 'dashboard',
+    components: {
+        guide,
+    },
     data() {
         return {
             currentIndex: 0,
