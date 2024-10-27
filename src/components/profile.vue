@@ -26,6 +26,20 @@
           <span class="nav-text" v-show="!isCollapsed">{{ item.text }}</span>
         </router-link>
       </nav>
+      <div class="detectAccident" v-show="!isCollapsed">
+        <h5>
+          <div class="completeness">75<b>%</b></div>
+          意外確認機制
+        </h5>
+        <span>目前尚缺 1 步驟</span>
+        <!--  -->
+        <router-link to="">
+          <div class="text-link">
+            <span>查看設定</span>
+            <span class="material-symbols-outlined">arrow_right_alt</span>
+          </div>
+        </router-link>
+      </div>
     </div>
     <div class="wrap">
       <profile-header v-model:isCollapsed="isCollapsed" />
@@ -150,10 +164,7 @@ export default {
   nav {
     @include flex($d: column, $j: start, $a: stretch, $g: 0.5rem);
     padding: 1rem;
-
-    &:nth-last-child(1) {
-      padding-top: 0;
-    }
+    padding-bottom: 0;
 
     .subtitle {
       font-size: var(--sm);
@@ -172,6 +183,55 @@ export default {
       &:hover,
       &.active {
         background-color: var(--blue-90);
+      }
+    }
+  }
+
+  .detectAccident {
+    margin: 5.5rem 1rem 1rem 1rem; 
+    padding: 3rem 1.5rem 1rem 1.5rem;
+    background-color: var(--orange-95);
+    border-radius: 1.5rem;
+    @include flex($d: column, $g: 0);
+
+    h5 {
+      position: relative;
+      text-align: center;
+      font-weight: var(--b);
+    }
+
+    .completeness {
+      position: absolute;
+      padding-bottom: 1rem;
+      bottom: 1.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 120px;
+      background-image: url(/src/assets/dashboard/numBg.svg);
+      background-size: contain;
+      background-position: center;
+      font-size: var(--md);
+      font-weight: var(--b);
+      color: var(--white);
+      @include flex($g:0.1rem);
+      b {
+        display: block;
+        color: var(--white);
+        font-size: var(--xs);
+      }
+    }
+
+    span {
+      color: var(--natural-50);
+    }
+    .text-link {
+      margin-top: 0.5rem;
+      @include flex($g: 0.25rem);
+      color: var(--natural-50);
+      &:hover span {
+        color: var(--orange-50);
+
       }
     }
   }

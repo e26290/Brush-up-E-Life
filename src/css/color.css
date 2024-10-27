@@ -12,7 +12,7 @@
     /* orange */
     /* 目前90尚未使用 */
     --orange-50: hsl(30, 90%, 50%);
-    --orange-90: hsl(30, 90%, 90%); 
+    --orange-95: hsl(30, 90%, 95%); 
 
     /* natural */
     --natural-95: hsl(200, 15%, 95%);
@@ -32,24 +32,4 @@
     --white-60: rgba(255, 255, 255, 0.6);
     --black-60: rgba(0, 0, 0, 0.6);
     --black-40: rgba(0, 0, 0, 0.4);
-
-    /* tokens */
-    --surfacd-primary: var(--blue-600);
-    --surfacd-secondary: var(--orange-500);
-    
-    --syrtem-wrong: var(--red-500);
-    --syrtem-success: var(--green-500);
-
-    --text-primary: var(--black);
-    --text-secondary: var(--natural-700);
-
-    --border: var(--natural-300);
-
-    --chart-blue: var(--blue-400);
-    --chart-orange: var(--orange-400);
-    --chart-green: #0BEEAF;
-    --chart-red: #F9998F;
-    --chart-purple: #B48AE5;
-    --chart-sky: #16DEF9;
-    --chart-grey: #8C8C8C;
 }
