@@ -21,14 +21,14 @@
                         <p>{{ item.description }}</p>
                     </div>
                     <div class="item-info">
-                        <span class="date">
-                            {{ formatDate(item.date) }}
-                        </span>
-                        <div class="menu-dropdown" v-click-outside="closeMenu">
-                            <button class="menu-btn" @click="toggleMenu(item.id)">
+                        <span class="date">{{ formatDate(item.date) }}</span>
+                        <div class="menu-dropdown">
+                            <button class="menu-btn" @click.stop="toggleMenu(item.id)">
                                 <span class="material-symbols-outlined">more_vert</span>
                             </button>
-                            <div class="menu-list" v-if="activeMenu === item.id">
+                            <!-- 將 v-click-outside 移到選單上，並添加 .stop 修飾符 -->
+                            <div v-if="activeMenu === item.id" class="menu-list" v-click-outside="closeMenu"
+                                @click.stop>
                                 <button @click="handleAction('view', item)">
                                     <span class="material-symbols-outlined">visibility</span>
                                     查看
@@ -58,11 +58,13 @@
                     </div>
                     <div class="item-info">
                         <span class="date">{{ formatDate(item.date) }}</span>
-                        <div class="menu-dropdown" v-click-outside="closeMenu">
-                            <button class="menu-btn" @click="toggleMenu(item.id)">
+                        <div class="menu-dropdown">
+                            <button class="menu-btn" @click.stop="toggleMenu(item.id)">
                                 <span class="material-symbols-outlined">more_vert</span>
                             </button>
-                            <div class="menu-list" v-if="activeMenu === item.id">
+                            <!-- 將 v-click-outside 移到選單上，並添加 .stop 修飾符 -->
+                            <div v-if="activeMenu === item.id" class="menu-list" v-click-outside="closeMenu"
+                                @click.stop>
                                 <button @click="handleAction('view', item)">
                                     <span class="material-symbols-outlined">visibility</span>
                                     查看
@@ -146,7 +148,12 @@ export default {
             return `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, '0')}.${String(date.getDate()).padStart(2, '0')}`;
         },
         toggleMenu(id) {
-            this.activeMenu = this.activeMenu === id ? null : id;
+            // 如果點擊的是同一個選單，則關閉；否則打開新的選單
+            if (this.activeMenu === id) {
+                this.activeMenu = null;
+            } else {
+                this.activeMenu = id;
+            }
         },
         closeMenu() {
             this.activeMenu = null;
@@ -164,14 +171,16 @@ export default {
         clickOutside: {
             mounted(el, binding) {
                 el._clickOutside = (event) => {
-                    if (!(el === event.target || el.contains(event.target))) {
+                    // 確保點擊事件不是來自選單按鈕
+                    if (!(el === event.target || el.contains(event.target)) &&
+                        !event.target.closest('.menu-btn')) {
                         binding.value(event);
                     }
                 };
-                document.addEventListener('click', el._clickOutside);
+                document.body.addEventListener('click', el._clickOutside);
             },
             unmounted(el) {
-                document.removeEventListener('click', el._clickOutside);
+                document.body.removeEventListener('click', el._clickOutside);
             }
         }
     }
@@ -203,7 +212,7 @@ export default {
 
 .tab-controls {
     @include flex($g: 0.5rem, $j: flex-start);
-    padding-bottom: 0.5rem;
+    // padding-bottom: 0.5rem;
     margin-bottom: 0.5rem;
     border-bottom: solid 1px var(--natural-85);
 
@@ -213,8 +222,8 @@ export default {
         background: none;
         color: var(--natural-30);
         cursor: pointer;
-        border-radius: 1000px;
-        font-size: var(--sm);
+        // border-radius: 1000px;
+        // font-size: var(--sm);
         transition: all 0.3s ease;
 
         &:hover {
@@ -224,6 +233,8 @@ export default {
         &.active {
             background-color: var(--blue-95);
             color: var(--blue-48);
+            border-bottom: 2px solid var(--blue-48);
+            font-weight: var(--b);
         }
     }
 }
@@ -317,6 +328,8 @@ export default {
         border-radius: 0.5rem;
         cursor: pointer;
         color: var(--natural-30);
+        position: relative; // 添加相對定位
+        z-index: 11; // 確保按鈕在選單之上
 
         &:hover {
             background-color: var(--natural-95);
@@ -325,14 +338,14 @@ export default {
 
     .menu-list {
         position: absolute;
-        top: 100%;
+        top: calc(100% + 4px); // 稍微調整位置
         right: 0;
         background-color: var(--white);
         border-radius: 0.5rem;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         padding: 0.5rem;
         min-width: 120px;
-        z-index: 10;
+        z-index: 999;
 
         button {
             @include flex($g: 0.5rem);
@@ -364,15 +377,6 @@ export default {
     span {
         color: var(--natural-50);
     }
-
-    // align-self: center;
-
-    // border: none;
-    // background-color: var(--natural-95);
-    // color: var(--natural-30);
-    // border-radius: 0.5rem;
-    // cursor: pointer;
-    // margin-top: 0.5rem;
 
     &:hover {
         color: var(--blue-48);
