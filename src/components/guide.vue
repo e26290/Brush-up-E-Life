@@ -148,6 +148,7 @@ export default {
     gap: 1.5rem;
     overflow: hidden;
     position: relative; // 添加相對定位
+    min-height: 400px;
 }
 
 .guide-header {
@@ -202,7 +203,7 @@ export default {
 }
 
 .guide-slide {
-    flex: 0 0 35%; // 使用 flex-shrink: 0 防止壓縮
+    flex: 0 0 50%; // 使用 flex-shrink: 0 防止壓縮
     padding: 1.5rem;
     background-color: var(--blue-90);
     border-radius: 1rem;
