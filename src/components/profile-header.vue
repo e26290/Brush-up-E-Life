@@ -63,7 +63,7 @@
                         </a>
                         <button class="menu-item">
                             <span class="material-symbols-outlined">logout</span>
-                            登出
+                            會員登出
                         </button>
                     </div>
                 </div>
@@ -220,9 +220,10 @@ header {
 
 // 下拉選單樣式
 .dropdown-menu {
+    border: none;
     position: absolute;
     top: 100%;
-    right: 1rem;
+    right: -1rem;
     display: block;
     background-color: var(--white);
     border-radius: 0.5rem;
@@ -237,14 +238,15 @@ header {
         padding: 1rem;
         border-bottom: 1px solid var(--natural-90);
 
-        h3 {
-            font-weight: var(--m);
+        h6 {
+            margin: 0;
         }
 
         .text-btn {
             color: var(--blue-48);
             background: none;
-            cursor: pointer;
+            width: auto;
+            height: auto;
 
             &:hover {
                 text-decoration: underline;
@@ -278,13 +280,11 @@ header {
             @include flex($j: center);
 
             &.announcement {
-                background-color: var(--orange-95);
-                color: var(--orange-50);
+                background-color: var(--white);
             }
 
             &.notification {
-                background-color: var(--blue-95);
-                color: var(--blue-48);
+                background-color: var(--white);
             }
         }
 
@@ -312,12 +312,10 @@ header {
     .message-icon {
         &.announcement {
             background-color: red;
-            // color: var(--orange-50);
         }
 
         &.notification {
             background-color: green;
-            // color: var(--blue-48);
         }
     }
 
@@ -325,11 +323,11 @@ header {
         transition: background-color 0.2s ease;
 
         &.unread {
-            background-color: pink;
+            background-color: var(--blue-90);
         }
 
         &:hover {
-            background-color: blue;
+            filter: brightness(95%);
         }
     }
 }

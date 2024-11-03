@@ -12,8 +12,8 @@
             </div>
         </div>
 
-        <!-- <div class="guide-carousel">
-            <div class="guide-container" :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
+        <div class="guide-carousel">
+            <div class="guide-container" :style="{ transform: `translateX(-${currentIndex * 30}%)` }">
                 <div v-for="(slide, index) in guideSlides" :key="index" class="guide-slide"
                     :class="{ 'completed': slide.isCompleted }">
                     <div class="guide-content">
@@ -31,7 +31,7 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
     </div>
 </template>
 
@@ -191,6 +191,7 @@ export default {
 .guide-carousel {
     flex: 1;
     overflow: hidden;
+    width: 100%;
 }
 
 .guide-container {
@@ -200,9 +201,9 @@ export default {
 }
 
 .guide-slide {
-    min-width: 30%;
+    min-width: 35%;
     // width: 160px;
-    height: 100%;
+    // height: 100%;
     background-color: var(--blue-90);
     border-radius: 1rem;
     padding: 1.5rem;
