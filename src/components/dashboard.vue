@@ -80,10 +80,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="recent">
-                    <h5>最近新增</h5>
-
-                </div>
+                <recent />
             </div>
         </div>
     </div>
@@ -91,11 +88,13 @@
 
 <script>
 import guide from "./guide.vue";
+import recent from "./recent.vue";
 
 export default {
     name: 'dashboard',
     components: {
         guide,
+        recent,
     },
     data() {
         return {
