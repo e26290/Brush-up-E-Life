@@ -12,7 +12,7 @@
             </div>
         </div>
 
-        <div class="guide-carousel">
+        <!-- <div class="guide-carousel">
             <div class="guide-container" :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
                 <div v-for="(slide, index) in guideSlides" :key="index" class="guide-slide"
                     :class="{ 'completed': slide.isCompleted }">
@@ -31,7 +31,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -48,48 +48,48 @@ export default {
                     description: '完善您的基本資料，讓我們更了解您。',
                     isCompleted: true
                 },
-                // {
-                //     icon: 'group',
-                //     title: '新增聯絡人',
-                //     description: '添加您信任的聯絡人，作為數位資產的繼承人。',
-                //     isCompleted: true
-                // },
-                // {
-                //     icon: 'account_balance',
-                //     title: '數位資產盤點',
-                //     description: '盤點您的數位資產，確保重要資產都被妥善處理。',
-                //     isCompleted: false
-                // },
-                // {
-                //     icon: 'support_agent',
-                //     title: '指定數位遺囑執行人',
-                //     description: '選擇一位值得信任的人作為您的數位遺囑執行人。',
-                //     isCompleted: false
-                // },
-                // {
-                //     icon: 'description',
-                //     title: '建立數位遺囑',
-                //     description: '撰寫您的數位遺囑，讓資產規劃更有保障。',
-                //     isCompleted: false
-                // },
-                // {
-                //     icon: 'history_edu',
-                //     title: '記錄生活故事',
-                //     description: '分享您的生活點滴，留下珍貴的回憶。',
-                //     isCompleted: false
-                // },
-                // {
-                //     icon: 'favorite',
-                //     title: '製作時間囊',
-                //     description: '為摯愛準備專屬的時間囊，傳遞您的心意。',
-                //     isCompleted: false
-                // },
-                // {
-                //     icon: 'verified',
-                //     title: '完成設定',
-                //     description: '檢查並確認所有設定都已完成。',
-                //     isCompleted: false
-                // }
+                {
+                    icon: 'group',
+                    title: '新增聯絡人',
+                    description: '添加您信任的聯絡人，作為數位資產的繼承人。',
+                    isCompleted: true
+                },
+                {
+                    icon: 'account_balance',
+                    title: '數位資產盤點',
+                    description: '盤點您的數位資產，確保重要資產都被妥善處理。',
+                    isCompleted: false
+                },
+                {
+                    icon: 'support_agent',
+                    title: '指定數位遺囑執行人',
+                    description: '選擇一位值得信任的人作為您的數位遺囑執行人。',
+                    isCompleted: false
+                },
+                {
+                    icon: 'description',
+                    title: '建立數位遺囑',
+                    description: '撰寫您的數位遺囑，讓資產規劃更有保障。',
+                    isCompleted: false
+                },
+                {
+                    icon: 'history_edu',
+                    title: '記錄生活故事',
+                    description: '分享您的生活點滴，留下珍貴的回憶。',
+                    isCompleted: false
+                },
+                {
+                    icon: 'favorite',
+                    title: '製作時間囊',
+                    description: '為摯愛準備專屬的時間囊，傳遞您的心意。',
+                    isCompleted: false
+                },
+                {
+                    icon: 'verified',
+                    title: '完成設定',
+                    description: '檢查並確認所有設定都已完成。',
+                    isCompleted: false
+                }
             ]
         }
     },
@@ -194,8 +194,8 @@ export default {
 }
 
 .guide-container {
-    // display: flex;
-    height: 100%;
+    display: flex;
+    // height: 100%;
     transition: transform 0.5s ease;
 }
 

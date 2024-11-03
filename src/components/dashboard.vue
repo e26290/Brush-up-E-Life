@@ -1,99 +1,88 @@
 <template>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-7 col-sm-12 row-l">
-                <div class="col-12">
-                    <div class="card dash">
-                        <h3>
-                            <div class="icon">
-                                <span class="material-symbols-outlined">dashboard</span>
-                            </div>
-                            儀表板
-                        </h3>
-                        <span>歡迎回來，Carol！讓我們繼續<br>組織今天，準備明天！</span>
-                    </div>
-
-                </div>
-                <div class="row l2">
-                    <div class="col-md-7 col-sm-12">
-                        <guide />
-                    </div>
-                    <div class="col-md-5 col-sm-12">
-                        <div class="card suicide-note">
-                            <h5>早計劃免紛爭，<br>立即建立數位遺囑！</h5>
-                            <span>我們的 AI 技術簡化撰寫流程，引導您輕鬆完成訂立數位遺囑，讓遺產規劃變得簡潔有力。</span>
-                            <router-link to="" class="create">去建立</router-link>
+        <!-- 儀表板左 -->
+        <div class="dashboard-l">
+            <div class="left-item left1">
+                <div class="card dash">
+                    <h3>
+                        <div class="icon">
+                            <span class="material-symbols-outlined">dashboard</span>
                         </div>
-                    </div>
+                        儀表板
+                    </h3>
+                    <span>歡迎回來，Carol！讓我們繼續<br>組織今天，準備明天！</span>
                 </div>
-                <div class="row">
-                    <div class="col-md-5 col-sm-12">
-                        <div class="card story">
-                            <h5>紀錄您的生活故事</h5>
-                            <span>為您的親友製作時間囊、寫下重要回憶或更多...</span>
-                            <router-link to="" class="create">去建立</router-link>
-                        </div>
-                    </div>
-                    <div class="col-md-7 col-sm-12">
-                        <div class="card books">
-                            <div class="carousel">
-                                <!-- 左右切換按鈕 -->
-                                <button class="carousel-btn prev" @click="prevSlide" :disabled="currentIndex === 0">
-                                    <span class="material-symbols-outlined">chevron_left</span>
-                                </button>
-                                <button class="carousel-btn next" @click="nextSlide"
-                                    :disabled="currentIndex === slides.length - 1">
-                                    <span class="material-symbols-outlined">chevron_right</span>
-                                </button>
-
-                                <!-- 輪播內容 -->
-                                <div class="carousel-container"
-                                    :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
-                                    <div v-for="(slide, index) in slides" :key="index" class="carousel-slide" :style="{
-                                        backgroundImage: `url(${slide.image})`,
-                                    }">
-                                        <h5>{{ slide.title }}</h5>
-                                    </div>
-                                </div>
-
-                                <!-- 指示點 -->
-                                <div class="carousel-indicators">
-                                    <button v-for="(slide, index) in slides" :key="index" class="indicator"
-                                        :class="{ active: currentIndex === index }" @click="goToSlide(index)"></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-            <div class="col-md-5 col-sm-12 row-r">
-                <div class="card overView">
-                    <div class="details">
-                        <div class="info">
-                            <img src="/src/assets/dashboard/user.png" alt="" class="info__img">
-                            <h3 class="info__name">Carol SU</h3>
-                            <span class="info__note">您有 1 筆未指定繼承人的數位資產！</span>
-                        </div>
-                        <div class="dataSummary">
-                            <div class="dataSummary__item">
-                                <div class="dataSummary__title">數位資產總數</div>
-                                <h3 class="dataSummary__num">1</h3>
-                            </div>
-                            <div class="dataSummary__item">
-                                <div class="dataSummary__title">進行中的資產數</div>
-                                <h3 class="dataSummary__num">1</h3>
-                            </div>
-                            <div class="dataSummary__item">
-                                <div class="dataSummary__title">聯絡人數</div>
-                                <h3 class="dataSummary__num">1</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="recent">
-                        <h5>最近新增</h5>
+            <div class="left-item left2">
+                <guide />
+                <div class="card suicide-note">
+                    <h5>早計劃免紛爭，<br>立即建立數位遺囑！</h5>
+                    <span>我們的 AI 技術簡化撰寫流程，引導您輕鬆完成訂立數位遺囑，讓遺產規劃變得簡潔有力。</span>
+                    <router-link to="" class="create">去建立</router-link>
+                </div>
+            </div>
+            <div class="left-item left3">
+                <div class="card story">
+                    <h5>紀錄您的生活故事</h5>
+                    <span>為您的親友製作時間囊、寫下重要回憶或更多...</span>
+                    <router-link to="" class="create">去建立</router-link>
+                </div>
+                <div class="card books">
+                    <div class="carousel">
+                        <!-- 左右切換按鈕 -->
+                        <button class="carousel-btn prev" @click="prevSlide" :disabled="currentIndex === 0">
+                            <span class="material-symbols-outlined">chevron_left</span>
+                        </button>
+                        <button class="carousel-btn next" @click="nextSlide"
+                            :disabled="currentIndex === slides.length - 1">
+                            <span class="material-symbols-outlined">chevron_right</span>
+                        </button>
 
+                        <!-- 輪播內容 -->
+                        <div class="carousel-container" :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
+                            <div v-for="(slide, index) in slides" :key="index" class="carousel-slide" :style="{
+                                backgroundImage: `url(${slide.image})`,
+                            }">
+                                <h5>{{ slide.title }}</h5>
+                            </div>
+                        </div>
+
+                        <!-- 指示點 -->
+                        <div class="carousel-indicators">
+                            <button v-for="(slide, index) in slides" :key="index" class="indicator"
+                                :class="{ active: currentIndex === index }" @click="goToSlide(index)"></button>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <!-- 儀表板右 -->
+        <div class="dashboard-r">
+            <div class="card overView">
+                <div class="details">
+                    <div class="info">
+                        <img src="/src/assets/dashboard/user.png" alt="" class="info__img">
+                        <h3 class="info__name">Carol SU</h3>
+                        <span class="info__note">您有 1 筆未指定繼承人的數位資產！</span>
+                    </div>
+                    <div class="dataSummary">
+                        <div class="dataSummary__item">
+                            <div class="dataSummary__title">數位資產</div>
+                            <h3 class="dataSummary__num">1</h3>
+                        </div>
+                        <div class="dataSummary__item">
+                            <div class="dataSummary__title">未完成資產</div>
+                            <h3 class="dataSummary__num">1</h3>
+                        </div>
+                        <div class="dataSummary__item">
+                            <div class="dataSummary__title">聯絡人</div>
+                            <h3 class="dataSummary__num">1</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="recent">
+                    <h5>最近新增</h5>
+
                 </div>
             </div>
         </div>
@@ -148,24 +137,51 @@ export default {
 <style scoped lang="scss">
 @import "src/css/_mixins.scss";
 
-.container-fluid,
-.container-fluid>.row {
+// .container-fluid,
+// .container-fluid>.row {
+//     height: 100%;
+// }
+.container-fluid {
+    @include flex($j: space-between, $a: stretch);
+    width: 100%;
     height: 100%;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    @include breakpoint(1023px) {
+        flex-direction: column;
+    }
 }
 
-.row-l,
-.row-r {
-    @include flex($d: column, $a: stretch, $j: start);
-    flex-wrap: wrap;
-}
-
-.row-l {
+.dashboard-l {
     justify-content: space-between;
+    width: 65%;
+}
+
+.dashboard-r {
+    width: 35%;
+    min-width: 400px
+}
+
+.dashboard-l,
+.dashboard-r {
+    @include flex($d: column, $a: stretch, $j: start);
+    flex-wrap: nowrap;
+
+    @include breakpoint(1023px) {
+        width: 100%;
+    }
 }
 
 .card {
     @include dashboard_card;
     justify-content: start;
+    width: 100%;
 
     h3,
     h5 {
@@ -204,15 +220,16 @@ export default {
     }
 }
 
-.guide {
-    height: 100%;
-}
-
 .suicide-note {
     background-image: url(/src/assets/dashboard/suicideBg.png);
     background-size: cover;
     gap: 1rem;
-    height: 100%;
+    max-width: 320px;
+
+    @include breakpoint(1200px) {
+        max-width: inherit;
+    }
+
 }
 
 .story {
@@ -223,8 +240,9 @@ export default {
 
 .books {
     height: 100%;
-    padding: 0; // 移除內邊距以便輪播填滿卡片
-    overflow: hidden; // 防止輪播內容溢出
+    padding: 0;
+    overflow: hidden;
+    min-height: 200px;
 }
 
 .carousel {
@@ -367,10 +385,26 @@ export default {
             @include flex($d: column, $g: 0);
             flex-direction: column-reverse;
         }
+
+        &__title {
+            font-size: var(--sm);
+        }
     }
 }
 
-.l2 {
-    height: 370px;
+.left-item {
+    @include flex($j: flex-start, $a: stretch);
+}
+
+.left2 {
+    flex-basis: 100%;
+}
+
+.left2,
+.left3 {
+    @include breakpoint(1200px) {
+        flex-direction: column;
+
+    }
 }
 </style>
