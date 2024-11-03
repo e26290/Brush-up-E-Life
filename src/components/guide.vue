@@ -147,6 +147,7 @@ export default {
     flex-direction: column;
     gap: 1.5rem;
     overflow: hidden;
+    position: relative; // 添加相對定位
 }
 
 .guide-header {
@@ -161,9 +162,11 @@ export default {
     }
 }
 
-.guide-controls {
-    display: flex;
-    gap: 0.5rem;
+.guide-carousel {
+    flex: 1;
+    // overflow: hidden;
+    width: 100%;
+    position: relative;
 }
 
 .guide-btn {
@@ -188,30 +191,29 @@ export default {
     }
 }
 
-.guide-carousel {
-    flex: 1;
-    overflow: hidden;
-    width: 100%;
-}
-
 .guide-container {
     display: flex;
-    // height: 100%;
+    position: absolute; // 改為絕對定位
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
     transition: transform 0.5s ease;
 }
 
 .guide-slide {
-    min-width: 35%;
-    // width: 160px;
-    // height: 100%;
+    flex: 0 0 35%; // 使用 flex-shrink: 0 防止壓縮
+    padding: 1.5rem;
     background-color: var(--blue-90);
     border-radius: 1rem;
-    padding: 1.5rem;
     margin-right: 0.75rem;
+    
+    &:last-child {
+        margin-right: 0; // 最後一個元素不需要右邊距
+    }
 
     &.completed {
         background-color: var(--natural-95);
-        // border: solid 1rem var(--natural-90);
 
         .guide-icon {
             background-color: var(--blue-90);
@@ -281,5 +283,9 @@ export default {
             opacity: 1;
         }
     }
+}
+
+.guide-controls {
+    @include flex($g:0.5rem);
 }
 </style>
