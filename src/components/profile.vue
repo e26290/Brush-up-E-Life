@@ -46,6 +46,9 @@
       <div class="wrap__main">
         <router-view />
       </div>
+      <div class="helpbtn">
+        <span class="material-symbols-outlined">question_mark</span>
+      </div>
     </div>
 
     <!-- 登出確認對話框 -->
@@ -267,6 +270,7 @@ export default {
 .wrap {
   width: 100%;
   background-color: var(--natural-95);
+  position: relative;
 
   &__main {
     padding: 1.5rem 0.75rem;
@@ -375,6 +379,21 @@ export default {
 @keyframes l7 {
   to {
     background-position: left
+  }
+}
+
+.helpbtn {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 48px;
+  height: 48px;
+  margin: 1rem;
+  border-radius: 50%;
+  background-color: var(--orange-50);
+  @include flex;
+  span {
+    color: var(--white);
   }
 }
 </style>
