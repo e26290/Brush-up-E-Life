@@ -61,7 +61,7 @@
             <div class="card overView">
                 <div class="details">
                     <div class="info">
-                        <img src="/src/assets/dashboard/user.png" alt="" class="info__img">
+                        <img src="/src/assets/dashboard/user.png" alt="user" class="info__img">
                         <h3 class="info__name">Carol SU</h3>
                         <span class="info__note">您有 1 筆未指定繼承人的數位資產！</span>
                     </div>
@@ -102,15 +102,15 @@ export default {
             slides: [
                 {
                     title: '離世後誰處理您的社群帳號？數位資產管理入門 101',
-                    image: '/src/assets/dashboard/book1.png'
+                    image: '/dashboard/book1.png'
                 },
                 {
                     title: '了解遺囑與數位遺產的關係',
-                    image: '/src/assets/dashboard/book2.png'
+                    image: '/dashboard/book2.png'
                 },
                 {
                     title: '如何保護您的加密貨幣資產',
-                    image: '/src/assets/dashboard/book3.png'
+                    image: '/dashboard/book3.png'
                 }
                 // 可以繼續添加更多輪播項目
             ]
@@ -144,6 +144,7 @@ export default {
     @include flex($j: space-between, $a: stretch);
     width: 100%;
     height: 100%;
+    max-height: 1000px;
     overflow-y: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;

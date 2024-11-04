@@ -14,7 +14,7 @@
             <div v-show="currentTab === 'assets'" class="tab-content">
                 <div v-for="item in assetsList" :key="item.id" class="list-item">
                     <div class="item-icon" :class="item.type">
-                        <img :src="`/src/assets/dashboard/icons/${item.type}.svg`" :alt="item.type">
+                        <img :src="`/dashboard/icons/${item.type}.svg`" :alt="item.type">
                     </div>
                     <div class="item-content">
                         <h6>{{ item.title }}</h6>
