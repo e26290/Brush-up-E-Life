@@ -7,7 +7,7 @@
   <div id="profile" v-show="!isLoading">
     <div class="side-menu" :class="{ 'collapsed': isCollapsed }">
       <router-link to="/profile" class="logo">
-        <img :src="isCollapsed ? '/src/assets/logo-collapsed.svg' : '/src/assets/logo.svg'" alt="數位人生" />
+        <img :src="isCollapsed ? './src/assets/logo-collapsed.svg' : './src/assets/logo.svg'" alt="數位人生" />
       </router-link>
       <nav>
         <span class="subtitle" v-show="!isCollapsed">產品服務</span>

@@ -13,7 +13,7 @@
         </div>
 
         <div class="guide-carousel">
-            <div class="guide-container" :style="{ transform: `translateX(-${currentIndex * 30}%)` }">
+            <div class="guide-container" :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
                 <div v-for="(slide, index) in guideSlides" :key="index" class="guide-slide"
                     :class="{ 'completed': slide.isCompleted }">
                     <div class="guide-content">
