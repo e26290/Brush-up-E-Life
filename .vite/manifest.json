@@ -1,11 +1,11 @@
 {
   "index.html": {
-    "file": "assets/index-D1qrLxSg.js",
+    "file": "assets/index-D0k93il3.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
     "css": [
-      "assets/index-Bz_MOdtw.css"
+      "assets/index-DW6t6mXT.css"
     ],
     "assets": [
       "assets/logo-BphHzsOt.svg",
@@ -26,8 +26,10 @@
       "assets/hand-l-LBAa0JtT.png",
       "assets/hand-r-ClrCr0V-.png",
       "assets/logo_f-BaVtRfIP.svg",
+      "assets/example-DuahUPAX.jpg",
       "assets/user-I82VyLwL.png",
       "assets/ctaBg-B6BQ2AwJ.png",
+      "assets/bg-DdB7YQIg.png",
       "assets/numBg-kH1yHS2B.svg",
       "assets/dashboardBg-De6UdpQ6.png",
       "assets/suicideBg-CLIkAvmI.png",
@@ -121,6 +123,14 @@
   "src/assets/index/solution/solutionBg.png": {
     "file": "assets/solutionBg-Dwfz1WVQ.png",
     "src": "src/assets/index/solution/solutionBg.png"
+  },
+  "src/assets/login/bg.png": {
+    "file": "assets/bg-DdB7YQIg.png",
+    "src": "src/assets/login/bg.png"
+  },
+  "src/assets/login/example.jpg": {
+    "file": "assets/example-DuahUPAX.jpg",
+    "src": "src/assets/login/example.jpg"
   },
   "src/assets/logo.svg": {
     "file": "assets/logo-BphHzsOt.svg",
