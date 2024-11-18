@@ -2,28 +2,30 @@
     <div class="w-full tableBg">
         <table class="w-full">
             <thead>
-                <tr class="border-b">
-                    <th class="px-4 py-3 text-left">資產名稱</th>
-                    <th class="px-4 py-3 text-left">類別</th>
-                    <th class="px-4 py-3 text-left">繼承人</th>
-                    <th class="px-4 py-3 text-left">資產處理</th>
-                    <th class="px-4 py-3 text-left">附件</th>
-                    <th class="px-4 py-3 text-left">狀態</th>
-                    <th class="px-4 py-3 text-left">上傳時間</th>
-                    <th class="px-4 py-3"></th>
+                <tr class="border-b ">
+                    <!-- 設置固定寬度 -->
+                    <th class="px-4 py-3 text-left w-1/2">資產名稱</th>
+                    <th class="px-4 py-3 text-left w-24">類別</th>
+                    <th class="px-4 py-3 text-left w-32">繼承人</th>
+                    <th class="px-4 py-3 text-left w-24">資產處理</th>
+                    <th class="px-4 py-3 text-left w-24">附件</th>
+                    <th class="px-4 py-3 text-left w-24">狀態</th>
+                    <th class="px-4 py-3 text-left w-32">上傳時間</th>
+                    <th class="px-4 py-3 w-16"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="item in tableData" :key="item.id" class="border-b hover:bg-gray-50">
-                    <td class="px-4 py-3">
-                        <div class="flex items-center">
-                            <div class="w-8 h-8 rounded-full flex items-center justify-center mr-3"
-                                :class="getIconClass(item.icon)">
-                                <span class="text-lg">{{ item.icon.charAt(0).toUpperCase() }}</span>
+                    <!-- 對應的 td 也要設置相同的寬度 -->
+                    <td class="px-4 py-3 w-1/2">
+                        <div class="dataName">
+                            <div class="w-8 h-8 rounded-full flex items-center justify-center mr-3 overflow-hidden">
+                                <img :src="item.icon" :alt="item.name" class="w-full h-full object-cover">
                             </div>
                             <span>{{ item.name }}</span>
                         </div>
                     </td>
+                    <!-- 其他列保持不變 -->
                     <td class="px-4 py-3">
                         <div class="flex items-center">
                             <div class="w-2 h-2 rounded-full mr-2" :style="{ backgroundColor: item.type.color }"></div>
@@ -53,8 +55,8 @@
 
                         <!-- 下拉選單 -->
                         <div v-if="activeMenu === item.id"
-                            class="absolute right-0 mt-2 w-36 bg-white rounded-md shadow-lg z-50">
-                            <div class="py-1">
+                            class="dropdown mt-2 w-36 bg-white rounded-md shadow-lg z-50">
+                            <div class="py-1 items">
                                 <button @click="handleAction('view', item)"
                                     class="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 flex items-center">
                                     <eye class="w-4 h-4 mr-2" />
@@ -94,7 +96,7 @@ import {
 const tableData = ref([
     {
         id: 1,
-        icon: 'facebook',
+        icon: '/dashboard/socialIcon/FB.svg',
         name: '個人帳號',
         type: { label: '社交平台', color: '#FFB7B7' },
         owner: 'Rabby Xiao',
@@ -105,7 +107,7 @@ const tableData = ref([
     },
     {
         id: 2,
-        icon: 'line',
+        icon: '/dashboard/socialIcon/Line.svg',
         name: '工作用帳號',
         type: { label: '社交平台', color: '#FFB7B7' },
         owner: 'Rabby Xiao',
@@ -130,31 +132,32 @@ const handleAction = (action, item) => {
     console.log(`${action} item:`, item)
     activeMenu.value = null
 }
-
-// 取得圖標 class
-const getIconClass = (icon) => {
-    const iconMap = {
-        'facebook': 'bg-blue-600',
-        'line': 'bg-green-500',
-        'instagram': 'bg-purple-500',
-        'netflix': 'bg-red-600',
-        'dropbox': 'bg-blue-400',
-        'messenger': 'bg-blue-500',
-        'bank': 'bg-blue-700',
-        'yahoo': 'bg-purple-600',
-        'document': 'bg-gray-500'
-    }
-    return `${iconMap[icon] || 'bg-gray-400'} text-white`
-}
 </script>
 
+<style scoped lang="scss">
+@import "src/css/_mixins.scss";
 
-
-<style scoped>
 .tableBg {
     background-color: var(--blue-98);
+    border-radius: 1.5rem;
 }
+
 table {
     width: 100%;
+    .dataName {
+        @include flex($j:flex-start, $g:0);
+    }
+}
+thead th {
+    color: var(--natural-30);
+    font-weight: var(--m);
+}
+.dropdown {
+    position: absolute;
+    right: 120px;
+    bottom: 0;
+    .items {
+        @include flex($d: column, $g:0);
+    }
 }
 </style>
