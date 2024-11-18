@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
+    "chart.js": "^4.4.6",
     "vite-plugin-vuetify": "^2.0.4",
     "vue": "^3.4.31",
     "vue-router": "^4.4.2",
