@@ -1,11 +1,11 @@
 {
   "index.html": {
-    "file": "assets/index-D0k93il3.js",
+    "file": "assets/index-CXnV7ecX.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
     "css": [
-      "assets/index-DW6t6mXT.css"
+      "assets/index-D4EMgWL8.css"
     ],
     "assets": [
       "assets/logo-BphHzsOt.svg",
@@ -31,14 +31,19 @@
       "assets/ctaBg-B6BQ2AwJ.png",
       "assets/bg-DdB7YQIg.png",
       "assets/numBg-kH1yHS2B.svg",
-      "assets/dashboardBg-De6UdpQ6.png",
+      "assets/dashboardBg-DdPHBy4z.png",
       "assets/suicideBg-CLIkAvmI.png",
-      "assets/storyBg-q6oOYWvY.png"
+      "assets/storyBg-q6oOYWvY.png",
+      "assets/digitalAssetBg-Caw22mmo.png"
     ]
   },
   "src/assets/dashboard/dashboardBg.png": {
-    "file": "assets/dashboardBg-De6UdpQ6.png",
+    "file": "assets/dashboardBg-DdPHBy4z.png",
     "src": "src/assets/dashboard/dashboardBg.png"
+  },
+  "src/assets/dashboard/digitalAssetBg.png": {
+    "file": "assets/digitalAssetBg-Caw22mmo.png",
+    "src": "src/assets/dashboard/digitalAssetBg.png"
   },
   "src/assets/dashboard/numBg.svg": {
     "file": "assets/numBg-kH1yHS2B.svg",
