@@ -42,7 +42,7 @@
       </div>
     </div>
     <div class="wrap">
-      <profile-header v-model:isCollapsed="isCollapsed" />
+      <profileHeader v-model:isCollapsed="isCollapsed" />
       <div class="wrap__main">
         <router-view />
       </div>

@@ -173,7 +173,6 @@ export default {
             white-space: nowrap;
         }
         h6 {
-            margin: 0;
             font-weight: var(--b);
         }
         span {

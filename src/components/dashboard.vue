@@ -136,10 +136,6 @@ export default {
 <style scoped lang="scss">
 @import "src/css/_mixins.scss";
 
-// .container-fluid,
-// .container-fluid>.row {
-//     height: 100%;
-// }
 .container-fluid {
     @include flex($j: space-between, $a: stretch);
     width: 100%;
@@ -235,6 +231,7 @@ export default {
 .story {
     background-image: url(/src/assets/dashboard/storyBg.png);
     background-size: cover;
+    background-position: center;
     gap: 1rem;
 }
 
@@ -242,7 +239,10 @@ export default {
     height: 100%;
     padding: 0;
     overflow: hidden;
-    min-height: 200px;
+    @include breakpoint(1200px) {
+        min-height: 200px;
+
+    }
 }
 
 .carousel {

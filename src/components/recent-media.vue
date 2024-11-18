@@ -1,6 +1,6 @@
 <template>
     <div class="recent">
-        <h5>最近新增</h5>
+        <h4>數位資產一覽</h4>
 
         <!-- tab 切換表單 -->
         <div class="recent__content">
@@ -11,7 +11,7 @@
                 </button>
             </div>
             <!-- 數位資產 -->
-            <div v-show="currentTab === 'assets'" class="tab-content">
+            <div v-show="currentTab === 'alldata'" class="tab-content">
                 <div v-for="item in assetsList" :key="item.id" class="list-item">
                     <div class="item-icon" :class="item.type">
                         <img :src="`/dashboard/icons/${item.type}.svg`" :alt="item.type">
@@ -41,10 +41,6 @@
                         </div>
                     </div>
                 </div>
-                <button class="view-more">
-                    查看更多
-                    <span class="material-symbols-outlined">arrow_right_alt</span>
-                </button>
             </div>
             <!-- 聯絡人 -->
             <div v-show="currentTab === 'contacts'" class="tab-content">
@@ -91,11 +87,12 @@ export default {
     name: 'DashboardRecent',
     data() {
         return {
-            currentTab: 'assets',
+            currentTab: 'alldata',
             activeMenu: null,
             tabs: [
-                { id: 'assets', name: '數位資產' },
-                { id: 'contacts', name: '聯絡人' }
+                { id: 'alldata', name: '全部一覽' },
+                { id: 'contacts', name: '社交平台' },
+
             ],
             assetsList: [
                 {
@@ -192,8 +189,9 @@ export default {
 
 .recent {
     padding-top: 1rem;
+    width: 100%;
     // border-top: 1px solid var(--natural-85);
-    h5 {
+    h4 {
         margin-bottom: 1rem;
     }
 }
@@ -201,7 +199,7 @@ export default {
 .recent__content {
     background-color: var(--white);
     border-radius: 1.5rem;
-    padding: 1rem;
+    // padding: 1rem;
 }
 
 .tab-controls {

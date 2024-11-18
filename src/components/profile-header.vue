@@ -233,14 +233,11 @@ header {
 }
 
 .message-menu {
+    min-width: 360px;
     .dropdown-header {
         @include flex($j: space-between);
-        padding: 1rem;
+        padding: 0.75rem 1rem;
         border-bottom: 1px solid var(--natural-90);
-
-        h6 {
-            margin: 0;
-        }
 
         .text-btn {
             color: var(--blue-48);

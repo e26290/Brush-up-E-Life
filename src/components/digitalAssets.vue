@@ -1,11 +1,190 @@
 <template>
-  <h1>數位資產庫</h1>
-  <p>This is the 數位資產庫 page content.</p>
+  <div class="container-fluid">
+    <!-- 內容上半部 -->
+    <div class="content-top">
+      <!-- 儀表板左 -->
+      <div class="content-top-l">
+        <div class="card dash">
+          <h3>
+            <div class="icon">
+              <span class="material-symbols-outlined">account_balance</span>
+            </div>
+            數位資產庫
+          </h3>
+          <span>讓數位人生協助您，管理您的數位資產，無須煩惱，<br>只要照著我們的預設清單逐步填寫，既簡單又免費！</span>
+          <router-link to="" class="create">新增資產</router-link>
+        </div>
+        <guideMedia />
+      </div>
+      <!-- 儀表板右 -->
+      <div class="content-top-r">
+        <div class="card overView">
+          <h4>數位資產概覽</h4>
+          <!-- 圖表 -->
+          <pieChart />
+          <!-- 數據資料 -->
+          <div class="dataSummary">
+            <div class="dataSummary__item">
+              <div class="dataSummary__title">進行中資產</div>
+              <h3 class="dataSummary__num">1</h3>
+            </div>
+            <div class="dataSummary__item">
+              <div class="dataSummary__title">未指定繼承人</div>
+              <h3 class="dataSummary__num">1</h3>
+            </div>
+            <div class="dataSummary__item">
+              <div class="dataSummary__title">未設定處理方式</div>
+              <h3 class="dataSummary__num">1</h3>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- 內容下半部 -->
+    <div class="content-bottom">
+      <div class="card">
+        <recentMedia />
+      </div>
+    </div>
+
+  </div>
+
 </template>
 
 <script>
+import guideMedia from "./guide-media.vue";
+import recentMedia from "./recent-media.vue";
+import pieChart from "./pieChart.vue";
+
 export default {
   name: 'digitalAssets',
+  components: {
+    guideMedia,
+    recentMedia,
+    pieChart,
+  },
+  data() {
+
+  }
 }
 </script>
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+@import "src/css/_mixins.scss";
+
+.container-fluid {
+  @include flex($j: flex-start, $a: stretch, $d: column);
+  width: 100%;
+  height: 100%;
+  max-height: 1000px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include breakpoint(1023px) {
+    flex-direction: column;
+  }
+}
+
+.content-top {
+  @include flex($j: space-between, $a: stretch);
+  width: 100%;
+
+  .content-top-l {
+    justify-content: space-between;
+    width: 65%;
+  }
+
+  .content-top-r {
+    width: 35%;
+    min-width: 400px
+  }
+
+  .content-top-l,
+  .content-top-r {
+    @include flex($d: column, $a: stretch, $j: start);
+    flex-wrap: nowrap;
+
+    @include breakpoint(1023px) {
+      width: 100%;
+    }
+  }
+}
+
+.card {
+  @include dashboard_card;
+  justify-content: start;
+  width: 100%;
+
+  h3,
+  h5 {
+    font-weight: var(--b);
+  }
+}
+
+.dash {
+  background-image: url(/src/assets/dashboard/digitalAssetBg.png);
+  background-size: cover;
+  color: var(--white);
+
+  h3 {
+    @include flex($g: 0.75rem);
+  }
+
+  .icon {
+    background-color: var(--white);
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.5rem;
+    display: grid;
+    place-items: center;
+
+    span {
+      color: var(--blue-30);
+    }
+  }
+
+  span {
+    color: var(--white);
+  }
+}
+
+.create {
+  @include button(var(--blue-30), var(--white));
+}
+
+.overView {
+  @include flex($d: column, $a: stretch, $j: start);
+  height: 100%;
+
+  .dataSummary {
+    @include flex($g: 0.75rem);
+    flex-wrap: wrap;
+    background-color: var(--natural-95);
+    border-radius: 1.5rem;
+
+    &__item {
+      padding: 1rem;
+      width: 90%;
+      @include flex($d: column, $g: 0);
+      flex-direction: column-reverse;
+    }
+
+    &__item:nth-child(-n+1) {
+      border-bottom: 1px solid var(--natural-85);
+    }
+
+    &__item:nth-child(n+2) {
+      width: 40%;
+    }
+
+    &__title {
+      font-size: var(--sm);
+    }
+  }
+}
+</style>

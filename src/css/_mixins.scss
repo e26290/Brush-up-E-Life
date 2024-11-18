@@ -15,7 +15,7 @@
 }
 
 // 文字斷行
-@mixin textOver($c:3) {
+@mixin textOver($c:4) {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -53,5 +53,5 @@
     border-radius: 1.5rem;
     background-color: var(--white);
     padding: 1.5rem;
-    @include flex($g:2rem, $d: column, $a: flex-start);
+    @include flex($g:1rem, $d: column, $a: flex-start);
 }
