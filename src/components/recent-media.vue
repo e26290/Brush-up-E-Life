@@ -12,7 +12,7 @@
             </div>
             <!-- 數位資產 -->
             <div v-show="currentTab === 'alldata'" class="tab-content">
-                <div v-for="item in assetsList" :key="item.id" class="list-item">
+                <!-- <div v-for="item in assetsList" :key="item.id" class="list-item">
                     <div class="item-icon" :class="item.type">
                         <img :src="`/dashboard/icons/${item.type}.svg`" :alt="item.type">
                     </div>
@@ -26,7 +26,6 @@
                             <button class="menu-btn" @click.stop="toggleMenu(item.id)">
                                 <span class="material-symbols-outlined">more_vert</span>
                             </button>
-                            <!-- 將 v-click-outside 移到選單上，並添加 .stop 修飾符 -->
                             <div v-if="activeMenu === item.id" class="menu-list" v-click-outside="closeMenu"
                                 @click.stop>
                                 <button @click="handleAction('view', item)">
@@ -40,11 +39,12 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
+                <datatable />
             </div>
             <!-- 聯絡人 -->
             <div v-show="currentTab === 'contacts'" class="tab-content">
-                <div v-for="item in contactsList" :key="item.id" class="list-item">
+                <!-- <div v-for="item in contactsList" :key="item.id" class="list-item">
                     <div class="item-icon contact">
                         <span class="material-symbols-outlined">person</span>
                     </div>
@@ -58,7 +58,6 @@
                             <button class="menu-btn" @click.stop="toggleMenu(item.id)">
                                 <span class="material-symbols-outlined">more_vert</span>
                             </button>
-                            <!-- 將 v-click-outside 移到選單上，並添加 .stop 修飾符 -->
                             <div v-if="activeMenu === item.id" class="menu-list" v-click-outside="closeMenu"
                                 @click.stop>
                                 <button @click="handleAction('view', item)">
@@ -72,19 +71,21 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <button class="view-more">
-                    查看更多
-                    <span class="material-symbols-outlined">arrow_right_alt</span>
-                </button>
+                </div> -->
+
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import datatable from './datatable.vue';
+
 export default {
     name: 'DashboardRecent',
+    components: {
+        datatable,
+    },
     data() {
         return {
             currentTab: 'alldata',
@@ -190,6 +191,7 @@ export default {
 .recent {
     padding-top: 1rem;
     width: 100%;
+
     // border-top: 1px solid var(--natural-85);
     h4 {
         margin-bottom: 1rem;
