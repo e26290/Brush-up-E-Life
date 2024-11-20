@@ -4,12 +4,13 @@ import login from './components/login.vue';
 import profile from './components/profile.vue';
 import dashboard from './components/dashboard.vue';
 import digitalAssets from './components/digitalAssets.vue';
-// import onBoarding from './components/onBoarding.vue';
+import onBoarding from './components/onBoarding.vue';
 
 
 const routes = [
     { path: '/', component: index },
     { path: '/login', component: login },
+    { path: '/onBoarding', component: onBoarding },
     {
         path: '/profile', component: profile,
         children: [

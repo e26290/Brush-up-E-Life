@@ -108,6 +108,24 @@ export default {
                 text: '全新的資料分析功能已經上線，歡迎立即體驗！',
                 date: '2024/11/14',
                 isRead: false
+            },
+            {
+                id: 3,
+                type: 'notification',
+                icon: 'notifications',
+                title: '邀請制活動',
+                text: '分享邀請碼，集滿 5 位可抽東京來回雙人遊～',
+                date: '2024/10/12',
+                isRead: true
+            },
+            {
+                id: 4,
+                type: 'announcement',
+                icon: 'campaign',
+                title: '系統維護',
+                text: '更換老舊伺服器，如有不便之處，敬請見諒！',
+                date: '2024/09/01',
+                isRead: true
             }
         ]);
 
@@ -258,7 +276,7 @@ header {
 
     .message-item {
         @include flex($g: 1rem);
-        padding: 1rem;
+        padding: 0.5rem 1rem;
         border-bottom: 1px solid var(--natural-95);
         cursor: pointer;
 

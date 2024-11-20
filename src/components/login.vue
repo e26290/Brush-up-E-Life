@@ -75,7 +75,7 @@ export default {
         const login = () => {
             if (username.value && password.value && captcha.value) {
                 console.log('登入成功', username.value, password.value, captcha.value, remember.value);
-                router.push('/profile');
+                router.push('/onBoarding');
             } else {
                 alert('請填寫所有必要欄位');
             }
