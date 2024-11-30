@@ -11,35 +11,36 @@
 
         <!-- 內容區域 -->
         <div class="content">
-            <h2 class="title">設定可信任的聯絡人</h2>
+            <h4 class="title">設定可信任的聯絡人</h4>
             <p class="subtitle">指定一位聯絡人，他將在您過世後有權存取您的資料，或繼承特定的數位資產。</p>
 
-            <!-- 插圖 -->
-            <div class="illustration">
-                <img src="@/assets/onBoarding/step3.jpg" alt="contact">
-            </div>
-
-            <!-- 表單 -->
-            <div class="form-container">
-                <div class="form-group">
-                    <label>
-                        聯絡人姓名
-                        <span class="required">*</span>
-                    </label>
-                    <input type="text" v-model="formData.name" placeholder="請輸入姓名">
+            <!-- 插圖＋表單 -->
+            <div class="content-items">
+                <div class="illustration">
+                    <img src="@/assets/onBoarding/step3.jpg" alt="contact">
                 </div>
+                <!-- 表單 -->
+                <div class="form-container">
+                    <div class="form-group">
+                        <label>
+                            聯絡人姓名
+                            <span class="required">*</span>
+                        </label>
+                        <input type="text" v-model="formData.name" placeholder="請輸入姓名">
+                    </div>
 
-                <div class="form-group">
-                    <label>
-                        聯絡人 Email
-                        <span class="required">*</span>
-                    </label>
-                    <input type="email" v-model="formData.email" placeholder="example@mail.com">
-                </div>
+                    <div class="form-group">
+                        <label>
+                            聯絡人 Email
+                            <span class="required">*</span>
+                        </label>
+                        <input type="email" v-model="formData.email" placeholder="example@mail.com">
+                    </div>
 
-                <div class="form-group">
-                    <label>聯絡人手機號碼</label>
-                    <input type="tel" v-model="formData.phone" placeholder="09-">
+                    <div class="form-group">
+                        <label>聯絡人手機號碼</label>
+                        <input type="tel" v-model="formData.phone" placeholder="09-">
+                    </div>
                 </div>
             </div>
 
@@ -78,11 +79,14 @@ const handleNext = () => {
 </script>
 
 <style scoped lang="scss">
+@import "src/css/_mixins.scss";
+
 .step-container {
     display: flex;
     flex-direction: column;
     height: 100%;
-    gap: 2rem;
+    width: 100%;
+    gap: 1.25rem;
 }
 
 .step-indicator {
@@ -116,24 +120,30 @@ const handleNext = () => {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.25rem;
 
     .title {
-        font-size: 1.5rem;
+        // font-size: 1.5rem;
         font-weight: bold;
-        color: #333;
+        // color: #333;
         text-align: center;
     }
 
     .subtitle {
-        color: #666;
         text-align: center;
-        max-width: 480px;
+        color: var(--natural-50);
+        margin-top: -0.75rem;
+        padding: 0;
+    }
+
+    .content-items {
+        @include flex;
+        width: 100%;
+        height: 100%;
     }
 
     .illustration {
-        width: 160px;
-        margin: 1rem 0;
+        max-width: 220px;
 
         img {
             width: 100%;
@@ -145,16 +155,15 @@ const handleNext = () => {
 .form-container {
     width: 100%;
     max-width: 480px;
-    margin: 0 auto;
+    // margin: 0 auto;
 
     .form-group {
-        margin-bottom: 1.5rem;
+        margin-bottom: 0.75rem;
 
         label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.2rem;
             font-weight: 500;
-            color: #333;
 
             .required {
                 color: #FF5252;
@@ -189,19 +198,12 @@ const handleNext = () => {
 
 .button-group {
     display: flex;
-    gap: 1rem;
-    margin-top: auto;
-    padding-top: 1rem;
+    justify-content: center;
+    gap: 1.25rem;
 
     button {
-        padding: 0.75rem 2rem;
-        border-radius: 8px;
-        font-weight: 500;
-        transition: all 0.2s;
-
         &.btn-primary {
-            background-color: #2196F3;
-            color: white;
+            @include button(var(--white), var(--blue-48));
 
             &:hover:not(:disabled) {
                 background-color: darken(#2196F3, 5%);
@@ -214,13 +216,8 @@ const handleNext = () => {
         }
 
         &.btn-secondary {
-            background-color: white;
-            color: #666;
-            border: 1px solid #E0E0E0;
-
-            &:hover {
-                background-color: #f5f5f5;
-            }
+            @include button(var(--natural-50), var(--white));
+            border: solid 1px var(--natural-50);
         }
     }
 }

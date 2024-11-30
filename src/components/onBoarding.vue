@@ -105,14 +105,14 @@ const handleComplete = async () => {
 }
 
 .modal-view {
-  width: 50%;
-  max-width: 700px;
+  width: 700px;
   height: 60%;
   max-height: 600px;
   @include dashboard_card;
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  position: relative;
+  overflow: hidden;
 }
 </style>

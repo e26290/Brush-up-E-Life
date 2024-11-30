@@ -12,7 +12,7 @@
         <!-- 內容區域 -->
         <div class="content">
             <div class="complete-content">
-                <h2 class="title">完成</h2>
+                <h4 class="title">完成</h4>
                 <p class="subtitle">萬事起頭難，恭喜你已經完成第一位聯絡人與數位資產歸屬！</p>
 
                 <!-- 完成插圖 -->
@@ -34,11 +34,14 @@ defineEmits(['complete'])
 </script>
 
 <style scoped lang="scss">
+@import "src/css/_mixins.scss";
+
 .step-container {
     display: flex;
     flex-direction: column;
     height: 100%;
-    gap: 2rem;
+    width: 100%;
+    gap: 1.25rem;
 }
 
 .step-indicator {
@@ -51,6 +54,7 @@ defineEmits(['complete'])
 
     .progress-bar {
         display: flex;
+        flex-direction: row;
         gap: 0.5rem;
 
         .progress-segment {
@@ -70,7 +74,8 @@ defineEmits(['complete'])
     flex: 1;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 .complete-content {
@@ -78,25 +83,25 @@ defineEmits(['complete'])
     flex-direction: column;
     align-items: center;
     text-align: center;
-    max-width: 480px;
+    // max-width: 480px;
+    width: 100%;
+    gap: 1.25rem;
 
     .title {
-        font-size: 1.75rem;
         font-weight: bold;
-        color: #333;
-        margin-bottom: 1rem;
+        text-align: center;
     }
 
     .subtitle {
-        color: #666;
-        font-size: 1rem;
-        line-height: 1.5;
-        margin-bottom: 2rem;
+        text-align: center;
+        color: var(--natural-50);
+        margin-top: -0.75rem;
+        padding: 0;
     }
 
     .illustration {
-        width: 240px;
-        margin-bottom: 3rem;
+        // margin-bottom: 3rem;
+        width: 120%;
 
         img {
             width: 100%;
@@ -105,21 +110,7 @@ defineEmits(['complete'])
     }
 
     .btn-primary {
-        padding: 0.875rem 2.5rem;
-        background-color: #2196F3;
-        color: white;
-        border-radius: 8px;
-        font-size: 1.125rem;
-        font-weight: 500;
-        transition: background-color 0.2s;
-
-        &:hover {
-            background-color: darken(#2196F3, 5%);
-        }
-
-        &:active {
-            transform: translateY(1px);
-        }
+        @include button(var(--white), var(--blue-48));
     }
 }
 </style>

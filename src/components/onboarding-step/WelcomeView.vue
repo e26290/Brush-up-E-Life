@@ -1,9 +1,8 @@
 <template>
+    <!-- 歡迎圖片 -->
+    <img :src="welcomeImage" alt="Welcome" class="welcome-image">
     <div class="welcome-container">
         <div class="welcome-content">
-            <!-- 歡迎圖片 -->
-            <img :src="welcomeImage" alt="Welcome" class="welcome-image">
-
             <!-- 標題區 -->
             <div class="title-section">
                 <h1 class="main-title">規劃數位人生</h1>
@@ -30,35 +29,46 @@ defineEmits(['start'])
 </script>
 
 <style scoped lang="scss">
+@import "src/css/_mixins.scss";
+
 .welcome-container {
-    height: 100%;
+    // height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    height: 100%;
 }
 
 .welcome-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
-    max-width: 480px;
-    margin: 0 auto;
+    gap: 1rem;
+    // max-width: 480px;
+    // margin: 0 auto;
     text-align: center;
+    
 }
 
 .welcome-image {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 320px;
+    // max-width: 320px;
     height: auto;
-    margin-bottom: 1rem;
+    max-height: 350px;
+    object-fit: cover;
+    // margin-bottom: 1rem;
 }
 
 .title-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 0.75rem;
 }
 
 .main-title {
@@ -69,7 +79,7 @@ defineEmits(['start'])
 
 .subtitle-wrapper {
     display: flex;
-    gap: 0.5rem;
+    // gap: 0.5rem;
     align-items: center;
 }
 
@@ -84,20 +94,6 @@ defineEmits(['start'])
 }
 
 .start-button {
-    padding: 0.75rem 3rem;
-    background-color: #2196F3;
-    color: white;
-    border-radius: 8px;
-    font-size: 1.125rem;
-    font-weight: 500;
-    transition: background-color 0.2s;
-
-    &:hover {
-        background-color: darken(#2196F3, 5%);
-    }
-
-    &:active {
-        transform: translateY(1px);
-    }
+    @include button(var(--white), var(--blue-48));
 }
 </style>

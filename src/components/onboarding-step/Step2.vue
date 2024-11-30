@@ -11,27 +11,25 @@
 
         <!-- 內容區域 -->
         <div class="content">
-            <h2 class="title">設定電子郵件檢查間隔</h2>
+            <h4 class="title">設定電子郵件檢查間隔</h4>
             <p class="subtitle">設定重複發送電子郵件的時間間隔，以確定一切正常。</p>
 
-            <!-- 插圖 -->
-            <div class="illustration">
-                <img src="@/assets/onBoarding/step2.jpg" alt="time setting">
+            <!-- 插圖＋選項 -->
+            <div class="content-items">
+                <div class="illustration">
+                    <img src="@/assets/onBoarding/step2.jpg" alt="time setting">
+                </div>
+                <div class="interval-options">
+                    <button v-for="days in [30, 45, 60, 90]" :key="days" class="interval-option"
+                        :class="{ 'selected': selectedInterval === days }" @click="selectedInterval = days">
+                        {{ days }} 天
+                    </button>
+                    <!-- 提示文字 -->
+                    <p class="hint">
+                        🖊️ 您可以在進到平台後，隨時進行修改
+                    </p>
+                </div>
             </div>
-
-            <!-- 間隔選項 -->
-            <div class="interval-options">
-                <button v-for="days in [30, 45, 60, 90]" :key="days" class="interval-option"
-                    :class="{ 'selected': selectedInterval === days }" @click="selectedInterval = days">
-                    {{ days }} 天
-                </button>
-            </div>
-
-            <!-- 提示文字 -->
-            <p class="hint">
-                <span class="hint-icon">✎</span>
-                您可以在進到平台後，隨時進行修改
-            </p>
 
             <!-- 按鈕區域 -->
             <div class="button-group">
@@ -50,11 +48,14 @@ defineEmits(['prev', 'next'])
 </script>
 
 <style scoped lang="scss">
+@import "src/css/_mixins.scss";
+
 .step-container {
     display: flex;
     flex-direction: column;
     height: 100%;
-    gap: 2rem;
+    width: 100%;
+    gap: 1.25rem;
 }
 
 .step-indicator {
@@ -88,23 +89,31 @@ defineEmits(['prev', 'next'])
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 1.25rem;
     text-align: center;
 
     .title {
-        font-size: 1.5rem;
+        // font-size: 1.5rem;
         font-weight: bold;
-        color: #333;
+        // color: #333;
     }
 
     .subtitle {
-        color: #666;
-        max-width: 480px;
+        text-align: center;
+        color: var(--natural-50);
+        margin-top: -0.75rem;
+        padding: 0;
+    }
+
+    .content-items {
+        @include flex;
+        width: 100%;
+        height: 100%;
     }
 
     .illustration {
         max-width: 200px;
-        margin: 2rem 0;
+        // margin: 2rem 0;
 
         img {
             width: 100%;
@@ -119,9 +128,10 @@ defineEmits(['prev', 'next'])
     gap: 1rem;
     width: 100%;
     max-width: 480px;
+    position: relative;
 
     .interval-option {
-        padding: 1rem;
+        padding: 1.5rem 1rem;
         border: 2px solid #E0E0E0;
         border-radius: 12px;
         font-size: 1.25rem;
@@ -146,40 +156,27 @@ defineEmits(['prev', 'next'])
     display: flex;
     align-items: center;
     gap: 0.5rem;
-
-    .hint-icon {
-        color: #999;
-    }
+    white-space: nowrap;
+    position: absolute;
+    bottom: -44px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .button-group {
     display: flex;
-    gap: 1rem;
-    margin-top: auto;
+    justify-content: center;
+    gap: 1.25rem;
+    // margin-top: auto;
 
     button {
-        padding: 0.75rem 2rem;
-        border-radius: 8px;
-        font-weight: 500;
-        transition: all 0.2s;
-
         &.btn-primary {
-            background-color: #2196F3;
-            color: white;
-
-            &:hover {
-                background-color: darken(#2196F3, 5%);
-            }
+            @include button(var(--white), var(--blue-48));
         }
 
         &.btn-secondary {
-            background-color: white;
-            color: #666;
-            border: 1px solid #E0E0E0;
-
-            &:hover {
-                background-color: #f5f5f5;
-            }
+            @include button(var(--natural-50), var(--white));
+            border: solid 1px var(--natural-50);
         }
     }
 }

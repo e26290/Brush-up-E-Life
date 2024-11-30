@@ -14,7 +14,7 @@
 
         <!-- 內容區域 -->
         <div class="content">
-            <h2 class="title">數位資產的全方位守護</h2>
+            <h4 class="title">數位資產的全方位守護</h4>
             <p class="subtitle">我們提供全面的數位資產解決方案，確保您的數位世界更安全、更有序。</p>
 
             <!-- 三個功能卡片 -->
@@ -58,11 +58,13 @@ defineEmits(['prev', 'next'])
 </script>
 
 <style scoped lang="scss">
+@import "src/css/_mixins.scss";
+
 .step-container {
     display: flex;
     flex-direction: column;
     height: 100%;
-    gap: 2rem;
+    gap: 1.25rem;
 }
 
 // 進度指示器樣式
@@ -97,20 +99,22 @@ defineEmits(['prev', 'next'])
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.25rem;
 
     .title {
-        font-size: 1.5rem;
+        // font-size: 1.5rem;
         font-weight: bold;
         text-align: center;
-        color: #333;
+        // color: #333;
     }
 
     .subtitle {
         text-align: center;
-        color: #666;
-        font-size: 1rem;
-        margin-bottom: 2rem;
+        color: var(--natural-50);
+        margin-top: -0.75rem;
+        padding: 0;
+        // font-size: 1rem;
+        // margin-bottom: 2rem;
     }
 }
 
@@ -118,33 +122,35 @@ defineEmits(['prev', 'next'])
 .features {
     display: flex;
     gap: 1.5rem;
-    margin: 1rem 0;
+    // margin: 1rem 0;
     justify-content: center;
+    align-items: flex-start;
+    height: 100%;
 
     .feature-card {
         flex: 1;
-        background-color: #F8FBFF;
-        padding: 1.5rem;
+        background-color: var(--blue-95);
+        padding: 1.25rem;
         border-radius: 12px;
         text-align: center;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
+        gap: 0.75rem;
 
         .icon-wrapper {
-            width: 64px;
-            height: 64px;
+            width: 92px;
+            height: 92px;
             background-color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1rem;
+            // margin-bottom: 1rem;
 
             img {
-                width: 32px;
-                height: 32px;
+                width: 64px;
+                height: 64px;
             }
         }
 
@@ -166,33 +172,18 @@ defineEmits(['prev', 'next'])
 .button-group {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    margin-top: auto;
-    padding-top: 2rem;
+    gap: 1.25rem;
+    // margin-top: auto;
+    // padding-top: 2rem;
 
     button {
-        padding: 0.75rem 2rem;
-        border-radius: 8px;
-        font-weight: 500;
-        transition: all 0.2s;
-
         &.btn-primary {
-            background-color: #2196F3;
-            color: white;
-
-            &:hover {
-                background-color: darken(#2196F3, 5%);
-            }
+            @include button(var(--white), var(--blue-48));
         }
 
         &.btn-secondary {
-            background-color: white;
-            color: #666;
-            border: 1px solid #E0E0E0;
-
-            &:hover {
-                background-color: #f5f5f5;
-            }
+            @include button(var(--natural-50), var(--white));
+            border: solid 1px var(--natural-50);
         }
     }
 }

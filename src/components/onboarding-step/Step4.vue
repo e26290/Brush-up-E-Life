@@ -11,7 +11,7 @@
 
         <!-- 內容區域 -->
         <div class="content">
-            <h2 class="title">建立第一筆數位資產</h2>
+            <h4 class="title">建立第一筆數位資產</h4>
             <p class="subtitle">快速地建立您的第一筆資產</p>
 
             <!-- 步驟指示器 -->
@@ -33,7 +33,7 @@
             <div v-else class="platform-info-container">
                 <!-- 平台選擇 -->
                 <div class="platform-selection">
-                    <h3>選擇平台類型</h3>
+                    <!-- <h3>選擇平台類型</h3> -->
                     <div class="platform-grid">
                         <button v-for="platform in platforms" :key="platform.id" class="platform-btn"
                             :class="{ 'selected': selectedPlatform === platform.id }"
@@ -46,7 +46,7 @@
 
                 <!-- 帳戶資訊 -->
                 <div class="account-info">
-                    <h3>帳戶資訊</h3>
+                    <!-- <h3>帳戶資訊</h3> -->
                     <div class="form-group">
                         <label>資產名稱<span class="required">*</span></label>
                         <input type="text" v-model="assetName" placeholder="為您的資產命名，例如：小明的私人 IG">
@@ -140,11 +140,14 @@ const completeAssetSetup = () => {
 </script>
 
 <style scoped lang="scss">
+@import "src/css/_mixins.scss";
+
 .step-container {
     display: flex;
     flex-direction: column;
     height: 100%;
-    gap: 2rem;
+    width: 100%;
+    gap: 1.25rem;
 }
 
 // 進度指示器樣式
@@ -179,20 +182,38 @@ const completeAssetSetup = () => {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.25rem;
 
     .title {
-        font-size: 1.5rem;
+        // font-size: 1.5rem;
         font-weight: bold;
         text-align: center;
-        color: #333;
+        // color: #333;
     }
 
     .subtitle {
         text-align: center;
-        color: #666;
-        font-size: 1rem;
-        margin-bottom: 2rem;
+        color: var(--natural-50);
+        margin-top: -0.75rem;
+        padding: 0;
+    }
+    .asset-steps {
+        @include flex($j:flex-start, $g:0.5rem);
+        .step-number-indicator {
+            background-color: var(--natural-50);
+            color: var(--white);
+            font-weight: var(--b);
+            width: 1.5rem;
+            height: 1.5rem;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+        }
+        .step-label {
+            color: var(--natural-50);
+            font-weight: var(--b);
+            font-size: var(--lg);
+        }
     }
 }
 
@@ -200,44 +221,29 @@ const completeAssetSetup = () => {
 .button-group {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    margin-top: auto;
-    padding-top: 2rem;
+    gap: 1.25rem;
 
     button {
-        padding: 0.75rem 2rem;
-        border-radius: 8px;
-        font-weight: 500;
-        transition: all 0.2s;
 
         &.btn-primary {
-            background-color: #2196F3;
-            color: white;
-
-            &:hover {
-                background-color: darken(#2196F3, 5%);
-            }
+            @include button(var(--white), var(--blue-48));
         }
 
         &.btn-secondary {
-            background-color: white;
-            color: #666;
-            border: 1px solid #E0E0E0;
-
-            &:hover {
-                background-color: #f5f5f5;
-            }
+            @include button(var(--natural-50), var(--white));
+            border: solid 1px var(--natural-50);
         }
     }
 }
 
 .platform-info-container {
     width: 100%;
-    max-width: 600px;
-    margin: 2rem 0;
+    height: 100%;
+    // max-width: 600px;
+    // margin: 2rem 0;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.25rem;
 
     h3 {
         font-size: 1.125rem;
@@ -251,13 +257,13 @@ const completeAssetSetup = () => {
     .platform-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+        gap: 0.75rem;
 
         .platform-btn {
             display: flex;
             align-items: center;
             gap: 1rem;
-            padding: 1rem;
+            padding: 0.75rem;
             border: 1px solid #E0E0E0;
             border-radius: 8px;
             background: white;
@@ -318,23 +324,25 @@ const completeAssetSetup = () => {
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     width: 100%;
-    max-width: 600px;
-    margin: 2rem 0;
+    height: 100%;
+    // max-width: 600px;
+    // margin: 2rem 0;
 
     button {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 0.5rem;
-        padding: 1rem;
+        justify-content: center;
+        // gap: 0.5rem;
+        // padding: 1rem;
         border: 1px solid #E0E0E0;
         border-radius: 12px;
         background: white;
         transition: all 0.2s;
 
         img {
-            width: 32px;
-            height: 32px;
+            width: 56px;
+            height: 56px;
         }
 
         span {
