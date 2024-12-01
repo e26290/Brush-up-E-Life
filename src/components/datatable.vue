@@ -5,12 +5,12 @@
                 <tr class="border-b ">
                     <!-- 設置固定寬度 -->
                     <th class="px-4 py-3 text-left w-1/2">資產名稱</th>
-                    <th class="px-4 py-3 text-left w-24">類別</th>
-                    <th class="px-4 py-3 text-left w-32">繼承人</th>
-                    <th class="px-4 py-3 text-left w-24">資產處理</th>
-                    <th class="px-4 py-3 text-left w-24">附件</th>
-                    <th class="px-4 py-3 text-left w-24">狀態</th>
-                    <th class="px-4 py-3 text-left w-32">上傳時間</th>
+                    <th class="px-4 py-3 text-center w-24">類別</th>
+                    <th class="px-4 py-3 text-center w-32">繼承人</th>
+                    <th class="px-4 py-3 text-center w-24">資產處理</th>
+                    <th class="px-4 py-3 text-center w-24">附件</th>
+                    <th class="px-4 py-3 text-center w-24">狀態</th>
+                    <th class="px-4 py-3 text-center w-32">上傳時間</th>
                     <th class="px-4 py-3 w-16"></th>
                 </tr>
             </thead>
@@ -26,28 +26,28 @@
                         </div>
                     </td>
                     <!-- 其他列保持不變 -->
-                    <td class="px-4 py-3">
+                    <td class="px-4 py-3 text-center">
                         <div class="flex items-center">
                             <div class="w-2 h-2 rounded-full mr-2" :style="{ backgroundColor: item.type.color }"></div>
                             {{ item.type.label }}
                         </div>
                     </td>
-                    <td class="px-4 py-3">{{ item.owner || '-' }}</td>
-                    <td class="px-4 py-3">
-                        <file-edit v-if="item.hasDoc" class="w-5 h-5 text-gray-500" />
+                    <td class="px-4 py-3 text-center">{{ item.owner || '-' }}</td>
+                    <td class="px-4 py-3 text-center">
+                        <span class="material-symbols-outlined" v-if="item.hasDoc">sticky_note_2</span>
                         <span v-else>-</span>
                     </td>
-                    <td class="px-4 py-3">
-                        <paperclip v-if="item.hasAttachment" class="w-5 h-5 text-gray-500" />
+                    <td class="px-4 py-3 text-center">
+                        <span class="material-symbols-outlined attach" v-if="item.hasAttachment">attach_file</span>
                         <span v-else>-</span>
                     </td>
-                    <td class="px-4 py-3">
+                    <td class="px-4 py-3 text-center">
                         <span class="px-3 py-1 rounded-full text-sm"
                             :class="item.status === '已完成' ? 'bg-blue-100 text-blue-800' : 'bg-gray-100 text-gray-800'">
                             {{ item.status }}
                         </span>
                     </td>
-                    <td class="px-4 py-3">{{ item.date }}</td>
+                    <td class="px-4 py-3 text-center">{{ item.date }}</td>
                     <td class="px-4 py-3 relative">
                         <button @click="toggleMenu(item.id)" class="p-1 hover:bg-gray-100 rounded">
                             <more-vertical class="w-5 h-5 text-gray-500" />
@@ -159,5 +159,8 @@ thead th {
     .items {
         @include flex($d: column, $g:0);
     }
+}
+.attach {
+    rotate: 45deg;
 }
 </style>

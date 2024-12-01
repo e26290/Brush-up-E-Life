@@ -10,69 +10,12 @@
                     {{ tab.name }}
                 </button>
             </div>
-            <!-- 數位資產 -->
+            <!-- 全部一覽 -->
             <div v-show="currentTab === 'alldata'" class="tab-content">
-                <!-- <div v-for="item in assetsList" :key="item.id" class="list-item">
-                    <div class="item-icon" :class="item.type">
-                        <img :src="`/dashboard/icons/${item.type}.svg`" :alt="item.type">
-                    </div>
-                    <div class="item-content">
-                        <h6>{{ item.title }}</h6>
-                        <p>{{ item.description }}</p>
-                    </div>
-                    <div class="item-info">
-                        <span class="date">{{ formatDate(item.date) }}</span>
-                        <div class="menu-dropdown">
-                            <button class="menu-btn" @click.stop="toggleMenu(item.id)">
-                                <span class="material-symbols-outlined">more_vert</span>
-                            </button>
-                            <div v-if="activeMenu === item.id" class="menu-list" v-click-outside="closeMenu"
-                                @click.stop>
-                                <button @click="handleAction('view', item)">
-                                    <span class="material-symbols-outlined">visibility</span>
-                                    查看
-                                </button>
-                                <button @click="handleAction('edit', item)">
-                                    <span class="material-symbols-outlined">edit</span>
-                                    編輯
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
                 <datatable />
             </div>
-            <!-- 聯絡人 -->
+            <!-- 社交平台 -->
             <div v-show="currentTab === 'contacts'" class="tab-content">
-                <!-- <div v-for="item in contactsList" :key="item.id" class="list-item">
-                    <div class="item-icon contact">
-                        <span class="material-symbols-outlined">person</span>
-                    </div>
-                    <div class="item-content">
-                        <h6>{{ item.name }}</h6>
-                        <p>{{ item.relation }}</p>
-                    </div>
-                    <div class="item-info">
-                        <span class="date">{{ formatDate(item.date) }}</span>
-                        <div class="menu-dropdown">
-                            <button class="menu-btn" @click.stop="toggleMenu(item.id)">
-                                <span class="material-symbols-outlined">more_vert</span>
-                            </button>
-                            <div v-if="activeMenu === item.id" class="menu-list" v-click-outside="closeMenu"
-                                @click.stop>
-                                <button @click="handleAction('view', item)">
-                                    <span class="material-symbols-outlined">visibility</span>
-                                    查看
-                                </button>
-                                <button @click="handleAction('edit', item)">
-                                    <span class="material-symbols-outlined">edit</span>
-                                    編輯
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-
             </div>
         </div>
     </div>
