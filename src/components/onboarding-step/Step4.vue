@@ -197,8 +197,10 @@ const completeAssetSetup = () => {
         margin-top: -0.75rem;
         padding: 0;
     }
+
     .asset-steps {
-        @include flex($j:flex-start, $g:0.5rem);
+        @include flex($j: flex-start, $g: 0.5rem);
+
         .step-number-indicator {
             background-color: var(--natural-50);
             color: var(--white);
@@ -209,6 +211,7 @@ const completeAssetSetup = () => {
             place-items: center;
             border-radius: 50%;
         }
+
         .step-label {
             color: var(--natural-50);
             font-weight: var(--b);
@@ -227,6 +230,12 @@ const completeAssetSetup = () => {
 
         &.btn-primary {
             @include button(var(--white), var(--blue-48));
+
+            &:disabled {
+                background-color: #E0E0E0;
+                cursor: not-allowed;
+                opacity: 0.5;
+            }
         }
 
         &.btn-secondary {
