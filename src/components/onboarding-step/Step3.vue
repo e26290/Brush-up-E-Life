@@ -216,8 +216,8 @@ const handleNext = () => {
         }
 
         &.btn-secondary {
-            @include button(var(--natural-50), var(--white));
             border: solid 1px var(--natural-50);
+            @include button(var(--natural-50), var(--white));
         }
     }
 }

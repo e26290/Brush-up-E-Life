@@ -86,20 +86,20 @@ const assetName = ref('')
 
 // 資產類型數據
 const assetTypes = [
-    { id: 'social', name: '社交平台', icon: '/src/assets/onBoarding/step4-icon1.svg' },
-    { id: 'cloud', name: '雲端空間', icon: '/src/assets/onBoarding/step4-icon2.svg' },
-    { id: 'bank', name: '銀行帳戶', icon: '/src/assets/onBoarding/step4-icon3.svg' },
-    { id: 'subscription', name: '訂閱服務', icon: '/src/assets/onBoarding/step4-icon4.svg' },
-    { id: 'email', name: '電子郵件', icon: '/src/assets/onBoarding/step4-icon5.svg' },
-    { id: 'crypto', name: '虛擬貨幣', icon: '/src/assets/onBoarding/step4-icon6.svg' }
+    { id: 'social', name: '社交平台', icon: '/onBoarding/step4-icon1.svg' },
+    { id: 'cloud', name: '雲端空間', icon: '/onBoarding/step4-icon2.svg' },
+    { id: 'bank', name: '銀行帳戶', icon: '/onBoarding/step4-icon3.svg' },
+    { id: 'subscription', name: '訂閱服務', icon: '/onBoarding/step4-icon4.svg' },
+    { id: 'email', name: '電子郵件', icon: '/onBoarding/step4-icon5.svg' },
+    { id: 'crypto', name: '虛擬貨幣', icon: '/onBoarding/step4-icon6.svg' }
 ]
 
 // 平台選項（這裡以社交平台為例）
 const platforms = [
-    { id: 'facebook', name: 'Facebook', icon: '/src/assets/onBoarding/step4-fb.svg' },
-    { id: 'instagram', name: 'Instagram', icon: '/src/assets/onBoarding/step4-ig.svg' },
-    { id: 'youtube', name: 'YouTube', icon: '/src/assets/onBoarding/step4-yt.svg' },
-    { id: 'line', name: 'Line', icon: '/src/assets/onBoarding/step4-line.svg' }
+    { id: 'facebook', name: 'Facebook', icon: '/onBoarding/step4-fb.svg' },
+    { id: 'instagram', name: 'Instagram', icon: '/onBoarding/step4-ig.svg' },
+    { id: 'youtube', name: 'YouTube', icon: '/onBoarding/step4-yt.svg' },
+    { id: 'line', name: 'Line', icon: '/onBoarding/step4-line.svg' }
 ]
 
 // 表單驗證
@@ -230,8 +230,8 @@ const completeAssetSetup = () => {
         }
 
         &.btn-secondary {
-            @include button(var(--natural-50), var(--white));
             border: solid 1px var(--natural-50);
+            @include button(var(--natural-50), var(--white));
         }
     }
 }
