@@ -5,14 +5,16 @@
     </div>
   </div>
   <div id="profile" v-show="!isLoading">
+    <!-- 遮罩層 -->
+    <div v-if="!isCollapsed && isMobileView" class="menu-overlay" @click="closeMenu"></div>
     <div class="side-menu" :class="{ 'collapsed': isCollapsed }">
       <router-link to="/profile" class="logo">
         <img :src="`/logo${isCollapsed ? '-collapsed' : ''}.svg`" alt="數位人生" />
       </router-link>
       <nav>
-        <span class="subtitle" v-show="!isCollapsed">產品服務</span>
-        <router-link v-for="item in menuItems.products" :key="item.name" :to="{ name: item.route }" class="nav-item"
-          :class="{ 'active': $route.name === item.route }" :title="isCollapsed ? item.text : ''">
+        <span class="subtitle" v-show="!isCollapsed">產品服務</span><router-link v-for="item in menuItems.products"
+          :key="item.name" :to="{ name: item.route }" class="nav-item" :class="{ 'active': $route.name === item.route }"
+          :title="isCollapsed ? item.text : ''" @click="handleMenuItemClick">
           <span class="material-symbols-outlined">{{ item.icon }}</span>
           <span class="nav-text" v-show="!isCollapsed">{{ item.text }}</span>
         </router-link>
@@ -65,8 +67,8 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
-import { useRouter } from 'vue-router';
+import { ref, onMounted, onUnmounted, watch } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
 import profileHeader from './profile-header.vue';
 
 export default {
@@ -76,6 +78,7 @@ export default {
   },
   setup() {
     const router = useRouter();
+    const route = useRoute();
     const showLogoutDialog = ref(false);
     const isLoading = ref(true);
     const isDisappearing = ref(false);
@@ -112,6 +115,50 @@ export default {
       closeLogoutDialog();
     };
 
+    const showOverlay = ref(false);
+    const isMobileView = ref(false);
+    // 監聽視窗寬度變化
+    const checkWindowWidth = () => {
+      isMobileView.value = window.innerWidth <= 768;
+      if (!isMobileView.value) {
+        showOverlay.value = false;
+        if (isCollapsed.value === undefined) {
+          isCollapsed.value = false;
+        }
+      } else {
+        isCollapsed.value = true;
+      }
+    };
+    // 修改關閉選單邏輯
+    const closeMenu = () => {
+      if (isMobileView.value) {
+        isCollapsed.value = true;
+        showOverlay.value = false;
+      }
+    };
+    // 修改選單切換邏輯
+    const toggleMenu = () => {
+      if (isMobileView.value) {
+        isCollapsed.value = !isCollapsed.value;
+        showOverlay.value = !isCollapsed.value;
+      } else {
+        isCollapsed.value = !isCollapsed.value;
+      }
+    };
+    // 處理選單項目點擊
+    const handleMenuItemClick = () => {
+      if (window.innerWidth <= 768) {
+        closeMenu();
+      }
+    };
+
+    // 監聽路由變化
+    watch(() => route.fullPath, () => {
+      if (window.innerWidth <= 768) {
+        closeMenu();
+      }
+    });
+
     // 載入動畫控制
     onMounted(() => {
       // 設定最小載入時間（例如 1.5 秒）
@@ -124,6 +171,13 @@ export default {
           isLoading.value = false;
         }, 500); // 與 CSS 動畫時間相匹配
       }, 2000);
+
+      checkWindowWidth();
+      window.addEventListener('resize', checkWindowWidth);
+    });
+
+    onUnmounted(() => {
+      window.removeEventListener('resize', checkWindowWidth);
     });
 
     return {
@@ -133,7 +187,12 @@ export default {
       confirmLogout,
       isLoading,
       isDisappearing,
-      isCollapsed
+      isCollapsed,
+      handleMenuItemClick,
+      isMobileView,
+      toggleMenu,
+      closeMenu,
+      showOverlay,
     };
   }
 };
@@ -155,6 +214,29 @@ export default {
   background-color: var(--white);
   @include flex($d: column, $j: start, $a: stretch, $g: 0);
   border-right: solid 1px var(--natural-85);
+  position: relative;
+  z-index: 100;
+  transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    transform: translateX(0);
+
+    &.collapsed {
+      transform: translateX(-100%);
+    }
+
+    &:not(.collapsed) {
+      min-width: 240px;
+      max-width: 280px;
+      width: 80%;
+      transform: translateX(0);
+      box-shadow: 4px 0 8px rgba(0, 0, 0, 0.1);
+    }
+  }
 
   .logo {
     padding: 1rem 1rem;
@@ -191,7 +273,7 @@ export default {
   }
 
   .detectAccident {
-    margin: 5.5rem 1rem 1rem 1rem; 
+    margin: 5.5rem 1rem 1rem 1rem;
     padding: 3rem 1.5rem 1rem 1.5rem;
     background-color: var(--orange-95);
     border-radius: 1.5rem;
@@ -217,7 +299,8 @@ export default {
       font-size: var(--md);
       font-weight: var(--b);
       color: var(--white);
-      @include flex($g:0.1rem);
+      @include flex($g: 0.1rem);
+
       b {
         display: block;
         color: var(--white);
@@ -228,10 +311,12 @@ export default {
     span {
       color: var(--natural-50);
     }
+
     .text-link {
       margin-top: 0.5rem;
       @include flex($g: 0.25rem);
       color: var(--natural-50);
+
       &:hover span {
         color: var(--orange-50);
 
@@ -271,6 +356,11 @@ export default {
   width: 100%;
   background-color: var(--natural-95);
   position: relative;
+  z-index: 1;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 
   &__main {
     padding: 1.5rem 0.75rem;
@@ -392,8 +482,36 @@ export default {
   border-radius: 50%;
   background-color: var(--orange-50);
   @include flex;
+
   span {
     color: var(--white);
+  }
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 95; // 確保在側邊欄下方，但在其他內容上方
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
+  display: none; // 默認隱藏
+
+  @media (max-width: 768px) {
+    display: block; // 在移動端顯示
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
 </style>
