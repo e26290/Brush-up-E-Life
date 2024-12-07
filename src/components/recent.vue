@@ -205,7 +205,7 @@ export default {
 }
 
 .tab-controls {
-    @include flex($g: 0.5rem, $j: flex-start);
+    @include flex($g: 0rem, $j: flex-start);
     // padding-bottom: 0.5rem;
     margin-bottom: 0.5rem;
     border-bottom: solid 1px var(--natural-85);

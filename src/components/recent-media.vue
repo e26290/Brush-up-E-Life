@@ -36,51 +36,7 @@ export default {
             tabs: [
                 { id: 'alldata', name: '全部一覽' },
                 { id: 'contacts', name: '社交平台' },
-
             ],
-            assetsList: [
-                {
-                    id: 1,
-                    type: 'fb',
-                    title: 'Facebook 帳號',
-                    description: '個人帳號',
-                    date: '2024-01-15'
-                },
-                {
-                    id: 2,
-                    type: 'line',
-                    title: 'LINE 帳號',
-                    description: '工作用帳號',
-                    date: '2024-01-14'
-                },
-                {
-                    id: 3,
-                    type: 'ig',
-                    title: 'Instagram 帳號',
-                    description: '攝影作品帳號',
-                    date: '2024-01-13'
-                }
-            ],
-            contactsList: [
-                {
-                    id: 1,
-                    name: '王小明',
-                    relation: '摯友',
-                    date: '2024-01-15'
-                },
-                {
-                    id: 2,
-                    name: '李小華',
-                    relation: '家人',
-                    date: '2024-01-14'
-                },
-                {
-                    id: 3,
-                    name: '張小美',
-                    relation: '親戚',
-                    date: '2024-01-13'
-                }
-            ]
         }
     },
     methods: {
@@ -148,7 +104,7 @@ export default {
 }
 
 .tab-controls {
-    @include flex($g: 0.5rem, $j: flex-start);
+    @include flex($g: 0rem, $j: flex-start);
     // padding-bottom: 0.5rem;
     margin-bottom: 0.5rem;
     border-bottom: solid 1px var(--natural-85);
