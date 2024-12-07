@@ -119,7 +119,7 @@ export default {
     const isMobileView = ref(false);
     // 監聽視窗寬度變化
     const checkWindowWidth = () => {
-      isMobileView.value = window.innerWidth <= 768;
+      isMobileView.value = window.innerWidth <= 1200;
       if (!isMobileView.value) {
         showOverlay.value = false;
         if (isCollapsed.value === undefined) {
@@ -147,14 +147,14 @@ export default {
     };
     // 處理選單項目點擊
     const handleMenuItemClick = () => {
-      if (window.innerWidth <= 768) {
+      if (window.innerWidth <= 1200) {
         closeMenu();
       }
     };
 
     // 監聽路由變化
     watch(() => route.fullPath, () => {
-      if (window.innerWidth <= 768) {
+      if (window.innerWidth <= 1200) {
         closeMenu();
       }
     });
@@ -218,7 +218,7 @@ export default {
   z-index: 100;
   transition: all 0.3s ease;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1200px) {
     position: fixed;
     left: 0;
     top: 0;
