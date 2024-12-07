@@ -6,7 +6,7 @@
   </div>
   <div id="profile" v-show="!isLoading">
     <!-- 遮罩層 -->
-    <div v-if="!isCollapsed && isMobileView" class="menu-overlay" @click="closeMenu"></div>
+    <div v-show="!isCollapsed && isMobileView" class="menu-overlay" @click="closeMenu"></div>
     <div class="side-menu" :class="{ 'collapsed': isCollapsed }">
       <router-link to="/profile" class="logo">
         <img :src="`/logo${isCollapsed ? '-collapsed' : ''}.svg`" alt="數位人生" />
@@ -122,11 +122,10 @@ export default {
       isMobileView.value = window.innerWidth <= 1200;
       if (!isMobileView.value) {
         showOverlay.value = false;
-        if (isCollapsed.value === undefined) {
-          isCollapsed.value = false;
-        }
+        isCollapsed.value = false;
       } else {
         isCollapsed.value = true;
+        showOverlay.value = false;
       }
     };
     // 修改關閉選單邏輯
@@ -495,14 +494,9 @@ export default {
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 95; // 確保在側邊欄下方，但在其他內容上方
-  opacity: 0;
+  z-index: 95;
   animation: fadeIn 0.3s forwards;
-  display: none; // 默認隱藏
-
-  @media (max-width: 768px) {
-    display: block; // 在移動端顯示
-  }
+  opacity: 1;
 }
 
 @keyframes fadeIn {
