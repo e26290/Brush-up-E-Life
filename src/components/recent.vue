@@ -315,6 +315,7 @@ export default {
     position: relative;
 
     .menu-btn {
+        @include flex;
         width: 2rem;
         height: 2rem;
         border: none;
