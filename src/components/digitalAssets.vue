@@ -12,7 +12,7 @@
             數位資產庫
           </h3>
           <span>讓數位人生協助您，管理您的數位資產，無須煩惱，<br>只要照著我們的預設清單逐步填寫，既簡單又免費！</span>
-          <router-link to="" class="create">新增資產</router-link>
+          <button class="create" @click="showAddPanel = true">新增資產</button>
         </div>
         <guideMedia />
       </div>
@@ -48,6 +48,9 @@
       </div>
     </div>
 
+    <!-- 新增資產面板 -->
+    <addAssetPanel v-model="showAddPanel" />
+
   </div>
 
 </template>
@@ -56,6 +59,7 @@
 import guideMedia from "./guide-media.vue";
 import recentMedia from "./recent-media.vue";
 import pieChart from "./pieChart.vue";
+import addAssetPanel from './addAssetPanel.vue';
 
 export default {
   name: 'digitalAssets',
@@ -63,7 +67,13 @@ export default {
     guideMedia,
     recentMedia,
     pieChart,
+    addAssetPanel,
   },
+  data() {
+        return {
+            showAddPanel: false,
+        }
+    }
 }
 </script>
 <style scoped lang="scss">
