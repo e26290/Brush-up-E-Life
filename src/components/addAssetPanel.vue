@@ -142,7 +142,8 @@
 
             <div class="side-panel__footer">
                 <div v-if="currentStep === 2" class="left-action">
-                    <button class="btn-delete">刪除</button>
+                    <!-- TODO 目前還不確定刪除得用意先隱藏 -->
+                    <!-- <button class="btn-delete">刪除</button> -->
                 </div>
                 <div class="right-actions">
                     <button v-if="currentStep === 2" class="btn-cancel" @click="currentStep = 1">上一步</button>

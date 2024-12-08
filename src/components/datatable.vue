@@ -55,8 +55,7 @@
         </table>
 
         <!-- 編輯頁面 -->
-        <EditSidePanel v-model="showEditPanel" :current-item="selectedItem"
-            @update:modelValue="showEditPanel = $event" />
+        <EditSidePanel v-model="showEditPanel" :current-item="selectedItem" />
     </div>
 </template>
 
@@ -92,24 +91,32 @@ export default {
                 {
                     id: 1,
                     icon: '/dashboard/socialIcon/FB.svg',
+                    platform: 'facebook',  // 添加 platform 字段
                     name: '個人帳號',
-                    type: { label: '社交平台', color: '#FFB7B7' },
+                    type: { id: 'facebook', label: '社交平台', color: '#FFB7B7' }, // 添加 id
                     owner: 'Rabby Xiao',
                     hasDoc: true,
                     hasAttachment: true,
                     status: '已完成',
-                    date: '2024.01.15'
+                    date: '2024.01.15',
+                    account: 'example@facebook.com',  // 添加帳號
+                    password: '********',  // 添加密碼
+                    description: '這是我的個人 Facebook 帳號'  // 添加描述
                 },
                 {
                     id: 2,
                     icon: '/dashboard/socialIcon/Line.svg',
+                    platform: 'facebook',  // 添加 platform 字段
                     name: '工作用帳號',
-                    type: { label: '社交平台', color: '#FFB7B7' },
+                    type: { id: 'line', label: '社交平台', color: '#FFB7B7' }, // 添加 id
                     owner: 'Rabby Xiao',
                     hasDoc: true,
                     hasAttachment: true,
                     status: '未完成',
-                    date: '2024.01.14'
+                    date: '2024.01.14',
+                    account: 'example@facebook.com',  // 添加帳號
+                    password: '********',  // 添加密碼
+                    description: '這是我的個人 Facebook 帳號'  // 添加描述
                 },
             ]
         }
