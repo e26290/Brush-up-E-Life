@@ -41,10 +41,12 @@
                         </div>
                     </div>
                 </div>
-                <button class="view-more">
-                    查看更多
-                    <span class="material-symbols-outlined">arrow_right_alt</span>
-                </button>
+                <router-link to="/profile/digitalAssets">
+                    <button class="view-more">
+                        查看更多
+                        <span class="material-symbols-outlined">arrow_right_alt</span>
+                    </button>
+                </router-link>
             </div>
             <!-- 聯絡人 -->
             <div v-show="currentTab === 'contacts'" class="tab-content">
@@ -77,10 +79,12 @@
                         </div>
                     </div>
                 </div>
-                <button class="view-more">
-                    查看更多
-                    <span class="material-symbols-outlined">arrow_right_alt</span>
-                </button>
+                <router-link to="/profile/digitalAssets">
+                    <button class="view-more">
+                        查看更多
+                        <span class="material-symbols-outlined">arrow_right_alt</span>
+                    </button>
+                </router-link>
             </div>
         </div>
     </div>
@@ -192,6 +196,7 @@ export default {
 
 .recent {
     padding-top: 1rem;
+
     // border-top: 1px solid var(--natural-85);
     h5 {
         margin-bottom: 1rem;
