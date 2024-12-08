@@ -217,7 +217,7 @@ export default {
 
         .btn-delete {
             background: none;
-            color: var(--red-50);
+            color: var(--red-40);
         }
 
         .btn-cancel {
@@ -250,7 +250,7 @@ export default {
         color: var(--natural-30);
 
         .required {
-            color: var(--red-50);
+            color: var(--red-40);
         }
     }
 
