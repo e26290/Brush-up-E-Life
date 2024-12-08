@@ -1,5 +1,6 @@
 <template>
     <div class="table-container">
+        <!-- 表格 -->
         <table>
             <thead>
                 <tr class="border-bottom">
@@ -16,7 +17,7 @@
             <tbody>
                 <tr v-for="item in tableData" :key="item.id" class="border-bottom">
                     <td>
-                        <div class="data-name">
+                        <div class="data-name" @click="openEditPanel(item)">
                             <div class="icon-container">
                                 <img :src="item.icon" :alt="item.name">
                             </div>
@@ -48,31 +49,18 @@
                         <button @click="toggleMenu(item.id)" class="action-button">
                             <more-vertical class="action-icon" />
                         </button>
-
-                        <div v-if="activeMenu === item.id" class="dropdown-menu">
-                            <div class="menu-items">
-                                <button @click="handleAction('view', item)" class="menu-item">
-                                    <eye class="menu-icon" />
-                                    查看
-                                </button>
-                                <button @click="handleAction('edit', item)" class="menu-item">
-                                    <edit class="menu-icon" />
-                                    編輯
-                                </button>
-                                <button @click="handleAction('delete', item)" class="menu-item delete">
-                                    <trash class="menu-icon" />
-                                    刪除
-                                </button>
-                            </div>
-                        </div>
                     </td>
                 </tr>
             </tbody>
         </table>
+
+        <!-- 編輯頁面 -->
+        <EditSidePanel v-model="showEditPanel" :current-item="selectedItem"
+            @update:modelValue="showEditPanel = $event" />
     </div>
 </template>
 
-<script setup>
+<script>
 import { ref } from 'vue'
 import {
     MoreVertical,
@@ -82,41 +70,66 @@ import {
     Edit,
     Trash
 } from 'lucide-vue-next'
+import EditSidePanel from './EditSidePanel.vue'
 
-const tableData = ref([
-    {
-        id: 1,
-        icon: '/dashboard/socialIcon/FB.svg',
-        name: '個人帳號',
-        type: { label: '社交平台', color: '#FFB7B7' },
-        owner: 'Rabby Xiao',
-        hasDoc: true,
-        hasAttachment: true,
-        status: '已完成',
-        date: '2024.01.15'
+export default {
+    name: 'DataTable',
+    components: {
+        MoreVertical,
+        FileEdit,
+        Paperclip,
+        Eye,
+        Edit,
+        Trash,
+        EditSidePanel
     },
-    {
-        id: 2,
-        icon: '/dashboard/socialIcon/Line.svg',
-        name: '工作用帳號',
-        type: { label: '社交平台', color: '#FFB7B7' },
-        owner: 'Rabby Xiao',
-        hasDoc: true,
-        hasAttachment: true,
-        status: '未完成',
-        date: '2024.01.14'
+    data() {
+        return {
+            showEditPanel: false,
+            selectedItem: null, // 添加選中項目
+            activeMenu: null,
+            tableData: [
+                {
+                    id: 1,
+                    icon: '/dashboard/socialIcon/FB.svg',
+                    name: '個人帳號',
+                    type: { label: '社交平台', color: '#FFB7B7' },
+                    owner: 'Rabby Xiao',
+                    hasDoc: true,
+                    hasAttachment: true,
+                    status: '已完成',
+                    date: '2024.01.15'
+                },
+                {
+                    id: 2,
+                    icon: '/dashboard/socialIcon/Line.svg',
+                    name: '工作用帳號',
+                    type: { label: '社交平台', color: '#FFB7B7' },
+                    owner: 'Rabby Xiao',
+                    hasDoc: true,
+                    hasAttachment: true,
+                    status: '未完成',
+                    date: '2024.01.14'
+                },
+            ]
+        }
     },
-])
-
-const activeMenu = ref(null)
-
-const toggleMenu = (id) => {
-    activeMenu.value = activeMenu.value === id ? null : id
-}
-
-const handleAction = (action, item) => {
-    console.log(`${action} item:`, item)
-    activeMenu.value = null
+    methods: {
+        toggleMenu(id) {
+            this.activeMenu = this.activeMenu === id ? null : id;
+        },
+        handleAction(action, item) {
+            if (action === 'edit') {
+                this.selectedItem = item;
+                this.showEditPanel = true;
+            }
+            this.activeMenu = null;
+        },
+        openEditPanel(item) {
+            this.selectedItem = item;
+            this.showEditPanel = true;
+        }
+    }
 }
 </script>
 
@@ -189,6 +202,7 @@ td {
     padding: 12px 16px;
     text-align: center;
     white-space: nowrap;
+
     span {
         white-space: nowrap;
     }
@@ -279,53 +293,13 @@ tbody tr:hover {
     color: #6B7280;
 }
 
-/* Dropdown menu */
-.dropdown-menu {
-    position: absolute;
-    right: 120px;
-    bottom: 0;
-    width: 144px;
-    background-color: white;
-    border-radius: 6px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    z-index: 50;
+/* 旋轉迴紋針 */
+.attach-icon {
+    /* transform: rotate(45deg); */
 }
 
-.menu-items {
-    display: flex;
-    flex-direction: column;
-    padding: 4px 0;
-}
 
-.menu-item {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 8px 16px;
-    border: none;
-    background: transparent;
-    text-align: left;
-    font-size: 14px;
+.data-name {
     cursor: pointer;
 }
-
-.menu-item:hover {
-    background-color: #F3F4F6;
-}
-
-.menu-icon {
-    width: 16px;
-    height: 16px;
-    margin-right: 8px;
-}
-
-.menu-item.delete {
-    color: #DC2626;
-}
-
-/* Attachment icon rotation */
-.attach-icon {
-    transform: rotate(45deg);
-}
-
 </style>

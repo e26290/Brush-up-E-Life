@@ -64,9 +64,6 @@ export default {
     recentMedia,
     pieChart,
   },
-  data() {
-
-  }
 }
 </script>
 <style scoped lang="scss">

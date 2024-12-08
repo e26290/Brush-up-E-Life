@@ -214,7 +214,7 @@ export default {
   @include flex($d: column, $j: start, $a: stretch, $g: 0);
   border-right: solid 1px var(--natural-85);
   position: relative;
-  z-index: 100;
+  z-index: 50;
   transition: all 0.3s ease;
 
   @media (max-width: 1200px) {
@@ -494,7 +494,7 @@ export default {
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 95;
+  z-index: 45;
   animation: fadeIn 0.3s forwards;
   opacity: 1;
 }

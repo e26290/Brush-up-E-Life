@@ -99,7 +99,7 @@ export default {
 
 .recent__content {
     background-color: var(--white);
-    overflow: hidden;
+    // overflow: hidden;
 }
 
 .tab-controls {
