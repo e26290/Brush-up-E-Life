@@ -148,7 +148,7 @@ export default {
     gap: 1.5rem;
     overflow: hidden;
     position: relative; // 添加相對定位
-    min-height: 400px;
+    min-height: 360px;
 }
 
 .guide-header {
@@ -220,6 +220,16 @@ export default {
             background-color: var(--blue-90);
             color: var(--blue-48);
         }
+    }
+
+    @include breakpoint(1440px){
+        flex: 0 0 90%;
+    }
+    @include breakpoint(1200px){
+        flex: 0 0 40%;
+    }
+    @include breakpoint(576px){
+        flex: 0 0 90%;
     }
 }
 

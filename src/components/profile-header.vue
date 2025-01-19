@@ -194,6 +194,10 @@ header {
     @include flex($j: space-between);
     border-bottom: 1px solid var(--natural-85);
 
+    @include breakpoint(576px){
+        padding: 0rem 0.75rem;
+    }
+
     .header-right {
         @include flex($g: 1rem);
     }

@@ -19,7 +19,7 @@
           <span class="nav-text" v-show="!isCollapsed">{{ item.text }}</span>
         </router-link>
       </nav>
-      <nav>
+      <nav v-if="false">
         <span class="subtitle" v-show="!isCollapsed">會員服務</span>
         <router-link v-for="item in menuItems.member" :key="item.name" :to="item.route ? { name: item.route } : ''"
           class="nav-item" :class="{ 'active': $route.name === item.route }" :title="isCollapsed ? item.text : ''"
@@ -29,10 +29,10 @@
         </router-link>
       </nav>
       <div class="detectAccident" v-show="!isCollapsed">
-        <h5>
-          <div class="completeness">75<b>%</b></div>
+        <h6>
+          <div class="completeness"></div>
           意外確認機制
-        </h5>
+        </h6>
         <span>目前尚缺 1 步驟</span>
         <!--  -->
         <router-link to="">
@@ -249,6 +249,7 @@ export default {
     @include flex($d: column, $j: start, $a: stretch, $g: 0.5rem);
     padding: 1rem;
     padding-bottom: 0;
+    height: 100%;
 
     .subtitle {
       font-size: var(--sm);
@@ -278,7 +279,7 @@ export default {
     border-radius: 1.5rem;
     @include flex($d: column, $g: 0);
 
-    h5 {
+    h6 {
       position: relative;
       text-align: center;
       font-weight: var(--b);
@@ -290,9 +291,9 @@ export default {
       bottom: 1.25rem;
       left: 50%;
       transform: translateX(-50%);
-      width: 120px;
-      height: 120px;
-      background-image: url(/src/assets/dashboard/numBg.svg);
+      width: 100px;
+      height: 100px;
+      background-image: url(/src/assets/dashboard/numBg.png);
       background-size: contain;
       background-position: center;
       font-size: var(--md);
@@ -309,12 +310,14 @@ export default {
 
     span {
       color: var(--natural-50);
+      font-size: var(--sm);
     }
 
     .text-link {
       margin-top: 0.5rem;
       @include flex($g: 0.25rem);
       color: var(--natural-50);
+      border-bottom: solid 1px var(--natural-50);
 
       &:hover span {
         color: var(--orange-50);
@@ -364,6 +367,10 @@ export default {
   &__main {
     padding: 1.5rem 0.75rem;
     height: calc(100% - 64px);
+
+    @include breakpoint(576px){
+      padding: 1rem 0rem;
+    }
   }
 }
 

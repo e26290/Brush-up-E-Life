@@ -4,12 +4,12 @@
         <div class="dashboard-l">
             <div class="left-item left1">
                 <div class="card dash">
-                    <h3>
+                    <h4>
                         <div class="icon">
                             <span class="material-symbols-outlined">dashboard</span>
                         </div>
                         儀表板
-                    </h3>
+                    </h4>
                     <span>歡迎回來，Carol！讓我們繼續<br>組織今天，準備明天！</span>
                 </div>
             </div>
@@ -172,6 +172,10 @@ export default {
     @include breakpoint(1023px) {
         width: 100%;
     }
+
+    @include breakpoint(576px) {
+        gap: 1rem;
+    }
 }
 
 .card {
@@ -194,14 +198,15 @@ export default {
     background-size: cover;
     color: var(--white);
 
-    h3 {
+    h4 {
         @include flex($g: 0.75rem);
+        font-weight: var(--b);
     }
 
     .icon {
         background-color: var(--white);
-        width: 2.25rem;
-        height: 2.25rem;
+        width: 2rem;
+        height: 2rem;
         border-radius: 0.5rem;
         display: grid;
         place-items: center;
@@ -351,10 +356,17 @@ export default {
     @include flex($d: column, $a: stretch, $j: start);
     background-color: var(--natural-90);
     height: 100%;
+
+    @include breakpoint(576px) {
+        gap: 1rem;
+    }
 }
 
 .details {
     @include flex($d: column, $a: stretch);
+    @include breakpoint(576px) {
+        gap: 1rem;
+    }
 
     .info {
         @include flex($d: column, $g: 1rem);
@@ -394,6 +406,10 @@ export default {
 
 .left-item {
     @include flex($j: flex-start, $a: stretch);
+
+    @include breakpoint(576px) {
+        gap: 1rem;
+    }
 }
 
 .left2 {

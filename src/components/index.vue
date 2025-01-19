@@ -41,7 +41,7 @@
     </div>
   </header>
 
-  <section id="hero" :class="{ 'loaded': isLoaded }">
+  <section id="hero" :class="{ 'loaded': isLoaded }" class="scroll-animate">
     <div class="container">
       <div class="_text">
         <img src="/src/assets/index/hero/bg_line.svg" class="bg_line" />
@@ -55,7 +55,7 @@
           從數位資產管理到專屬遺囑與生活日誌，我們確保您的數位足跡不會消失，讓您的數位人生交付給所愛之人。
         </span>
         <router-link to="/profile" class="signup">
-          開始使用
+          立即啟動您的數位人生
           <span class="material-symbols-outlined">arrow_right_alt</span>
         </router-link>
       </div>
@@ -91,7 +91,7 @@
   </section>
 
   <section id="advantage">
-    <div class="container">
+    <div class="container scroll-animate">
       <div class="card_adv row">
         <div class="col-md-6 col-sm-12 content">
           <div class="text">
@@ -516,6 +516,10 @@ section {
       z-index: 1;
     }
 
+    .signup {
+      font-size: var(--xl);
+    }
+
     .solgan {
       @include flex($d: column, $g: 0);
 
@@ -788,7 +792,7 @@ section {
       @include flex($a: flex-start, $g: 1.5rem, $d: column);
 
       .title {
-        @include flex($a: flex-start, $g: 0rem, $d: column);
+        @include flex($a: flex-start, $d: column);
       }
 
       p {
@@ -901,8 +905,7 @@ section {
 
 #solution {
   .title {
-    @include flex($g: 0, $d: column);
-    // margin-bottom: 2.5rem;
+    @include flex($g: 1rem, $d: column);
   }
 
   .solutionImg {
@@ -1080,6 +1083,10 @@ section {
     overflow: hidden;
   }
 
+  .title {
+    @include flex($a: flex-start, $g: 1rem, $d: column);
+  }
+
   .text {
     @include flex($d: column, $a: flex-start, $g: 2.5rem);
     max-width: 580px;
@@ -1156,4 +1163,23 @@ footer {
     }
   }
 }
+
+/* 區塊動畫:載入自動淡入及資料上移 */
+.scroll-animate {
+    animation: auto_zoomin 0.5s ease-out;
+}
+
+@keyframes auto_zoomin {
+  0% {
+      transform: translateY(100px);
+      opacity: 0;
+  }
+
+  100% {
+      transform: translateY(0px);
+      opacity: 1;
+  }
+}
+
+/*--------------------------- */
 </style>

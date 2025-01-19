@@ -5,12 +5,12 @@
       <!-- 儀表板左 -->
       <div class="content-top-l">
         <div class="card dash">
-          <h3>
+          <h4>
             <div class="icon">
               <span class="material-symbols-outlined">account_balance</span>
             </div>
             數位資產庫
-          </h3>
+          </h4>
           <span>讓數位人生協助您，管理您的數位資產，無須煩惱，<br>只要照著我們的預設清單逐步填寫，既簡單又免費！</span>
           <button class="create" @click="showAddPanel = true">新增資產</button>
         </div>
@@ -138,14 +138,15 @@ export default {
   background-size: cover;
   color: var(--white);
 
-  h3 {
+  h4 {
     @include flex($g: 0.75rem);
+    font-weight: var(--b);
   }
 
   .icon {
     background-color: var(--white);
-    width: 2.25rem;
-    height: 2.25rem;
+    width: 2rem;
+    height: 2rem;
     border-radius: 0.5rem;
     display: grid;
     place-items: center;

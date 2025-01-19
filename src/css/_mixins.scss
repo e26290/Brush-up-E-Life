@@ -54,4 +54,8 @@
     background-color: var(--white);
     padding: 1.5rem;
     @include flex($g:1rem, $d: column, $a: flex-start);
+
+    @include breakpoint(576px) {
+        padding: 1rem;
+    }
 }
