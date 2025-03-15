@@ -1,45 +1,55 @@
 <!doctype html>
 <html lang="tw">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>數位人生 Brush up E-life</title>
 
-    <meta name="description" content="為您提供一個安全、方便且全面的產品，幫助您管理重要的數位資產。">
-    <meta name="keywords" content="數位資產, 數位管理平台, 管理平台, 臨終囑託, 遺囑">
-    <!-- favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/favicon/favicon_192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon_32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon_16x16.png">
-    <link rel="shortcut icon" href="/favicon/favicon.ico">
-    <!-- 網站描述檔 -->
-    <link rel="manifest" href="/site.webmanifest">
-    <!-- 社群樣式設定Open Graph(OG) -->
-    <meta property="og:type" content="website">
-    <!-- <meta property="og:image" content="..."> -->
-    <meta property="og:title" content="數位人生 Brush up E-life">
-    <meta name="og:description" content="為您提供一個安全、方便且全面的產品，幫助您管理重要的數位資產。">
-    <!-- <meta property="og:url" content="..."> -->
-    <!-- 嵌入 link -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>數位人生 Brush up E-life</title>
 
-    <script type="text/javascript">
-      // 處理 GitHub Pages 的重定向
-      (function(l) {
-        if (l.search[1] === '/' ) {
-          var decoded = l.search.slice(1).split('&').map(function(s) { 
-            return s.replace(/~and~/g, '&')
-          }).join('?');
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          );
-        }
-      }(window.location))
-    </script>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+  <meta name="description" content="為您提供一個安全、方便且全面的產品，幫助您管理重要的數位資產。">
+  <meta name="keywords" content="數位資產, 數位管理平台, 管理平台, 臨終囑託, 遺囑">
+  <!-- favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon/favicon_192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon_16x16.png">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <!-- 網站描述檔 -->
+  <link rel="manifest" href="/site.webmanifest">
+  <!-- 社群樣式設定Open Graph(OG) -->
+  <meta property="og:type" content="website">
+  <!-- <meta property="og:image" content="..."> -->
+  <meta property="og:title" content="數位人生 Brush up E-life">
+  <meta name="og:description" content="為您提供一個安全、方便且全面的產品，幫助您管理重要的數位資產。">
+  <!-- <meta property="og:url" content="..."> -->
+  <!-- 套用字型 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+TC:wght@100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..20&display=block" />
+
+
+  <script type="text/javascript">
+    // 處理 GitHub Pages 的重定向
+    (function (l) {
+      if (l.search[1] === '/') {
+        var decoded = l.search.slice(1).split('&').map(function (s) {
+          return s.replace(/~and~/g, '&')
+        }).join('?');
+        window.history.replaceState(null, null,
+          l.pathname.slice(0, -1) + decoded + l.hash
+        );
+      }
+    }(window.location))
+  </script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>

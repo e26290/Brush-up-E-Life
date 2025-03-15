@@ -1,5 +1,5 @@
 /* 指定字型 */
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+TC:wght@100..900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+TC:wght@100..900&display=swap'); */
 
 :root {
   font-family: "Inter", "Noto Sans TC", Helvetica, Arial, 微軟正黑體, sans-serif;
@@ -36,10 +36,6 @@ html, body {
   box-sizing: border-box;
   font-size: var(--md);
   overflow-x: hidden;
-}
-
-body {
-
 }
 
 ul {

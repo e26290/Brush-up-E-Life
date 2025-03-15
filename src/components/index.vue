@@ -47,8 +47,8 @@
         <img src="/src/assets/index/hero/bg_line.svg" class="bg_line" />
         <div class="gradient1"></div>
         <div class="gradient2"></div>
-        <div class="solgan">
-          <h1>輕鬆管理數位資產</h1>
+        <div class="slogan">
+          <h1>輕鬆管理數位資產<i class="bi bi-0-square-fill"></i></h1>
           <h1>讓重要的數位足跡<b class="highlight">不再遺失</b></h1>
         </div>
         <span class="subtitle">
@@ -246,10 +246,16 @@
 <script>
 import { ref, onMounted, nextTick } from "vue";
 import Marquee from "./Marquee.vue";
+import arrow_right_alt from '/src/assets/icons/arrow_right_alt.svg';
 
 export default {
   components: {
     Marquee,
+  },
+  data() {
+    return {
+      arrow_right_alt
+    };
   },
   setup() {
     const isMenuActive = ref(false);
@@ -510,7 +516,7 @@ section {
     position: relative;
     margin-bottom: 1rem;
 
-    .solgan,
+    .slogan,
     span,
     .signup {
       z-index: 1;
@@ -520,7 +526,7 @@ section {
       font-size: var(--xl);
     }
 
-    .solgan {
+    .slogan {
       @include flex($d: column, $g: 0);
 
       h1:nth-child(2) {
@@ -756,7 +762,7 @@ section {
 
   @include breakpoint(576px) {
     ._text {
-      .solgan h1:nth-child(2) {
+      .slogan h1:nth-child(2) {
         flex-direction: column;
         gap: 8px;
       }
