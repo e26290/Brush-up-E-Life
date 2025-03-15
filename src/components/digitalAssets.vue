@@ -7,7 +7,7 @@
         <div class="card dash">
           <h4>
             <div class="icon">
-              <span class="material-symbols-outlined">account_balance</span>
+              <Landmark class="lucide-icon"/>
             </div>
             數位資產庫
           </h4>
@@ -151,8 +151,8 @@ export default {
     display: grid;
     place-items: center;
 
-    span {
-      color: var(--blue-30);
+    .lucide-icon {
+      stroke: var(--blue-30);
     }
   }
 

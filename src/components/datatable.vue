@@ -32,11 +32,11 @@
                     </td>
                     <td>{{ item.owner || '-' }}</td>
                     <td>
-                        <span class="material-symbols-outlined" v-if="item.hasDoc">sticky_note_2</span>
+                        <FileText v-if="item.hasDoc" class="lucide-icon" />
                         <span v-else>-</span>
                     </td>
                     <td>
-                        <span class="material-symbols-outlined attach-icon" v-if="item.hasAttachment">attach_file</span>
+                        <Paperclip v-if="item.hasAttachment" class="lucide-icon attach-icon" />
                         <span v-else>-</span>
                     </td>
                     <td>
@@ -67,7 +67,8 @@ import {
     Paperclip,
     Eye,
     Edit,
-    Trash
+    Trash,
+    FileText
 } from 'lucide-vue-next'
 import EditSidePanel from './EditSidePanel.vue'
 
@@ -298,6 +299,12 @@ tbody tr:hover {
     width: 20px;
     height: 20px;
     color: #6B7280;
+}
+
+.lucide-icon {
+    width: var(--ism);
+    stroke: var(--natural-30);
+    vertical-align: middle;
 }
 
 /* 旋轉迴紋針 */

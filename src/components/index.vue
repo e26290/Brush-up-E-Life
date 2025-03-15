@@ -56,7 +56,7 @@
         </span>
         <router-link to="/profile" class="signup">
           立即啟動您的數位人生
-          <span class="material-symbols-outlined">arrow_right_alt</span>
+          <arrow-right />
         </router-link>
       </div>
       <div class="_cover">
@@ -147,7 +147,7 @@
           </div>
           <router-link to="/profile" class="signup">
             開始使用
-            <span class="material-symbols-outlined">arrow_right_alt</span>
+            <arrow-right />
           </router-link>
         </div>
       </div>
@@ -167,25 +167,25 @@
       <img src="/src/assets/index/solution/hand-r.png" alt="hand-r" class="hand hand-r" />
       <div class="item item1" @click="toggleItem('item1')" :class="{ 'selected': selectedItems.item1 }">
         <div class="check">
-          <span class="material-symbols-outlined">check</span>
+          <check />
         </div>
         掌握數位資產狀態
       </div>
       <div class="item item2" @click="toggleItem('item2')" :class="{ 'selected': selectedItems.item2 }">
         <div class="check">
-          <span class="material-symbols-outlined">check</span>
+          <check />
         </div>
         建立有效數位遺囑
       </div>
       <div class="item item3" @click="toggleItem('item3')" :class="{ 'selected': selectedItems.item3 }">
         <div class="check">
-          <span class="material-symbols-outlined">check</span>
+          <check />
         </div>
         制定人生計劃
       </div>
       <div class="item item4" @click="toggleItem('item4')" :class="{ 'selected': selectedItems.item4 }">
         <div class="check">
-          <span class="material-symbols-outlined">check</span>
+          <check />
         </div>
         紀錄數位生活日誌
       </div>
@@ -205,7 +205,7 @@
           <p>從簡單的日常管理，到關鍵的長期規劃，我們幫助您組織好今天的一切，為未來做最好的準備，因為未來的你，也值得妥善安排。</p>
           <router-link to="/profile" class="signup">
             開始使用
-            <span class="material-symbols-outlined">arrow_right_alt</span>
+            <arrow-right />
           </router-link>
         </div>
       </div>
@@ -235,7 +235,7 @@
         </div>
 
         <div class="mail">
-          <span class="material-symbols-outlined">mail</span>
+          <mail />
           brushup_elife@mail.com
         </div>
       </div>
@@ -944,9 +944,9 @@ section {
         border-radius: 50%;
         transition: background-color 0.3s ease;
 
-        span {
-          font-size: var(--md);
-          color: var(--orange-50);
+        svg {
+          width: var(--ixs);
+          stroke: var(--orange-50);
           transition: color 0.3s ease;
         }
       }
@@ -957,8 +957,8 @@ section {
           background-color: var(--orange-50);
         }
 
-        span {
-          color: var(--white);
+        svg {
+          stroke: var(--white);
         }
       }
     }
@@ -1117,6 +1117,11 @@ footer {
   span,
   .mail {
     color: var(--white);
+  }
+
+  .mail svg {
+    stroke: var(--white);
+    width: var(--ism);
   }
 
   .f_nav,

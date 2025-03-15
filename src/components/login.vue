@@ -7,19 +7,19 @@
                 <ul>
                     <li>
                         <div class="icon">
-                            <span class="material-symbols-outlined">bolt</span>
+                            <zap />
                         </div>
                         快速便捷，只需幾分鐘即可完成
                     </li>
                     <li>
                         <div class="icon">
-                            <span class="material-symbols-outlined">cloud_upload</span>
+                            <cloud-upload />
                         </div>
                         數位服務，所有流程皆在在線上完成
                     </li>
                     <li>
                         <div class="icon">
-                            <span class="material-symbols-outlined">enhanced_encryption</span>
+                            <lock-keyhole />
                         </div>
                         安全可靠，保護使用者個人資料
                     </li>
@@ -164,8 +164,9 @@ export default {
             place-items: center;
             border-radius: 0.5rem;
             font-size: var(--xl2);
-            span {
-                color: var(--blue-48);
+            svg {
+                stroke: var(--blue-48);
+                width: var(--imd);
             }
         }
     }

@@ -15,7 +15,7 @@
         <span class="subtitle" v-show="!isCollapsed">產品服務</span><router-link v-for="item in menuItems.products"
           :key="item.name" :to="{ name: item.route }" class="nav-item" :class="{ 'active': $route.name === item.route }"
           :title="isCollapsed ? item.text : ''" @click="handleMenuItemClick">
-          <span class="material-symbols-outlined">{{ item.icon }}</span>
+          <component :is="item.icon" class="lucide-icon" />
           <span class="nav-text" v-show="!isCollapsed">{{ item.text }}</span>
         </router-link>
       </nav>
@@ -24,7 +24,7 @@
         <router-link v-for="item in menuItems.member" :key="item.name" :to="item.route ? { name: item.route } : ''"
           class="nav-item" :class="{ 'active': $route.name === item.route }" :title="isCollapsed ? item.text : ''"
           @click="item.action ? item.action() : null">
-          <span class="material-symbols-outlined">{{ item.icon }}</span>
+          <component :is="item.icon" class="lucide-icon" />
           <span class="nav-text" v-show="!isCollapsed">{{ item.text }}</span>
         </router-link>
       </nav>
@@ -38,7 +38,7 @@
         <router-link to="">
           <div class="text-link">
             <span>查看設定</span>
-            <span class="material-symbols-outlined">arrow_right_alt</span>
+            <arrow-right />
           </div>
         </router-link>
       </div>
@@ -49,7 +49,7 @@
         <router-view />
       </div>
       <div class="helpbtn">
-        <span class="material-symbols-outlined">question_mark</span>
+        <HelpCircle class="lucide-icon" />
       </div>
     </div>
 
@@ -86,19 +86,19 @@ export default {
 
     const menuItems = {
       products: [
-        { name: 'dashboard', route: 'dashboard', icon: 'dashboard', text: '儀表板' },
-        { name: 'digitalAssets', route: 'digitalAssets', icon: 'account_balance', text: '數位資產庫' },
-        { name: 'contacts', route: '', icon: 'group', text: '我的聯絡人' },
-        { name: 'will', route: '', icon: 'sticky_note_2', text: '遺囑與遺產計畫' },
-        { name: 'story', route: '', icon: 'import_contacts', text: '生活故事' },
-        { name: 'guide', route: '', icon: 'pending_actions', text: '生前計劃指南' },
+        { name: 'dashboard', route: 'dashboard', icon: 'LayoutDashboard', text: '儀表板' },
+        { name: 'digitalAssets', route: 'digitalAssets', icon: 'Landmark', text: '數位資產庫' },
+        { name: 'contacts', route: '', icon: 'Users', text: '我的聯絡人' },
+        { name: 'will', route: '', icon: 'ClipboardList', text: '遺囑與遺產計畫' },
+        { name: 'story', route: '', icon: 'BookOpen', text: '生活故事' },
+        { name: 'guide', route: '', icon: 'FileCheck', text: '生前計劃指南' },
       ],
       member: [
-        { name: 'profile', route: '', icon: 'person', text: '個人檔案' },
-        { name: 'settings', route: '', icon: 'settings', text: '會員設定' },
+        { name: 'profile', route: '', icon: 'User', text: '個人檔案' },
+        { name: 'settings', route: '', icon: 'Settings', text: '會員設定' },
         {
           name: 'logout',
-          icon: 'logout',
+          icon: 'LogOut',
           text: '登出頁面',
           action: () => showLogoutDialog.value = true
         },
@@ -257,13 +257,13 @@ export default {
     }
 
     .nav-item {
-      padding: 0.5rem 1rem;
+      padding: 0.75rem;
       @include flex($j: start, $g: 0.5rem);
       font-weight: var(--m);
       color: var(--natural-30);
       text-decoration: none;
       transition: all 0.3s ease;
-      border-radius: 1000px;
+      border-radius: var(--xs);
 
       &:hover,
       &.active {
@@ -319,9 +319,13 @@ export default {
       color: var(--natural-50);
       border-bottom: solid 1px var(--natural-50);
 
-      &:hover span {
-        color: var(--orange-50);
+      .lucide-icon {
+        width: var(--ixs);
+        stroke: var(--natural-50);
+      }
 
+      &:hover .lucide-icon {
+        stroke: var(--natural-50);
       }
     }
   }
@@ -368,7 +372,7 @@ export default {
     padding: 1.5rem 0.75rem;
     height: calc(100% - 64px);
 
-    @include breakpoint(576px){
+    @include breakpoint(576px) {
       padding: 1rem 0rem;
     }
   }
@@ -489,8 +493,10 @@ export default {
   background-color: var(--orange-50);
   @include flex;
 
-  span {
+  .lucide-icon {
     color: var(--white);
+    stroke: var(--white);
+    width: var(--imd);
   }
 }
 

@@ -31,7 +31,7 @@
 }
 
 // 按鈕樣式
-@mixin button($fontc, $bgc, $fw:700) {
+@mixin button($fontc, $bgc, $fw:500) {
     color: $fontc;
     background-color: $bgc;
     font-weight: $fw;
@@ -41,10 +41,6 @@
 
     &:hover {
         filter: brightness(110%);
-    }
-
-    span {
-        color: $fontc;
     }
 
     svg {

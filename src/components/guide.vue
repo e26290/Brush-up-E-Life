@@ -4,10 +4,10 @@
             <h5>使用指南 ({{ completedCount }}/{{ guideSlides.length }})</h5>
             <div class="guide-controls">
                 <button class="guide-btn" @click="prevSlide" :disabled="currentIndex === 0">
-                    <span class="material-symbols-outlined">arrow_back</span>
+                    <ChevronLeft class="lucide-icon" />
                 </button>
                 <button class="guide-btn" @click="nextSlide" :disabled="currentIndex === guideSlides.length - 1">
-                    <span class="material-symbols-outlined">arrow_forward</span>
+                    <ChevronRight class="lucide-icon" />
                 </button>
             </div>
         </div>
@@ -18,7 +18,7 @@
                     :class="{ 'completed': slide.isCompleted }">
                     <div class="guide-content">
                         <div class="guide-icon">
-                            <span class="material-symbols-outlined">{{ slide.icon }}</span>
+                            <component :is="slide.icon" class="lucide-icon" />
                         </div>
                         <div class="guide-text">
                             <h6>{{ slide.title }}</h6>
@@ -43,49 +43,49 @@ export default {
             currentIndex: 0,
             guideSlides: [
                 {
-                    icon: 'person',
+                    icon: 'User',
                     title: '建立個人檔案',
                     description: '完善您的基本資料，讓我們更了解您。',
                     isCompleted: true
                 },
                 {
-                    icon: 'group',
+                    icon: 'Users',
                     title: '新增聯絡人',
                     description: '添加您信任的聯絡人，作為數位資產的繼承人。',
                     isCompleted: true
                 },
                 {
-                    icon: 'account_balance',
+                    icon: 'Landmark',
                     title: '數位資產盤點',
                     description: '盤點您的數位資產，確保重要資產都被妥善處理。',
                     isCompleted: false
                 },
                 {
-                    icon: 'support_agent',
+                    icon: 'Headset',
                     title: '指定數位遺囑執行人',
                     description: '選擇一位值得信任的人作為您的數位遺囑執行人。',
                     isCompleted: false
                 },
                 {
-                    icon: 'description',
+                    icon: 'FileText',
                     title: '建立數位遺囑',
                     description: '撰寫您的數位遺囑，讓資產規劃更有保障。',
                     isCompleted: false
                 },
                 {
-                    icon: 'history_edu',
+                    icon: 'BookOpen',
                     title: '記錄生活故事',
                     description: '分享您的生活點滴，留下珍貴的回憶。',
                     isCompleted: false
                 },
                 {
-                    icon: 'favorite',
+                    icon: 'Heart',
                     title: '製作時間囊',
                     description: '為摯愛準備專屬的時間囊，傳遞您的心意。',
                     isCompleted: false
                 },
                 {
-                    icon: 'verified',
+                    icon: 'CheckCircle',
                     title: '完成設定',
                     description: '檢查並確認所有設定都已完成。',
                     isCompleted: false
@@ -190,6 +190,10 @@ export default {
         opacity: 0.5;
         cursor: not-allowed;
     }
+    .lucide-icon {
+        width: var(--imd);
+        stroke: var(--natural-30);
+    }
 }
 
 .guide-container {
@@ -219,6 +223,9 @@ export default {
         .guide-icon {
             background-color: var(--blue-90);
             color: var(--blue-48);
+            .lucide-icon {
+                stroke: var(--blue-48);
+            }
         }
     }
 

@@ -4,10 +4,10 @@
             <h4>資產處理指南</h4>
             <div class="guide-controls">
                 <button class="guide-btn" @click="prevSlide" :disabled="currentIndex === 0">
-                    <span class="material-symbols-outlined">arrow_back</span>
+                    <ChevronLeft class="lucide-icon" />
                 </button>
                 <button class="guide-btn" @click="nextSlide" :disabled="currentIndex === guideSlides.length - 1">
-                    <span class="material-symbols-outlined">arrow_forward</span>
+                    <ChevronRight class="lucide-icon" />
                 </button>
             </div>
         </div>
@@ -164,6 +164,10 @@ export default {
     &:disabled {
         opacity: 0.5;
         cursor: not-allowed;
+    }
+    .lucide-icon {
+        width: var(--imd);
+        stroke: var(--natural-30);
     }
 }
 

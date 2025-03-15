@@ -24,17 +24,17 @@
                         <span class="date">{{ formatDate(item.date) }}</span>
                         <div class="menu-dropdown">
                             <button class="menu-btn" @click.stop="toggleMenu(item.id)">
-                                <span class="material-symbols-outlined">more_vert</span>
+                                <ellipsis-vertical />
                             </button>
                             <!-- 將 v-click-outside 移到選單上，並添加 .stop 修飾符 -->
                             <div v-if="activeMenu === item.id" class="menu-list" v-click-outside="closeMenu"
                                 @click.stop>
                                 <button @click="handleAction('view', item)">
-                                    <span class="material-symbols-outlined">visibility</span>
+                                    <eye class="lucide-icon"/>
                                     查看
                                 </button>
                                 <button @click="handleAction('edit', item)">
-                                    <span class="material-symbols-outlined">edit</span>
+                                    <pencil class="lucide-icon"/>
                                     編輯
                                 </button>
                             </div>
@@ -44,7 +44,7 @@
                 <router-link to="/profile/digitalAssets">
                     <button class="view-more">
                         查看更多
-                        <span class="material-symbols-outlined">arrow_right_alt</span>
+                        <arrow-right />
                     </button>
                 </router-link>
             </div>
@@ -52,7 +52,7 @@
             <div v-show="currentTab === 'contacts'" class="tab-content">
                 <div v-for="item in contactsList" :key="item.id" class="list-item">
                     <div class="item-icon contact">
-                        <span class="material-symbols-outlined">person</span>
+                        <user />
                     </div>
                     <div class="item-content">
                         <h6>{{ item.name }}</h6>
@@ -62,17 +62,17 @@
                         <span class="date">{{ formatDate(item.date) }}</span>
                         <div class="menu-dropdown">
                             <button class="menu-btn" @click.stop="toggleMenu(item.id)">
-                                <span class="material-symbols-outlined">more_vert</span>
+                                <ellipsis-vertical />
                             </button>
                             <!-- 將 v-click-outside 移到選單上，並添加 .stop 修飾符 -->
                             <div v-if="activeMenu === item.id" class="menu-list" v-click-outside="closeMenu"
                                 @click.stop>
                                 <button @click="handleAction('view', item)">
-                                    <span class="material-symbols-outlined">visibility</span>
+                                    <eye class="lucide-icon"/>
                                     查看
                                 </button>
                                 <button @click="handleAction('edit', item)">
-                                    <span class="material-symbols-outlined">edit</span>
+                                    <pencil class="lucide-icon"/>
                                     編輯
                                 </button>
                             </div>
@@ -82,7 +82,7 @@
                 <router-link to="/profile/digitalAssets">
                     <button class="view-more">
                         查看更多
-                        <span class="material-symbols-outlined">arrow_right_alt</span>
+                        <arrow-right />
                     </button>
                 </router-link>
             </div>
@@ -356,15 +356,19 @@ export default {
             color: var(--natural-30);
             cursor: pointer;
             border-radius: 0.25rem;
+            .lucide-icon {
+                width: var(--ism);
+            }
 
             &:hover {
                 background-color: var(--natural-95);
                 color: var(--blue-48);
+                .lucide-icon {
+                    stroke: var(--blue-48);
+                }
             }
 
-            span {
-                font-size: 1.25rem;
-            }
+            
         }
     }
 }
@@ -374,15 +378,16 @@ export default {
     color: var(--natural-50);
     @include flex($g: 0.5rem, $j: flex-start);
 
-    span {
-        color: var(--natural-50);
+    svg {
+        stroke: var(--natural-50);
+        width: var(--ism);
     }
 
     &:hover {
         color: var(--blue-48);
 
-        span {
-            color: var(--blue-48);
+        svg {
+            stroke: var(--blue-48);
         }
     }
 }

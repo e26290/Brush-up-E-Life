@@ -2,7 +2,7 @@
     <header>
         <div class="header-left">
             <button class="collapse-btn" @click="toggleSideMenu">
-                <span class="material-symbols-outlined">{{ isCollapsed ? 'menu' : 'menu_open' }}</span>
+                <component :is="isCollapsed ? 'Menu' : 'PanelLeft'" class="lucide-icon" />
             </button>
         </div>
 
@@ -10,7 +10,7 @@
             <!-- 訊息按鈕 -->
             <div class="message-dropdown">
                 <button class="icon-btn" @click.stop="toggleMessageMenu">
-                    <span class="material-symbols-outlined">notifications</span>
+                    <Bell class="lucide-icon" />
                     <div class="dot" v-if="hasUnreadMessages"></div>
                 </button>
 
@@ -24,7 +24,7 @@
                         <div v-for="message in messages" :key="message.id" class="message-item"
                             :class="{ 'unread': !message.isRead }" @click="markAsRead(message.id)">
                             <div class="message-icon" :class="message.type">
-                                <span class="material-symbols-outlined">{{ message.icon }}</span>
+                                <component :is="getMessageIcon(message.type)" class="lucide-icon" />
                             </div>
                             <div class="message-content">
                                 <div class="message-title">{{ message.title }}</div>
@@ -50,19 +50,19 @@
                     </div>
                     <div class="menu-list">
                         <a href="#" class="menu-item">
-                            <span class="material-symbols-outlined">person</span>
+                            <User class="lucide-icon" />
                             個人檔案
                         </a>
                         <a href="#" class="menu-item">
-                            <span class="material-symbols-outlined">workspace_premium</span>
+                            <Award class="lucide-icon" />
                             PRO方案
                         </a>
                         <a href="#" class="menu-item">
-                            <span class="material-symbols-outlined">settings</span>
+                            <Settings class="lucide-icon" />
                             會員設定
                         </a>
                         <button class="menu-item">
-                            <span class="material-symbols-outlined">logout</span>
+                            <LogOut class="lucide-icon" />
                             會員登出
                         </button>
                     </div>
@@ -129,6 +129,18 @@ export default {
             }
         ]);
 
+        // 根據訊息類型返回對應的 Lucide 圖標
+        const getMessageIcon = (type) => {
+            switch (type) {
+                case 'announcement':
+                    return 'Megaphone';
+                case 'notification':
+                    return 'Bell';
+                default:
+                    return 'MessageSquare';
+            }
+        };
+
         // 計算是否有未讀訊息
         const hasUnreadMessages = computed(() => {
             return messages.value.some(message => !message.isRead);
@@ -179,7 +191,8 @@ export default {
             toggleUserMenu,
             markAsRead,
             markAllAsRead,
-            toggleSideMenu
+            toggleSideMenu,
+            getMessageIcon
         };
     }
 };
@@ -194,7 +207,7 @@ header {
     @include flex($j: space-between);
     border-bottom: 1px solid var(--natural-85);
 
-    @include breakpoint(576px){
+    @include breakpoint(576px) {
         padding: 0rem 0.75rem;
     }
 
@@ -212,6 +225,16 @@ header {
 
         &:hover {
             background-color: var(--natural-85);
+        }
+    }
+
+    .collapse-btn,
+    .icon-btn {
+        position: relative;
+
+        .lucide-icon {
+            width: var(--imd);
+            stroke: var(--natural-30);
         }
     }
 
@@ -252,10 +275,16 @@ header {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     min-width: 280px;
     z-index: 1000;
+
+    .lucide-icon {
+        width: var(--ism);
+        stroke: currentColor;
+    }
 }
 
 .message-menu {
     min-width: 360px;
+
     .dropdown-header {
         @include flex($j: space-between);
         padding: 0.75rem 1rem;
@@ -300,10 +329,18 @@ header {
 
             &.announcement {
                 background-color: var(--white);
+
+                .lucide-icon {
+                    stroke: var(--orange-50);
+                }
             }
 
             &.notification {
                 background-color: var(--white);
+
+                .lucide-icon {
+                    stroke: var(--blue-48);
+                }
             }
         }
 
@@ -325,16 +362,6 @@ header {
                 color: var(--natural-50);
                 font-size: var(--xs);
             }
-        }
-    }
-
-    .message-icon {
-        &.announcement {
-            background-color: red;
-        }
-
-        &.notification {
-            background-color: green;
         }
     }
 
@@ -392,6 +419,10 @@ header {
             &:hover {
                 background-color: var(--natural-95);
                 color: var(--blue-48);
+
+                .lucide-icon {
+                    stroke: var(--blue-48);
+                }
             }
         }
     }

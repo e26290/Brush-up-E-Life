@@ -6,7 +6,7 @@
                 <div class="card dash">
                     <h4>
                         <div class="icon">
-                            <span class="material-symbols-outlined">dashboard</span>
+                            <LayoutDashboard class="lucide-icon" />
                         </div>
                         儀表板
                     </h4>
@@ -31,11 +31,11 @@
                     <div class="carousel">
                         <!-- 左右切換按鈕 -->
                         <button class="carousel-btn prev" @click="prevSlide" :disabled="currentIndex === 0">
-                            <span class="material-symbols-outlined">chevron_left</span>
+                            <ChevronLeft class="lucide-icon" />
                         </button>
                         <button class="carousel-btn next" @click="nextSlide"
                             :disabled="currentIndex === slides.length - 1">
-                            <span class="material-symbols-outlined">chevron_right</span>
+                            <ChevronRight class="lucide-icon" />
                         </button>
 
                         <!-- 輪播內容 -->
@@ -244,6 +244,7 @@ export default {
     height: 100%;
     padding: 0;
     overflow: hidden;
+
     @include breakpoint(1200px) {
         min-height: 200px;
 
@@ -313,9 +314,8 @@ export default {
             right: 1rem;
         }
 
-        .material-symbols-outlined {
-            font-size: 24px;
-            color: var(--blue-48);
+        .lucide-icon {
+            stroke: var(--blue-48);
         }
     }
 
@@ -364,6 +364,7 @@ export default {
 
 .details {
     @include flex($d: column, $a: stretch);
+
     @include breakpoint(576px) {
         gap: 1rem;
     }
@@ -422,5 +423,11 @@ export default {
         flex-direction: column;
 
     }
+}
+
+.lucide-icon {
+    width: var(--imd);
+    stroke-width: 2;
+    vertical-align: middle;
 }
 </style>

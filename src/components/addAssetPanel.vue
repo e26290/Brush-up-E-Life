@@ -5,7 +5,7 @@
             <div class="side-panel__header">
                 <h3>{{ currentStep === 1 ? '新增數位資產' : '新增社交平台帳戶' }}</h3>
                 <button class="close-button" @click="closePanel">
-                    <span class="material-symbols-outlined">close</span>
+                    <X class="lucide-icon" />
                 </button>
             </div>
 
@@ -45,7 +45,7 @@
                                         <span>{{ getSelectedPlatform.name }}</span>
                                     </div>
                                     <button class="reselect-btn" @click="showPlatformMenu = true">
-                                        <span class="material-symbols-outlined">edit</span>
+                                        <Edit2 class="lucide-icon" />
                                     </button>
                                 </div>
 
@@ -54,7 +54,7 @@
                                     <div class="platform-menu__header">
                                         <h5>選擇平台</h5>
                                         <button class="close-btn" @click="showPlatformMenu = false">
-                                            <span class="material-symbols-outlined">close</span>
+                                            <X class="lucide-icon" />
                                         </button>
                                     </div>
                                     <div class="platform-menu__content">
@@ -132,7 +132,7 @@
                     <div class="form-section">
                         <h4>檔案上傳</h4>
                         <div class="upload-area">
-                            <span class="material-symbols-outlined">upload</span>
+                            <Upload class="lucide-icon" />
                             <p>點擊或是拖動檔案到此區塊進行上傳</p>
                             <span class="upload-hint">支援單一檔案批量上傳，檔案總大小須在 2MB。</span>
                         </div>
@@ -158,7 +158,7 @@
         <!-- 添加完成提示彈窗 -->
         <div class="dialog-overlay" v-if="showSuccessDialog" @click="handleSuccess">
             <div class="dialog-content" @click.stop>
-                <span class="material-symbols-outlined success-icon">check_circle</span>
+                <CheckCircle class="lucide-icon success-icon" />
                 <h4>新增成功！</h4>
                 <p>您已成功新增數位資產</p>
                 <button class="btn-confirm" @click="handleSuccess">確定</button>
@@ -342,6 +342,10 @@ export default {
 
             &:hover {
                 background-color: var(--natural-95);
+            }
+            .lucide-icon {
+                width: var(--ism);
+                stroke: var(--natural-30);
             }
         }
     }
@@ -602,8 +606,9 @@ export default {
                 color: var(--blue-48);
             }
 
-            .material-symbols-outlined {
-                font-size: 1.25rem;
+            .lucide-icon {
+                width: var(--ism);
+                stroke: var(--natural-30);
             }
         }
     }
@@ -640,6 +645,10 @@ export default {
 
                 &:hover {
                     background-color: var(--natural-95);
+                }
+                .lucide-icon {
+                    width: var(--ism);
+                    stroke: var(--natural-30);
                 }
             }
         }
@@ -722,9 +731,9 @@ export default {
         background-color: var(--blue-98);
     }
 
-    .material-symbols-outlined {
-        font-size: 2rem;
-        color: var(--natural-50);
+    .lucide-icon {
+        width: var(--imd);
+        stroke: var(--natural-50);
     }
 
     p {
@@ -870,5 +879,12 @@ export default {
             opacity: 0.9;
         }
     }
+}
+
+/* Lucide 圖標通用樣式 */
+.lucide-icon {
+    width: var(--ism);
+    stroke-width: 2;
+    vertical-align: middle;
 }
 </style>
