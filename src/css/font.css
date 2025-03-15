@@ -4,7 +4,7 @@
     --m: 500;
     --r: 400;
 
-    /* size */
+    /* font-size */
     --display: 4rem;
     --xl5: 3rem;
     --xl4: 2rem;
@@ -15,6 +15,11 @@
     --md: 1rem;
     --sm: 0.875rem;
     --xs: 0.75rem;
+
+    /* icon-size */
+    --ixs: 1rem;
+    --ism: 1.25rem;
+    --imd: 2rem;
 }
 
 @media (max-width: 1024px) {

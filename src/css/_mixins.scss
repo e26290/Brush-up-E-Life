@@ -46,6 +46,11 @@
     span {
         color: $fontc;
     }
+
+    svg {
+        stroke: $fontc;
+        width: var(--ism);
+    }
 }
 
 @mixin dashboard_card {

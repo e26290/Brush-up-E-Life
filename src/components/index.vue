@@ -25,7 +25,7 @@
         <router-link to="/login" class="item login">登入</router-link>
         <router-link to="/profile" class="signup">
           開始使用
-          <span class="material-symbols-outlined">arrow_right_alt</span>
+          <arrow-right />
         </router-link>
       </div>
     </div>
@@ -246,16 +246,10 @@
 <script>
 import { ref, onMounted, nextTick } from "vue";
 import Marquee from "./Marquee.vue";
-import arrow_right_alt from '/src/assets/icons/arrow_right_alt.svg';
 
 export default {
   components: {
     Marquee,
-  },
-  data() {
-    return {
-      arrow_right_alt
-    };
   },
   setup() {
     const isMenuActive = ref(false);
@@ -322,6 +316,8 @@ export default {
 .signup {
   @include button(var(--white), var(--blue-48));
 }
+
+
 
 .tag {
   font-size: var(--sm);
@@ -1172,18 +1168,18 @@ footer {
 
 /* 區塊動畫:載入自動淡入及資料上移 */
 .scroll-animate {
-    animation: auto_zoomin 0.5s ease-out;
+  animation: auto_zoomin 0.5s ease-out;
 }
 
 @keyframes auto_zoomin {
   0% {
-      transform: translateY(100px);
-      opacity: 0;
+    transform: translateY(100px);
+    opacity: 0;
   }
 
   100% {
-      transform: translateY(0px);
-      opacity: 1;
+    transform: translateY(0px);
+    opacity: 1;
   }
 }
 
